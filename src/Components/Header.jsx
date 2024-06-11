@@ -10,7 +10,7 @@ const Header = () => {
           <div className="ml-16">
             <ul className="flex gap-4 text-white">
               <li>Shop</li>
-              <li>Best Sellers</li>
+              <li>Best Seller</li>
               <li>New Shirts</li>
               <li>Offer</li>
               <li>About</li>
