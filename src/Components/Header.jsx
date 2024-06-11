@@ -4,7 +4,7 @@ import { PiBag } from "react-icons/pi";
 const Header = () => {
   return (
     <div className="container max-w-screen-xl p-4 ">
-      <div className="w-full border border-white flex items-center rounded-3xl p-4 px-8 justify-between">
+      <div className="w-full border border-white flex items-center rounded-2xl p-4 px-8 justify-between">
         <div className="flex items-center">
           <p className="text-[30px] text-primary">Logo</p>
           <div className="ml-16">
