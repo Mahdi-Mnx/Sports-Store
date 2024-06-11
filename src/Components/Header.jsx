@@ -1,5 +1,5 @@
 import React from "react";
-import { PiBag, PiShoppingBag, PiShoppingCart } from "react-icons/pi";
+import { PiBag } from "react-icons/pi";
 
 const Header = () => {
   return (
