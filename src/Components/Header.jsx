@@ -1,4 +1,4 @@
-import React from "react";
+
 import { HiMiniShoppingBag } from "react-icons/hi2";
 const Header = () => {
   return (
