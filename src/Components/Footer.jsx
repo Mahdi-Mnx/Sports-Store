@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="container max-w-screen-xl p-4 ">
+    <div className="container max-w-screen-xl py-3 px-6 ">
       <div className="w-full border border-white flex items-center rounded-3xl px-4 justify-between">
         <div className="flex items-stretch">
           <p className="text-[30px] text-white py-4 pl-4">Logo</p>

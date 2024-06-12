@@ -3,7 +3,7 @@ import { PiBag } from "react-icons/pi";
 
 const Header = () => {
   return (
-    <div className="container max-w-screen-2xl p-4">
+    <div className="container max-w-screen-2xl py-3 px-6">
       <div className="w-full border border-white flex items-center rounded-3xl  px-8 justify-between">
         <div className="flex items-stretch">
           <p className="text-[30px] text-primary flex items-center py-4">
