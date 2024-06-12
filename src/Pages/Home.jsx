@@ -5,7 +5,7 @@ const home = () => {
   return (
     <>
       <motion.section
-        className="container max-w-screen-xl p-4 px-6 flex gap-4"
+        className="container max-w-screen-xl p-4 px-6 flex gap-6"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
