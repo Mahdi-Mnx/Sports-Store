@@ -21,7 +21,7 @@ const Header = () => {
           </div>
         </div>
         <div className="flex gap-4 pr-6 items-center">
-          <button className="bg-primary px-2 py-2 rounded-2xl text-[25px] hover:bg-primary/70">
+          <button className="bg-primary px-2 py-2 rounded-2xl text-[25px] hover:bg-primary/70 text-black">
             <PiBag />
           </button>
           <button className="text-black bg-white rounded-xl px-5 py-2 hover:bg-white/80">

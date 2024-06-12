@@ -20,7 +20,7 @@ const home = () => {
               <p className="text-3xl font-bold">Our New</p>
               <p className="text-3xl font-bold">Collection</p>
             </div>
-            <button className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-[26px] text-black">
+            <button className="w-10 h-10 rounded-full bg-primary hover:bg-primary/80 flex items-center justify-center text-[26px] text-black">
               <CgArrowTopRight />
             </button>
           </div>
@@ -40,7 +40,7 @@ const home = () => {
                   alt=""
                   className="w-8 h-8 rounded-full object-contain relative"
                 />
-                <button className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-[18px] text-black absolute top-0 left-6 ">
+                <button className="w-8 h-8 rounded-full bg-primary  flex items-center justify-center text-[18px] text-black absolute top-0 left-6 ">
                   <CgArrowTopRight />
                 </button>
               </div>
@@ -54,7 +54,7 @@ const home = () => {
           <div>
             <p className="text-[36px] font-bold">TOP TREND SHIRTS</p>
             <p className="text-[36px] font-bold">ELEVATE YOUR LOOK</p>
-            <button className="bg-primary p-2 text-black rounded-2xl px-6 font-bold mt-3">
+            <button className="bg-primary p-2 text-black rounded-2xl px-6 font-bold mt-3 hover:bg-primary/80">
               SHOP NOW
             </button>
           </div>
