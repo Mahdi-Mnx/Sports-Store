@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { CgArrowTopRight } from "react-icons/cg";
 import { BsStarFill } from "react-icons/bs";
 import { PiRepeat, PiVan, PiWallet } from "react-icons/pi";
+import productData from "../Components/Data";
 const home = () => {
   return (
     <>
@@ -61,7 +62,7 @@ const home = () => {
           <div className="pt-80">
             <p className="font-bold text-2xl mb-1">Top Trend Shirts:</p>
             <p className="text-sm text-gray-300">
-              Elevate Your Look" is your go-to destination
+              Elevate Your Look is your go-to destination
             </p>
             <p className="text-sm text-gray-300">
               For premium and stylish jurseys.
@@ -124,116 +125,27 @@ const home = () => {
       </div>
 
       <motion.section
-        className="container max-w-screen-xl p-4 px-6 flex flex-col gap-6 text-black"
+        className="container max-w-screen-xl p-4 text-black"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="flex gap-6 ">
-          <div className="bg-white w-1/3 rounded-3xl flex flex-col p-4 ">
-            <img
-              className="w-full h-72"
-              src="./public/images/nike-shirt.png"
-              alt=""
-            />
-            <div className="flex items-center justify-between pt-2">
-              <p className="text-xl font-bold">Product Name</p>
-              <p className="text-xl font-bold">Price</p>
+        <div className="grid grid-cols-4 gap-4 items-center">
+          {productData.map((item, key) => (
+            <div key={key} className="bg-white rounded-3xl flex flex-col p-4">
+              <img className="w-[250px] h-[250px]" src={item.image} alt={item.name} />
+              <div className="flex items-center justify-between gap-x-4 pt-2">
+                <p className="text-sm font-medium text-wrap">{item.name}</p>
+                <p className="text-sm font-semibold">{item.price}</p>
+              </div>
+              <div className="flex items-start pt-5 pb-1">
+                <button className="border-2 border-primary hover:bg-primary transition py-1 px-3.5 rounded-2xl">
+                  Add to cart
+                </button>
+              </div>
             </div>
-            <div className="flex items-start pt-5 pb-1">
-              <button className=" border-2 border-primary hover:bg-primary transition py-2 px-5 rounded-2xl">
-                Add to cart
-              </button>
-            </div>
-          </div>
-
-          <div className="bg-white w-1/3 rounded-3xl flex flex-col p-4 ">
-            <img
-              className="w-full h-72"
-              src="./public/images/nike-shirt.png"
-              alt=""
-            />
-            <div className="flex items-center justify-between pt-2">
-              <p className="text-xl font-bold">Product Name</p>
-              <p className="text-xl font-bold">Price</p>
-            </div>
-            <div className="flex items-start pt-5 pb-1">
-              <button className=" border-2 border-primary hover:bg-primary transition py-2 px-5 rounded-2xl">
-                Add to cart
-              </button>
-            </div>
-          </div>
-
-          <div className="bg-white w-1/3 rounded-3xl flex flex-col p-4 ">
-            <img
-              className="w-full h-72"
-              src="./public/images/nike-shirt.png"
-              alt=""
-            />
-            <div className="flex items-center justify-between pt-2">
-              <p className="text-xl font-bold">Product Name</p>
-              <p className="text-xl font-bold">Price</p>
-            </div>
-            <div className="flex items-start pt-5 pb-1">
-              <button className=" border-2 border-primary hover:bg-primary transition py-2 px-5 rounded-2xl">
-                Add to cart
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex gap-6 ">
-          <div className="bg-white w-1/3 rounded-3xl flex flex-col p-4 ">
-            <img
-              className="w-full h-72"
-              src="./public/images/nike-shirt.png"
-              alt=""
-            />
-            <div className="flex items-center justify-between pt-2">
-              <p className="text-xl font-bold">Product Name</p>
-              <p className="text-xl font-bold">Price</p>
-            </div>
-            <div className="flex items-start pt-5 pb-1">
-              <button className=" border-2 border-primary hover:bg-primary transition py-2 px-5 rounded-2xl">
-                Add to cart
-              </button>
-            </div>
-          </div>
-
-          <div className="bg-white w-1/3 rounded-3xl flex flex-col p-4 ">
-            <img
-              className="w-full h-72"
-              src="./public/images/nike-shirt.png"
-              alt=""
-            />
-            <div className="flex items-center justify-between pt-2">
-              <p className="text-xl font-bold">Product Name</p>
-              <p className="text-xl font-bold">Price</p>
-            </div>
-            <div className="flex items-start pt-5 pb-1">
-              <button className=" border-2 border-primary hover:bg-primary transition py-2 px-5 rounded-2xl">
-                Add to cart
-              </button>
-            </div>
-          </div>
-
-          <div className="bg-white w-1/3 rounded-3xl flex flex-col p-4 ">
-            <img
-              className="w-full h-72"
-              src="./public/images/nike-shirt.png"
-              alt=""
-            />
-            <div className="flex items-center justify-between pt-2">
-              <p className="text-xl font-bold">Product Name</p>
-              <p className="text-xl font-bold">Price</p>
-            </div>
-            <div className="flex items-start pt-5 pb-1">
-              <button className=" border-2 border-primary hover:bg-primary transition py-2 px-5 rounded-2xl">
-                Add to cart
-              </button>
-            </div>
-          </div>
+          ))}
         </div>
       </motion.section>
 
