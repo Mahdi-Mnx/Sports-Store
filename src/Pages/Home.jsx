@@ -79,7 +79,7 @@ const home = () => {
       >
         <div className="w-full flex items-center justify-between px-7 py-10 bg-primary border border-white rounded-3xl">
           <div className="flex items-start gap-4">
-            <span className="flex justify-center items-center w-20 h-20 rounded-full bg-white text-black text-[48px]">
+            <span className="flex justify-center items-center w-20 h-20 rounded-full bg-white text-black text-[48px] border border-black">
               <PiVan />
             </span>
             <div className="flex flex-col text-black mt-1">
@@ -91,7 +91,7 @@ const home = () => {
           </div>
 
           <div className="flex items-start gap-4">
-            <span className="flex justify-center items-center w-20 h-20 rounded-full bg-white text-black text-[48px]">
+            <span className="flex justify-center items-center w-20 h-20 rounded-full bg-white text-black text-[48px] border border-black">
               <PiWallet />
             </span>
             <div className="flex flex-col text-black mt-1">
@@ -103,7 +103,7 @@ const home = () => {
           </div>
 
           <div className="flex items-start gap-4">
-            <span className="flex justify-center items-center w-20 h-20 rounded-full bg-white text-black text-[48px]">
+            <span className="flex justify-center items-center w-20 h-20 rounded-full bg-white text-black text-[48px] border  border-black">
               <PiRepeat />
             </span>
             <div className="flex flex-col text-black mt-1">
@@ -113,6 +113,159 @@ const home = () => {
               </p>
             </div>
           </div>
+        </div>
+      </motion.section>
+
+      <div className="container max-w-screen-xl p-4 px-6 flex items-center justify-between">
+        <p className="text-3xl font-bold">Our Best Sellers</p>
+        <button className="bg-secondery px-5 py-2 rounded-2xl text-lg border border-white">
+          VIEW ALL
+        </button>
+      </div>
+
+      <motion.section
+        className="container max-w-screen-xl p-4 px-6 flex flex-col gap-6 text-black"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
+        <div className="flex gap-6 ">
+          <div className="bg-white w-1/3 rounded-3xl flex flex-col p-4 ">
+            <img
+              className="w-full h-72"
+              src="./public/images/nike-shirt.png"
+              alt=""
+            />
+            <div className="flex items-center justify-between pt-2">
+              <p className="text-xl font-bold">Product Name</p>
+              <p className="text-xl font-bold">Price</p>
+            </div>
+            <div className="flex items-start pt-5 pb-1">
+              <button className=" border-2 border-primary hover:bg-primary transition py-2 px-5 rounded-2xl">
+                Add to cart
+              </button>
+            </div>
+          </div>
+
+          <div className="bg-white w-1/3 rounded-3xl flex flex-col p-4 ">
+            <img
+              className="w-full h-72"
+              src="./public/images/nike-shirt.png"
+              alt=""
+            />
+            <div className="flex items-center justify-between pt-2">
+              <p className="text-xl font-bold">Product Name</p>
+              <p className="text-xl font-bold">Price</p>
+            </div>
+            <div className="flex items-start pt-5 pb-1">
+              <button className=" border-2 border-primary hover:bg-primary transition py-2 px-5 rounded-2xl">
+                Add to cart
+              </button>
+            </div>
+          </div>
+
+          <div className="bg-white w-1/3 rounded-3xl flex flex-col p-4 ">
+            <img
+              className="w-full h-72"
+              src="./public/images/nike-shirt.png"
+              alt=""
+            />
+            <div className="flex items-center justify-between pt-2">
+              <p className="text-xl font-bold">Product Name</p>
+              <p className="text-xl font-bold">Price</p>
+            </div>
+            <div className="flex items-start pt-5 pb-1">
+              <button className=" border-2 border-primary hover:bg-primary transition py-2 px-5 rounded-2xl">
+                Add to cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex gap-6 ">
+          <div className="bg-white w-1/3 rounded-3xl flex flex-col p-4 ">
+            <img
+              className="w-full h-72"
+              src="./public/images/nike-shirt.png"
+              alt=""
+            />
+            <div className="flex items-center justify-between pt-2">
+              <p className="text-xl font-bold">Product Name</p>
+              <p className="text-xl font-bold">Price</p>
+            </div>
+            <div className="flex items-start pt-5 pb-1">
+              <button className=" border-2 border-primary hover:bg-primary transition py-2 px-5 rounded-2xl">
+                Add to cart
+              </button>
+            </div>
+          </div>
+
+          <div className="bg-white w-1/3 rounded-3xl flex flex-col p-4 ">
+            <img
+              className="w-full h-72"
+              src="./public/images/nike-shirt.png"
+              alt=""
+            />
+            <div className="flex items-center justify-between pt-2">
+              <p className="text-xl font-bold">Product Name</p>
+              <p className="text-xl font-bold">Price</p>
+            </div>
+            <div className="flex items-start pt-5 pb-1">
+              <button className=" border-2 border-primary hover:bg-primary transition py-2 px-5 rounded-2xl">
+                Add to cart
+              </button>
+            </div>
+          </div>
+
+          <div className="bg-white w-1/3 rounded-3xl flex flex-col p-4 ">
+            <img
+              className="w-full h-72"
+              src="./public/images/nike-shirt.png"
+              alt=""
+            />
+            <div className="flex items-center justify-between pt-2">
+              <p className="text-xl font-bold">Product Name</p>
+              <p className="text-xl font-bold">Price</p>
+            </div>
+            <div className="flex items-start pt-5 pb-1">
+              <button className=" border-2 border-primary hover:bg-primary transition py-2 px-5 rounded-2xl">
+                Add to cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </motion.section>
+
+      <motion.section
+        className="container px-6 py-4 max-w-screen-xl"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
+        <div className="w-full bg-secondery p-4 px-16 flex items-center justify-between rounded-3xl border border-white">
+          <img
+            className="w-16 h-16"
+            src="./public/images/adidas-logo.png"
+            alt=""
+          />
+          <img
+            className="w-18 h-12"
+            src="./public/images/puma-logo.png"
+            alt=""
+          />
+          <img
+            className="w-20 h-20"
+            src="./public/images/nike-logo.png"
+            alt=""
+          />
+          <img className="w-10 h-10" src="./public/images/lv-logo.png" alt="" />
+          <img
+            className="w-24 h-24"
+            src="./public/images/gucci-logo.png"
+            alt=""
+          />
         </div>
       </motion.section>
     </>
