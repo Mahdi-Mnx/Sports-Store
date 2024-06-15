@@ -135,7 +135,7 @@ const home = () => {
       </div>
 
       <motion.section
-        className="container max-w-screen-xl p-4 text-black"
+        className="container max-w-screen-xl px-6 py-4 text-black"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -153,7 +153,11 @@ const home = () => {
              className="bg-white border-black border-[1px] shadow rounded-3xl flex flex-col p-4"
            >
             <div key={key} className="bg-white rounded-3xl flex flex-col p-4">
-              <img className="w-[250px] h-[250px]" src={item.image} alt={item.name} />
+              <img
+                className="w-[250px] h-[250px]"
+                src={item.image}
+                alt={item.name}
+              />
               <div className="flex items-center justify-between gap-x-4 pt-2">
                 <p className="text-sm font-medium text-wrap">{item.name}</p>
                 <p className="text-sm font-semibold">{item.price}</p>
@@ -162,6 +166,7 @@ const home = () => {
                 <button className="border-2 border-[#98c1d9] hover:bg-[#98c1d9]/90 transition py-1 px-3.5 rounded-2xl">
                   Add to cart
                 </button>
+                <p id={`added-${key}`} className="mt-2"></p>
               </div>
             </div>
             </motion.div>
@@ -209,6 +214,57 @@ const home = () => {
             src="./public/images/gucci-logo.png"
             alt=""
           />
+        </div>
+      </motion.section>
+
+      <motion.section
+        className="container max-w-screen-2xl py-4 px-6"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
+        <div className="bg-primary w-full rounded-3xl flex p-6 border border-white">
+          <div className="w-1/2 flex flex-col items-start py-16 pl-20 text-black">
+            <p className="font-bold text-[40px]">REACH OUT TO US</p>
+            <p className="text-[20px]">
+              Need assistance or have questions? <br />
+              we're just a message away!
+            </p>
+            <button className="bg-white hover:bg-white/80 py-2 px-6 rounded-xl font-bold mt-6 text-lg">
+              SEND AN EMAIL
+            </button>
+          </div>
+          <img
+            className="w-1/2 h-[312px] border border-white rounded-xl ml-20"
+            src="./public/images/Sports-shirts.webp"
+            alt=""
+          />
+        </div>
+      </motion.section>
+
+      <motion.section
+        className="container max-w-screen-2xl py-4 px-6 flex gap-5"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
+        <div className="w-1/2 bg-white rounded-3xl h-[360px]"></div>
+        <div className="w-1/2 bg-white rounded-3xl"></div>
+      </motion.section>
+
+      <motion.section
+        className="container max-w-screen-2xl px-6 py-4 flex gap-6"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
+        <div className="bg-black w-2/3 h-[380px] rounded-3xl"></div>
+        <div className="flex-1 flex flex-col gap-4">
+          <div className="h-1/2 bg-secondery rounded-3xl"></div>
+          <div className="h-1/2 bg-secondery rounded-3xl"></div>
         </div>
       </motion.section>
     </>
