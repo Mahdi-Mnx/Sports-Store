@@ -1,11 +1,21 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { CgArrowTopRight } from "react-icons/cg";
 import { BsStarFill } from "react-icons/bs";
 import { PiRepeat, PiVan, PiWallet } from "react-icons/pi";
 import productData from "../Components/Data";
+import { useState } from 'react';
+
 const home = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [rowsToShow, setRowsToShow] = useState(4); // Start by showing 3 column
+  const itemsPerRow = 2; // Number of rows
+  const totalItemsToShow = rowsToShow * itemsPerRow; // Total items to show based on rows
+
+  const handleLoadMore = () => {
+    setRowsToShow(rowsToShow + 2); // Load 3 more rows when clicked
+  };
   return (
     <>
       <motion.section
@@ -21,7 +31,7 @@ const home = () => {
               <p className="text-3xl font-bold">Our New</p>
               <p className="text-3xl font-bold">Collection</p>
             </div>
-            <button className="w-10 h-10 rounded-full bg-primary hover:bg-primary/80 flex items-center justify-center text-[26px] text-black">
+            <button className="w-10 h-10 rounded-full bg-[#98c1d9] hover:bg-[#98c1d9]/90 flex items-center justify-center text-[26px] text-black">
               <CgArrowTopRight />
             </button>
           </div>
@@ -41,7 +51,7 @@ const home = () => {
                   alt=""
                   className="w-8 h-8 rounded-full object-contain relative"
                 />
-                <button className="w-8 h-8 rounded-full bg-primary  flex items-center justify-center text-[18px] text-black absolute top-0 left-6 ">
+                <button className="w-8 h-8 rounded-full bg-[#98c1d9]  flex items-center justify-center text-[18px] text-black absolute top-0 left-6 ">
                   <CgArrowTopRight />
                 </button>
               </div>
@@ -55,7 +65,7 @@ const home = () => {
           <div>
             <p className="text-[36px] font-bold">TOP TREND SHIRTS</p>
             <p className="text-[36px] font-bold">ELEVATE YOUR LOOK</p>
-            <button className="bg-primary p-2 text-black rounded-2xl px-6 font-bold mt-3 hover:bg-primary/80">
+            <button className="bg-[#98c1d9] p-2 text-black rounded-2xl px-6 font-bold mt-3 hover:bg-[#98c1d9]/90">
               SHOP NOW
             </button>
           </div>
@@ -78,7 +88,7 @@ const home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="w-full flex items-center justify-between px-7 py-10 bg-primary border border-white rounded-3xl">
+        <div className="w-full flex items-center justify-between px-7 py-10 bg-[#98c1d9] border border-white rounded-3xl">
           <div className="flex items-start gap-4">
             <span className="flex justify-center items-center w-20 h-20 rounded-full bg-white text-black text-[48px] border border-black">
               <PiVan />
@@ -118,8 +128,8 @@ const home = () => {
       </motion.section>
 
       <div className="container max-w-screen-xl p-4 px-6 flex items-center justify-between">
-        <p className="text-3xl font-bold">Our Best Sellers</p>
-        <button className="bg-secondery px-5 py-2 rounded-2xl text-lg border border-white">
+        <p className="text-3xl text-black font-bold">New Features</p>
+        <button className="bg-[#98c1d9] text-black font-bold hover:bg-[#98c1d9]/90 px-5 py-2 rounded-2xl text-lg border border-white">
           VIEW ALL
         </button>
       </div>
@@ -131,8 +141,17 @@ const home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="grid grid-cols-4 gap-4 items-center">
-          {productData.map((item, key) => (
+        <AnimatePresence>
+         <div className="grid grid-cols-4 gap-4 items-center">
+          {productData.slice(0, totalItemsToShow).map((item, key) => (
+             <motion.div
+             key={key}
+             initial={{ opacity: 0, scale: 0.9 }}
+             animate={{ opacity: 1, scale: 1 }}
+             exit={{ opacity: 0, scale: 0.3 }}
+             transition={{ duration: 0.5 }}
+             className="bg-white border-black border-[1px] shadow rounded-3xl flex flex-col p-4"
+           >
             <div key={key} className="bg-white rounded-3xl flex flex-col p-4">
               <img className="w-[250px] h-[250px]" src={item.image} alt={item.name} />
               <div className="flex items-center justify-between gap-x-4 pt-2">
@@ -140,13 +159,25 @@ const home = () => {
                 <p className="text-sm font-semibold">{item.price}</p>
               </div>
               <div className="flex items-start pt-5 pb-1">
-                <button className="border-2 border-primary hover:bg-primary transition py-1 px-3.5 rounded-2xl">
+                <button className="border-2 border-[#98c1d9] hover:bg-[#98c1d9]/90 transition py-1 px-3.5 rounded-2xl">
                   Add to cart
                 </button>
               </div>
             </div>
+            </motion.div>
           ))}
         </div>
+        </AnimatePresence>
+        {totalItemsToShow < productData.length && (
+          <div className="flex justify-center mt-4">
+            <button
+              onClick={handleLoadMore}
+              className="bg-[#98c1d9] font-semibold py-2 px-4 rounded-2xl transition"
+            >
+              Load More
+            </button>
+          </div>
+        )}
       </motion.section>
 
       <motion.section
