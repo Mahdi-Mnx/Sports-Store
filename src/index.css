@@ -2,15 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap");
-
-body {
-  font-family: "Inter", sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+*,
+html,
+body,
+::after,
+::before {
   margin: 0;
   padding: 0;
-  color: white;
-  font-weight: 518;
-  font-style: normal;
+  box-sizing: border-box;
+}
+:root {
+  --Orange: hsl(26, 100%, 55%);
+  --PaleOrange: hsl(25, 100%, 94%);
+  --VeryDarkBlue: hsl(220, 13%, 13%);
+  --DarkGrayishBlue: hsl(219, 9%, 45%);
+  --GrayishBlue: hsl(220, 14%, 75%);
+  --LightGrayishBlue: hsl(223, 64%, 98%);
+}
+
+
+body {
+  position: relative;
+  font-family: "Kumbh Sans", sans-serif;
+  font-size: 18px;
+  overflow-x: hidden;
+}
+html {
+  overflow-x: hidden;
 }
 
 .background-sports {
@@ -19,4 +38,87 @@ body {
 
 .background-nike {
   background-image: url("/public/images/Nike.webp");
+}
+
+
+/************************** Header Section ***********************************/
+
+header {
+  background-color: var(--white);
+  padding: 0px 15px;
+}
+
+
+.nav-link:hover,
+.nav-link:focus{
+  color: var(--VeryDarkBlue);
+  border-bottom: 5px solid var(--Orange);
+}
+.nav-link:-moz-focusring{
+  color: var(--VeryDarkBlue);
+  border-bottom: 5px solid var(--Orange);
+}
+
+.header-col2 {
+  /* border: 1px solid red; */
+  margin-top: 0.5rem;
+  width: 30%;
+}
+
+.profile{
+  width: 100%;
+  max-width: 50px;
+  max-height: 50px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+}
+.profile:hover,
+.profile:focus{
+  border: 2px solid var(--Orange);
+  height: 84px;
+}
+
+.big-one-img{
+  display: block;
+  width: 100%;
+  height: 430px;
+  object-fit: cover;
+  max-width: 440px;
+  margin: 0 auto;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.small-sec{
+  margin: 0 auto;
+  display: flex;
+  width: 100%;
+  max-width: 440px;
+  justify-content:space-around;
+}
+
+.small-div{
+  width: max-content;
+  height: 80px;
+  background-color: white;
+  border-radius: 12px;
+}
+
+.small-img{
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  object-fit: cover;
+  max-width: 80px;
+  height: 80px;
+  border-radius: 10px;
+}
+
+.small-img:hover{
+  opacity: 0.8;
+}
+
+.small-div.active-img {
+  border: 2px solid var(--Orange);
+  height: 84px;
 }

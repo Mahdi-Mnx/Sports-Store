@@ -1,39 +1,35 @@
-import { PiBag } from "react-icons/pi";
-import { Link } from "react-router-dom";
+import { ShoppingBag } from "lucide-react"
+import { Link } from "react-router-dom"
 
 const Header = () => {
   return (
-    <div className="container max-w-screen-2xl py-3 px-6">
-      <div className="w-full border bg-gradient-to-br from-[#293241] to-[#1b263b] flex items-center rounded-3xl  px-8 justify-between">
-        <div className="flex items-stretch">
-          <p className="text-[30px] text-white flex items-center py-4">
-            Logo
-          </p>
-          <div className="h-auto border-l border-ebebeb mx-4 ml-12"></div>
-          <div className="ml-4 flex items-center">
-            <ul className="flex gap-4 text-ebebeb items-center">
-              <li className="cursor-pointer hover:underline"><Link to="/store">Our Store</Link></li>
-              <li className="cursor-pointer hover:underline">Best Seller</li>
-              <li className="cursor-pointer hover:underline">New Shirts</li>
-              <li className="cursor-pointer hover:underline">Offer</li>
-              <li className="cursor-pointer hover:underline">About</li>
-            </ul>
-          </div>
+   <>
+   <header className="z-20">
+    <div>
+      <div className="flex justify-around border-b-2 border-grayishBlue items-center h-[80px] max-w-screen-xl">
+        <div>
+          <h2 className="text-4xl">sneakers</h2>
         </div>
-        <div className="flex gap-4 pr-6 items-center">
-          <button className="bg-white px-2 py-2 rounded-2xl text-[25px] hover:bg-white/90 text-black">
-            <PiBag />
-          </button>
-          <button className="bg-[#98c1d9] text-black hover:underline rounded-xl px-5 py-2 hover:bg-[#98c1d9]/90">
-            Login
-          </button>
-          <button className="text-white border bg-transparent hover:underline hover:text-black transition-colors rounded-xl px-5 py-2 hover:bg-white">
-            Sign up
-          </button>
+        <div className="header-col2">
+          <ul className="flex gap-5">
+            <li><Link to="/store" className="nav-link text-darkGrayishBlue pb-[1.5rem]"> Store</Link></li>
+            <li><Link className="nav-link text-darkGrayishBlue pb-[1.5rem]"> Man</Link></li>
+            <li><Link className="nav-link text-darkGrayishBlue pb-[1.5rem]"> Women</Link></li>
+            <li><Link className="nav-link text-darkGrayishBlue pb-[1.5rem]"> About</Link></li>
+            <li><Link className="nav-link text-darkGrayishBlue pb-[1.5rem]"> Contact</Link></li>
+          </ul>
+        </div>
+        <div className="flex justify-between items-center gap-4">
+          <ShoppingBag className=" text-veryDarkBlue"/>
+          <div>
+            <img className="profile" src="/public/images/profile.jpg" alt="" />
+          </div>
         </div>
       </div>
     </div>
-  );
-};
+   </header>
+   </>
+  )
+}
 
-export default Header;
+export default Header

@@ -31,7 +31,7 @@ const home = () => {
               <p className="text-3xl font-bold">Our New</p>
               <p className="text-3xl font-bold">Collection</p>
             </div>
-            <button className="w-10 h-10 rounded-full bg-[#98c1d9] hover:bg-[#98c1d9]/90 flex items-center justify-center text-[26px] text-black">
+            <button className="w-10 h-10 rounded-full bg-primary hover:bg-primary/90 flex items-center justify-center text-[26px] text-black">
               <CgArrowTopRight />
             </button>
           </div>
@@ -51,7 +51,7 @@ const home = () => {
                   alt=""
                   className="w-8 h-8 rounded-full object-contain relative"
                 />
-                <button className="w-8 h-8 rounded-full bg-[#98c1d9]  flex items-center justify-center text-[18px] text-black absolute top-0 left-6 ">
+                <button className="w-8 h-8 rounded-full bg-primary  flex items-center justify-center text-[18px] text-black absolute top-0 left-6 ">
                   <CgArrowTopRight />
                 </button>
               </div>
@@ -65,7 +65,7 @@ const home = () => {
           <div>
             <p className="text-[36px] font-bold">TOP TREND SHIRTS</p>
             <p className="text-[36px] font-bold">ELEVATE YOUR LOOK</p>
-            <button className="bg-[#98c1d9] p-2 text-black rounded-2xl px-6 font-bold mt-3 hover:bg-[#98c1d9]/90">
+            <button className="bg-primary p-2 text-black rounded-2xl px-6 font-bold mt-3 hover:bg-primary/90">
               SHOP NOW
             </button>
           </div>
@@ -88,7 +88,7 @@ const home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="w-full flex items-center justify-between px-7 py-10 bg-[#98c1d9] border border-white rounded-3xl">
+        <div className="w-full flex items-center justify-between px-7 py-10 bg-primary border border-white rounded-3xl">
           <div className="flex items-start gap-4">
             <span className="flex justify-center items-center w-20 h-20 rounded-full bg-white text-black text-[48px] border border-black">
               <PiVan />
@@ -129,7 +129,7 @@ const home = () => {
 
       <div className="container max-w-screen-xl p-4 px-6 flex items-center justify-between">
         <p className="text-3xl text-black font-bold">New Features</p>
-        <button className="bg-[#98c1d9] text-black font-bold hover:bg-[#98c1d9]/90 px-5 py-2 rounded-2xl text-lg border border-white">
+        <button className="bg-primary text-black font-bold hover:bg-primary/90 px-5 py-2 rounded-2xl text-lg border border-white">
           VIEW ALL
         </button>
       </div>
@@ -163,7 +163,7 @@ const home = () => {
                 <p className="text-sm font-semibold">{item.price}</p>
               </div>
               <div className="flex items-start pt-5 pb-1">
-                <button className="border-2 border-[#98c1d9] hover:bg-[#98c1d9]/90 transition py-1 px-3.5 rounded-2xl">
+                <button className="border-2 border-primary hover:bg-primary/90 transition py-1 px-3.5 rounded-2xl">
                   Add to cart
                 </button>
                 <p id={`added-${key}`} className="mt-2"></p>
@@ -177,7 +177,7 @@ const home = () => {
           <div className="flex justify-center mt-4">
             <button
               onClick={handleLoadMore}
-              className="bg-[#98c1d9] font-semibold py-2 px-4 rounded-2xl transition"
+              className="bg-primary font-semibold py-2 px-4 rounded-2xl transition"
             >
               Load More
             </button>
