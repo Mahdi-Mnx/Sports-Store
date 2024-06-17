@@ -5,7 +5,7 @@ import { CgArrowTopRight } from "react-icons/cg";
 import { BsStarFill } from "react-icons/bs";
 import { PiRepeat, PiVan, PiWallet } from "react-icons/pi";
 import productData from "../Components/Data";
-import { useState } from 'react';
+import { useState } from "react";
 
 const home = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -142,36 +142,39 @@ const home = () => {
         viewport={{ once: true }}
       >
         <AnimatePresence>
-         <div className="grid grid-cols-4 gap-4 items-center">
-          {productData.slice(0, totalItemsToShow).map((item, key) => (
-             <motion.div
-             key={key}
-             initial={{ opacity: 0, scale: 0.9 }}
-             animate={{ opacity: 1, scale: 1 }}
-             exit={{ opacity: 0, scale: 0.3 }}
-             transition={{ duration: 0.5 }}
-             className="bg-white border-black border-[1px] shadow rounded-3xl flex flex-col p-4"
-           >
-            <div key={key} className="bg-white rounded-3xl flex flex-col p-4">
-              <img
-                className="w-[250px] h-[250px]"
-                src={item.image}
-                alt={item.name}
-              />
-              <div className="flex items-center justify-between gap-x-4 pt-2">
-                <p className="text-sm font-medium text-wrap">{item.name}</p>
-                <p className="text-sm font-semibold">{item.price}</p>
-              </div>
-              <div className="flex items-start pt-5 pb-1">
-                <button className="border-2 border-[#98c1d9] hover:bg-[#98c1d9]/90 transition py-1 px-3.5 rounded-2xl">
-                  Add to cart
-                </button>
-                <p id={`added-${key}`} className="mt-2"></p>
-              </div>
-            </div>
-            </motion.div>
-          ))}
-        </div>
+          <div className="grid grid-cols-4 gap-4 items-center">
+            {productData.slice(0, totalItemsToShow).map((item, key) => (
+              <motion.div
+                key={key}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.3 }}
+                transition={{ duration: 0.5 }}
+                className="bg-white border-black border-[1px] shadow rounded-3xl flex flex-col p-4"
+              >
+                <div
+                  key={key}
+                  className="bg-white rounded-3xl flex flex-col p-4"
+                >
+                  <img
+                    className="w-[250px] h-[250px]"
+                    src={item.image}
+                    alt={item.name}
+                  />
+                  <div className="flex items-center justify-between gap-x-4 pt-2">
+                    <p className="text-sm font-medium text-wrap">{item.name}</p>
+                    <p className="text-sm font-semibold">{item.price}</p>
+                  </div>
+                  <div className="flex items-start pt-5 pb-1">
+                    <button className="border-2 border-[#98c1d9] hover:bg-[#98c1d9]/90 transition py-1 px-3.5 rounded-2xl">
+                      Add to cart
+                    </button>
+                    <p id={`added-${key}`} className="mt-2"></p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </AnimatePresence>
         {totalItemsToShow < productData.length && (
           <div className="flex justify-center mt-4">
@@ -250,8 +253,8 @@ const home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="w-1/2 bg-white rounded-3xl h-[360px]"></div>
-        <div className="w-1/2 bg-white rounded-3xl"></div>
+        <div className="w-1/2 bg-slate-200 rounded-3xl h-[360px]"></div>
+        <div className="w-1/2 bg-slate-200 rounded-3xl"></div>
       </motion.section>
 
       <motion.section
