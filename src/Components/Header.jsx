@@ -8,7 +8,9 @@ const Header = () => {
     <div>
       <div className="flex justify-around border-b-2 border-grayishBlue items-center h-[80px] max-w-screen-xl">
         <div>
-          <h2 className="text-4xl">sneakers</h2>
+          <h2 className="text-4xl">
+            <img className="w-32" src="/public/images/logo11.png" alt="" />
+          </h2>
         </div>
         <div className="header-col2">
           <ul className="flex gap-5">
