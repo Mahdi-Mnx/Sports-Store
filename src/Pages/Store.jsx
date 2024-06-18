@@ -1,32 +1,59 @@
 import { motion } from "framer-motion";
-
+import { useState } from "react";
+import img1 from "../../public/images/9-pro1.png"
+import img2 from "../../public/images/9-pro-2.png"
+import img3 from "../../public/images/9-pro-3.png"
+import img4 from "../../public/images/9-pro-4.png"
 
 const Store = () => {
+
+  const [image, setImages] = useState(1);
+
+  let url = image;
+
+  if(image === 1){
+    url = img1;
+  }else if (image === 2) {
+    url = img2;
+  }else if(image === 3){
+    url = img3;
+  }else if(image === 4) {
+    url = img4;
+  }
 
   return (
     <>
     <motion.section
-          className="container max-w-screen-xl py-3 px-6"
+          className="container max-w-screen-xl h-auto py-3 px-6"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <div className="p-5">
-          <div className="flex gap-4">
-            <div className="w-6/12 shadow border-black border-[1px] rounded-lg p-4 text-black">
-            <div className=" mx-auto items-center flex justify-center">
-              <img className="w-60 h-60" src="/public/images/brooklyn_prev_ui.png" alt="" />
+          <div className="h-screen flex justify-around items-center">
+          <div className="w-[45%] h-auto">
+          <div className="flex flex-col gap-y-3 h-[600px] mx-auto">
+            <div className="big-one">
+              <img className="big-one-img" src={url} alt="" />
             </div>
-            <div className="flex gap-4 items-center justify-center mt-3">
-              <img className="w-24 border-blue-500 border-[1.5px] shadow-md rounded-md" src="/public/images/academy-football-1.png" alt="yes" />
-              <img className="w-24 shadow-md rounded-md" src="/public/images/academy-football-3_prev_ui.png" alt="yes" />
-              <img className="w-24 shadow-md rounded-md" src="/public/images/academy-football-2_prev_ui.png" alt="yes" />
-              <img className="w-24 shadow-md rounded-md" src="/public/images/adidas-shoes-11.png" alt="yes" />
+          <div className="small-sec">
+            <div className={`small-div ${image === 1 && "active-img"}`}>
+              <img className="small-img" onClick={() => setImages(1)} src="/public/images/9-pro1.png" alt="" />
             </div>
+
+            <div className={`small-div ${image === 2 && "active-img"}`}>
+              <img className="small-img" onClick={() => setImages(2)} src="/public/images/9-pro-2.png" alt="" />
             </div>
-            <div className="w-4/12 shadow rounded-lg p-4 text-black">hello</div>
-            <div className="w-2/12 shadow rounded-lg p-4 text-black">hello</div>
+
+            <div className={`small-div ${image === 3 && "active-img"}`}>
+              <img className="small-img" onClick={() => setImages(3)} src="/public/images/9-pro-3.png" alt="" />
+            </div>
+
+            <div className={`small-div ${image === 4 && "active-img"}`}>
+              <img className="small-img" onClick={() => setImages(4)}  src="/public/images/9-pro-4.png" alt="" />
+            </div>
+          </div>
+          </div>
           </div>
           </div>
         </motion.section>
