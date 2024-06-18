@@ -5,7 +5,7 @@ const Footer = () => {
     <div className="container max-w-screen-xl py-3 px-6 z-20">
       <div className="w-full border border-black flex items-center rounded-3xl px-4 justify-between">
         <div className="flex items-stretch py-3">
-        <img className="w-16 h-10" src="/public/images/logo11.png" alt="" />
+          <img className="w-16 h-10" src="/public/images/logo11.png" alt="" />
           <div className="h-auto border-l border-black mx-4 ml-12"></div>
         </div>
         <div className="flex gap-4 items-center ">

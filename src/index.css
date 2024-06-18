@@ -21,7 +21,6 @@ body,
   --LightGrayishBlue: hsl(223, 64%, 98%);
 }
 
-
 body {
   position: relative;
   font-family: "Kumbh Sans", sans-serif;
@@ -40,7 +39,6 @@ html {
   background-image: url("/public/images/Nike.webp");
 }
 
-
 /************************** Header Section ***********************************/
 
 header {
@@ -48,13 +46,12 @@ header {
   padding: 0px 15px;
 }
 
-
 .nav-link:hover,
-.nav-link:focus{
+.nav-link:focus {
   color: var(--VeryDarkBlue);
   border-bottom: 5px solid var(--Orange);
 }
-.nav-link:-moz-focusring{
+.nav-link:-moz-focusring {
   color: var(--VeryDarkBlue);
   border-bottom: 5px solid var(--Orange);
 }
@@ -65,7 +62,7 @@ header {
   width: 30%;
 }
 
-.profile{
+.profile {
   width: 100%;
   max-width: 50px;
   max-height: 50px;
@@ -73,12 +70,12 @@ header {
   border: 2px solid transparent;
 }
 .profile:hover,
-.profile:focus{
+.profile:focus {
   border: 2px solid var(--Orange);
   height: 84px;
 }
 
-.big-one-img{
+.big-one-img {
   display: block;
   width: 100%;
   height: 430px;
@@ -89,22 +86,22 @@ header {
   cursor: pointer;
 }
 
-.small-sec{
+.small-sec {
   margin: 0 auto;
   display: flex;
   width: 100%;
   max-width: 440px;
-  justify-content:space-around;
+  justify-content: space-around;
 }
 
-.small-div{
+.small-div {
   width: max-content;
   height: 80px;
   background-color: white;
   border-radius: 12px;
 }
 
-.small-img{
+.small-img {
   border: none;
   cursor: pointer;
   width: 100%;
@@ -114,11 +111,15 @@ header {
   border-radius: 10px;
 }
 
-.small-img:hover{
+.small-img:hover {
   opacity: 0.8;
 }
 
 .small-div.active-img {
   border: 2px solid var(--Orange);
   height: 84px;
+}
+
+.small-div.active-img .small-img {
+  opacity: 0.5;
 }
