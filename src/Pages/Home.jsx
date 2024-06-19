@@ -263,8 +263,8 @@ const home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="w-1/2 bg-slate-200 rounded-3xl h-[360px]"></div>
-        <div className="w-1/2 bg-slate-200 rounded-3xl"></div>
+        <div className="w-1/2 bg-grayishBlue rounded-lg h-[360px]"></div>
+        <div className="w-1/2 bg-grayishBlue rounded-lg"></div>
       </motion.section>
 
       <motion.section
