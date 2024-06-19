@@ -50,7 +50,7 @@ const Store = () => {
           </div>
           <div className="w-[50%] h-auto">
             <div className="w-[80%]">
-              <h4 className="text-xl text-orange font-medium mt-[-80px]">Nike</h4>
+              <h4 className="text-xl text-primary font-medium mt-[-80px]">Nike</h4>
               <h1 className="text-5xl text-black font-bold leading-[65px]">Nike Mercurial Superfly 9 Pro</h1>
               <p className="text-[17px] leading-7 text-darkGrayishBlue mt-4">
                 Instantly tilt the pitch in the bold design of the Superfly 9 Pro FG. It is loaded with a Zoom Air unit, so you can dominate in the waning minutes of a match—when it matters most. Fast is in the Air.
@@ -60,21 +60,21 @@ const Store = () => {
                   <h3 className="text-3xl font-bold">$145.99</h3>
                   <h4 className="text-darkGrayishBlue leading-5 line-through">$291.98</h4>
                 </div>
-                <div className=" bg-paleOrange rounded-md">
-                  <h5 className="text-[16px] font-bold text-orange py-0.5 px-2.5">50%</h5>
+                <div className=" bg-primary/10 rounded-md">
+                  <h5 className="text-[16px] font-bold text-primary py-0.5 px-2.5">50%</h5>
                 </div>
               </div>
               <div className="flex items-center mt-16 justify-between">
                 <div className=" bg-lightGrayishBlue px-4 flex items-center gap-10 py-1 rounded-md">
-                  <button aria-label="Decrease item count" className="text-orange font-bold text-xl cursor-pointer hover:bg-paleOrange rounded-md p-1" onClick={handleMinus}>
+                  <button aria-label="Decrease item count" className="text-primary font-bold text-xl cursor-pointer hover:bg-primary/10 rounded-md p-1" onClick={handleMinus}>
                     <FaMinus />
                   </button>
                   <span className="font-bold text-3xl">{itemCount}</span>
-                  <button aria-label="Increase item count" className="text-orange font-bold text-xl cursor-pointer hover:bg-paleOrange rounded-md p-1" onClick={handleAdd}>
+                  <button aria-label="Increase item count" className="text-primary font-bold text-xl cursor-pointer hover:bg-primary/10 rounded-md p-1" onClick={handleAdd}>
                     <FaPlus />
                   </button>
                 </div>
-                <button className=" bg-orange text-white py-2 hover:bg-orange/90 w-72 rounded-lg">
+                <button className=" bg-primary text-white py-2 hover:bg-primary/90 w-72 rounded-lg">
                   <FaBagShopping className="inline-block mr-2" /> Add to cart
                 </button>
               </div>

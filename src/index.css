@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"); */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 *,
 html,
 body,
@@ -19,12 +20,13 @@ body,
   --DarkGrayishBlue: hsl(219, 9%, 45%);
   --GrayishBlue: hsl(220, 14%, 75%);
   --LightGrayishBlue: hsl(223, 64%, 98%);
+  --tw-bg-opacity: rgb(180 219 113);
 }
 
 
 body {
   position: relative;
-  font-family: "Kumbh Sans", sans-serif;
+  font-family:"Roboto", sans-serif;
   font-size: 18px;
   overflow-x: hidden;
 }
@@ -33,11 +35,16 @@ html {
 }
 
 .background-sports {
-  background-image: url("/public/images/sports.webp");
+  background-image: url("/public/images/main.png");
 }
 
 .background-nike {
-  background-image: url("/public/images/Nike.webp");
+  background-image: url("/public/images/small-main.jpg");
+}
+
+.small-info{
+  background-image: url("/public/images/small-main-2.jpg");
+  object-fit: cover;
 }
 
 
@@ -52,11 +59,11 @@ header {
 .nav-link:hover,
 .nav-link:focus{
   color: var(--VeryDarkBlue);
-  border-bottom: 5px solid var(--Orange);
+  border-bottom: 5px solid var(--tw-bg-opacity);
 }
 .nav-link:-moz-focusring{
   color: var(--VeryDarkBlue);
-  border-bottom: 5px solid var(--Orange);
+  border-bottom: 5px solid var(--tw-bg-opacity);
 }
 
 .header-col2 {
@@ -74,7 +81,7 @@ header {
 }
 .profile:hover,
 .profile:focus{
-  border: 2px solid var(--Orange);
+  border: 2px solid var(--tw-bg-opacity);
   height: 84px;
 }
 
@@ -119,7 +126,7 @@ header {
 }
 
 .small-div.active-img {
-  border: 2px solid var(--Orange);
+  border: 2px solid var(--tw-bg-opacity);
   height: 84px;
 }
 
