@@ -26,11 +26,11 @@ const home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-         <div className="w-5/6 border border-white rounded-3xl background-sports h-full bg-cover bg-center p-4 px-5 m-0 flex flex-col justify-between">
+         <div className="w-5/6 border border-white rounded-lg background-sports h-full bg-cover bg-center p-4 px-5 m-0 flex flex-col justify-between">
           <div className="text-white">
             <p className="text-[35px] font-bold">NASA-INSPIRED FOOTBALL </p>
             <p className="text-[35px] font-bold">SHOES DESIGNED</p>
-            <button className="bg-primary p-2 text-white rounded-xl px-6 font-bold mt-3 hover:bg-primary/90">
+            <button className="bg-primary p-2 text-white rounded-lg px-6 font-bold mt-3 hover:bg-primary/90">
               SOON <CgArrowTopRight className=" inline-block text-2xl" />
             </button>
           </div>
@@ -45,7 +45,7 @@ const home = () => {
           </div>
         </div>
         <div className="w-3/6  flex flex-col gap-4">
-          <div className="background-div border border-white background-nike h-5/6 bg-cover bg-center rounded-3xl p-6 flex flex-col justify-between items-start">
+          <div className="background-div border border-white background-nike h-5/6 bg-cover bg-center rounded-lg p-6 flex flex-col justify-between items-start">
             <div className="text-white">
               <p className="text-3xl font-bold">Our New</p>
               <p className="text-3xl font-bold">Collection</p>
@@ -54,7 +54,7 @@ const home = () => {
               <CgArrowTopRight />
             </button>
           </div>
-          <div className="border border-whit small-info h-3/6 rounded-3xl flex flex-col p-4">
+          <div className="border border-whit small-info h-3/6 rounded-lg flex flex-col p-4">
             <div className="flex justify-between text-white">
               <p className="text-lg">Rating</p>
               <div className="flex gap-2">
@@ -131,7 +131,7 @@ const home = () => {
 
       <div className="container max-w-screen-xl p-4 px-6 flex items-center justify-between">
         <p className="text-3xl text-black font-bold">New Features</p>
-        <button className="bg-primary text-white font-bold hover:bg-primary/90 px-5 py-2 rounded-2xl text-lg border border-white">
+        <button className="bg-primary text-white font-bold hover:bg-primary/90 px-5 py-2 rounded-lg text-lg border border-white">
           VIEW ALL
         </button>
       </div>
@@ -170,7 +170,7 @@ const home = () => {
                     <p className="text-[20px]">{item.price}</p>
                   </div>
                   <div className="flex items-start pt-5 pb-1">
-                    <button className="bg-primary text-white transition py-1 px-3.5 rounded">
+                    <button className="bg-primary text-white transition py-1 px-3.5 rounded-lg">
                       Add to cart
                     </button>
                     <p id={`added-${key}`} className="mt-2"></p>
@@ -201,7 +201,7 @@ const home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="w-full bg-grayishBlue p-4 px-16 flex items-center justify-between rounded-3xl border border-white">
+        <div className="w-full bg-grayishBlue p-4 px-16 flex items-center justify-between rounded-lg border border-white">
           <img
             className="w-16 h-16"
             src="./public/images/adidas-logo.png"
@@ -233,12 +233,12 @@ const home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="bg-primary w-full rounded-3xl flex p-6 border border-white">
+        <div className="bg-primary w-full rounded-lg flex p-6 border border-white">
           <div className="w-1/2 flex flex-col items-start py-16 pl-20 text-black">
             <p className="font-bold text-[40px]">REACH OUT TO US</p>
             <p className="text-[20px]">
               Need assistance or have questions? <br />
-              we're just a message away!
+              were just a message away!
             </p>
             <button className="bg-white hover:bg-white/80 py-2 px-6 rounded-xl font-bold mt-6 text-lg">
               SEND AN EMAIL
@@ -270,10 +270,10 @@ const home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="bg-black w-2/3 h-[380px] rounded-3xl"></div>
+        <div className="bg-black w-2/3 h-[380px] rounded-lg"></div>
         <div className="flex-1 flex flex-col gap-4">
-          <div className="h-1/2 bg-grayishBlue rounded-3xl"></div>
-          <div className="h-1/2 bg-grayishBlue rounded-3xl"></div>
+          <div className="h-1/2 bg-grayishBlue rounded-lg"></div>
+          <div className="h-1/2 bg-grayishBlue rounded-lg"></div>
         </div>
       </motion.section>
     </>
