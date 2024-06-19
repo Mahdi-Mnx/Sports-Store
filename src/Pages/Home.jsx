@@ -54,7 +54,7 @@ const home = () => {
               <CgArrowTopRight />
             </button>
           </div>
-          <div className="border border-whit small-info h-3/6 rounded-lg flex flex-col p-4">
+          <div className="border border-whit small-info bg-cover bg-center h-3/6 rounded-xl flex flex-col p-4">
             <div className="flex justify-between text-white">
               <p className="text-lg">Rating</p>
               <div className="flex gap-2">
@@ -205,7 +205,7 @@ const home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="w-full bg-grayishBlue p-4 px-16 flex items-center justify-between rounded-lg border border-white">
+        <div className="w-full bg-grayishBlue p-4 px-16 flex items-center justify-between rounded-xl border border-white">
           <img
             className="w-16 h-16"
             src="./public/images/adidas-logo.png"
@@ -244,13 +244,13 @@ const home = () => {
               Need assistance or have questions? <br />
               were just a message away!
             </p>
-            <button className="bg-paleOrange hover:bg-white/80 py-2 px-6 rounded-xl font-bold mt-6 text-lg">
+            <button className="bg-white hover:bg-white/80 py-2 px-6 rounded-xl font-bold mt-6 text-lg">
               SEND AN EMAIL
             </button>
           </div>
           <img
             className="w-1/2 h-[312px] border border-white rounded-xl ml-20"
-            src="./public/images/Sports-shirts.webp"
+            src="./public/images/main.png"
             alt=""
           />
         </div>
@@ -263,8 +263,8 @@ const home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="w-1/2 bg-grayishBlue rounded-lg h-[360px]"></div>
-        <div className="w-1/2 bg-grayishBlue rounded-lg"></div>
+        <div className="w-1/2 bg-grayishBlue rounded-xl h-[360px]"></div>
+        <div className="w-1/2 bg-grayishBlue rounded-xl"></div>
       </motion.section>
 
       <motion.section
@@ -274,10 +274,10 @@ const home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="bg-black w-2/3 h-[380px] rounded-lg"></div>
+        <div className="bg-black w-2/3 h-[380px] rounded-xl"></div>
         <div className="flex-1 flex flex-col gap-4">
-          <div className="h-1/2 bg-grayishBlue rounded-lg"></div>
-          <div className="h-1/2 bg-grayishBlue rounded-lg"></div>
+          <div className="h-1/2 bg-grayishBlue rounded-xl"></div>
+          <div className="h-1/2 bg-grayishBlue rounded-xl"></div>
         </div>
       </motion.section>
     </>

@@ -43,7 +43,6 @@ html {
 
 .small-info {
   background-image: url("/public/images/small-main-2.jpg");
-  object-fit: cover;
 }
 
 /************************** Header Section ***********************************/
