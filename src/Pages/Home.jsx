@@ -144,20 +144,20 @@ const home = () => {
       >
         <AnimatePresence>
           <div className="grid grid-cols-3 gap-4 items-center">
-            {productData.slice(0, totalItemsToShow).map((item, key) => (
+            {productData.slice(0, totalItemsToShow).map((item) => (
               <motion.div
-                key={key}
+                key={item.id}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.3 }}
                 transition={{ duration: 0.5 }}
-                className="flex flex-col "
+                className="flex flex-col"
               >
-                <div key={key} className="rounded-3xl flex flex-col ">
-                  <Link to="/product/:id">
+                <div className="rounded-3xl flex flex-col">
+                  <Link to={`/product/${item.id}`}>
                     <img
-                      className=" rounded-t-md"
-                      src={item.image}
+                      className="rounded-t-md"
+                      src={item.images[0]}
                       alt={item.name}
                     />
                     <div className="flex items-center justify-between gap-x-4 pt-2">
@@ -165,7 +165,7 @@ const home = () => {
                         <span className="text-sm text-orange font-semibold">
                           {item.brand}
                         </span>
-                        <p className="text-[18px] font-bold text-wrap ">
+                        <p className="text-[18px] font-bold text-wrap">
                           {item.name}
                         </p>
                         <p className="text-[18px] text-darkGrayishBlue">
@@ -178,7 +178,7 @@ const home = () => {
                       <button className="bg-primary text-white transition py-1 px-3.5 rounded-lg">
                         Add to cart
                       </button>
-                      <p id={`added-${key}`} className="mt-2"></p>
+                      <p id={`added-${item.id}`} className="mt-2"></p>
                     </div>
                   </Link>
                 </div>
@@ -190,7 +190,7 @@ const home = () => {
           <div className="flex justify-center mt-4">
             <button
               onClick={handleLoadMore}
-              className=" text-black hover:underline font-semibold mt-7"
+              className="text-black hover:underline font-semibold mt-7"
             >
               Load More
             </button>
