@@ -1,9 +1,6 @@
 import { ShoppingBag } from "lucide-react";
 import { Link } from "react-router-dom";
 const Header = () => {
-
-
-
   return (
     <>
       <header className="z-20">
@@ -11,22 +8,65 @@ const Header = () => {
           <div className="flex justify-around border-b-2 border-grayishBlue items-center h-[80px] max-w-screen-xl">
             <div>
               <Link to="/" className="text-4xl">
-                <img className="w-32" src="/public/images/logo11.png" alt="Logo" />
+                <img
+                  className="w-32"
+                  src="/public/images/logo11.png"
+                  alt="Logo"
+                />
               </Link>
             </div>
             <div className="header-col2">
               <ul className="flex gap-5">
-                <li><Link to="/store" className="nav-link text-darkGrayishBlue pb-[1.5rem]">Store</Link></li>
-                <li><Link to="/man" className="nav-link text-darkGrayishBlue pb-[1.5rem]">Man</Link></li>
-                <li><Link to="/women" className="nav-link text-darkGrayishBlue pb-[1.5rem]">Women</Link></li>
-                <li><Link to="/about" className="nav-link text-darkGrayishBlue pb-[1.5rem]">About</Link></li>
-                <li><Link to="/contact" className="nav-link text-darkGrayishBlue pb-[1.5rem]">Contact</Link></li>
+                <li>
+                  <Link
+                    to="/store"
+                    className="nav-link text-darkGrayishBlue pb-[1.5rem]"
+                  >
+                    Store
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/man"
+                    className="nav-link text-darkGrayishBlue pb-[1.5rem]"
+                  >
+                    Man
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/women"
+                    className="nav-link text-darkGrayishBlue pb-[1.5rem]"
+                  >
+                    Women
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/about"
+                    className="nav-link text-darkGrayishBlue pb-[1.5rem]"
+                  >
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/contact"
+                    className="nav-link text-darkGrayishBlue pb-[1.5rem]"
+                  >
+                    Contact
+                  </Link>
+                </li>
               </ul>
             </div>
             <div className="flex justify-between items-center gap-4 relative">
-              <ShoppingBag className="text-veryDarkBlue cursor-pointer" />
+             <Link to="/cart"> <ShoppingBag className="text-veryDarkBlue cursor-pointer" /></Link>
               <div>
-                <img className="profile" src="/public/images/profile.jpg" alt="Profile" />
+                <img
+                  className="profile"
+                  src="/public/images/profile.jpg"
+                  alt="Profile"
+                />
               </div>
             </div>
           </div>
