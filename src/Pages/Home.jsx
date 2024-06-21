@@ -5,7 +5,7 @@ import { CgArrowTopRight } from "react-icons/cg";
 import { BsStarFill } from "react-icons/bs";
 import { PiRepeat, PiVan, PiWallet } from "react-icons/pi";
 import productData from "../Components/Data";
-import { useState } from 'react';
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const home = () => {
@@ -26,18 +26,18 @@ const home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-         <div className="w-5/6 border border-white rounded-lg background-sports h-full bg-cover bg-center p-4 px-5 m-0 flex flex-col justify-between">
+        <div className="w-5/6 border border-white rounded-xl background-sports h-full bg-cover bg-center p-4 px-5 m-0 flex flex-col justify-between">
           <div className="text-white">
             <p className="text-[35px] font-bold">NASA-INSPIRED FOOTBALL </p>
             <p className="text-[35px] font-bold">SHOES DESIGNED</p>
-            <button className="bg-primary p-2 text-white rounded-lg px-6 font-bold mt-3 hover:bg-primary/90">
+            <button className="bg-primary p-2 text-white rounded-xl px-6 font-bold mt-3 hover:bg-primary/90">
               SOON <CgArrowTopRight className=" inline-block text-2xl" />
             </button>
           </div>
           <div className="pt-80 text-white">
             <p className="font-bold text-2xl mb-1">Top Trend Shoes 2025</p>
             <p className="text-sm text-gray-300">
-            To give you a futuristic football experience
+              To give you a futuristic football experience
             </p>
             <p className="text-sm text-gray-300">
               For premium and stylish jurseys.
@@ -45,16 +45,16 @@ const home = () => {
           </div>
         </div>
         <div className="w-3/6  flex flex-col gap-4">
-          <div className="background-div border border-white background-nike h-5/6 bg-cover bg-center rounded-lg p-6 flex flex-col justify-between items-start">
+          <div className="background-div border border-white background-nike h-5/6 bg-cover bg-center rounded-xl p-6 flex flex-col justify-between items-start">
             <div className="text-white">
               <p className="text-3xl font-bold">Our New</p>
               <p className="text-3xl font-bold">Collection</p>
             </div>
-            <button className="w-10 h-10 rounded-full bg-primary hover:bg-primary/90 flex items-center justify-center text-[26px] text-black">
+            <button className="w-10 h-10 rounded-full bg-primary transition hover:bg-primary/90 flex items-center justify-center text-[26px] text-black">
               <CgArrowTopRight />
             </button>
           </div>
-          <div className="border border-whit small-info h-3/6 rounded-lg flex flex-col p-4">
+          <div className="border border-whit small-info bg-cover bg-center h-3/6 rounded-xl flex flex-col p-4">
             <div className="flex justify-between text-white">
               <p className="text-lg">Rating</p>
               <div className="flex gap-2">
@@ -80,7 +80,6 @@ const home = () => {
             </div>
           </div>
         </div>
-       
       </motion.section>
 
       <motion.section
@@ -90,7 +89,7 @@ const home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="w-full flex items-center justify-between px-2 py-10 bg-grayishBlue rounded">
+        <div className="w-full flex items-center justify-between px-2 py-10 bg-grayishBlue rounded-xl">
           <div className="flex items-start gap-4">
             <span className="flex justify-center items-center w-20 h-20 rounded-full bg-white text-black text-[48px] border border-black">
               <PiVan />
@@ -137,62 +136,67 @@ const home = () => {
       </div>
 
       <motion.section
-            className="container max-w-screen-xl px-6 py-2"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-          >
-            <AnimatePresence>
-            <div className="grid grid-cols-3 gap-4 items-center">
-              {productData.slice(0, totalItemsToShow).map((item, key) => (
-                <motion.div
-                key={key}
+        className="container max-w-screen-xl px-6 py-2"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
+        <AnimatePresence>
+          <div className="grid grid-cols-3 gap-4 items-center">
+            {productData.slice(0, totalItemsToShow).map((item) => (
+              <motion.div
+                key={item.id}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.3 }}
                 transition={{ duration: 0.5 }}
-                className="flex flex-col "
+                className="flex flex-col"
               >
-                <div key={key} className="rounded-3xl flex flex-col ">
-                  <Link to="/product/:id">
-                  <img
-                    className=" rounded-t-md"
-                    src={item.image}
-                    alt={item.name}
-                  />
-                  <div className="flex items-center justify-between gap-x-4 pt-2">
-                   <div>
-                    <span className="text-sm text-orange font-semibold">{item.brand}</span>
-                   <p className="text-[18px] font-bold text-wrap ">{item.name}</p>
-                   <p className="text-[18px] text-darkGrayishBlue">High-Top Football Boot</p>
-                   </div>
-                    <p className="text-[20px]">{item.price}</p>
-                  </div>
-                  <div className="flex items-start pt-5 pb-1">
-                    <button className="bg-primary text-white transition py-1 px-3.5 rounded-lg">
-                      Add to cart
-                    </button>
-                    <p id={`added-${key}`} className="mt-2"></p>
-                  </div>
+                <div className="rounded-3xl flex flex-col">
+                  <Link to={`/product/${item.id}`}>
+                    <img
+                      className="rounded-t-md"
+                      src={item.images[0]}
+                      alt={item.name}
+                    />
+                    <div className="flex items-center justify-between gap-x-4 pt-2">
+                      <div>
+                        <span className="text-sm text-orange font-semibold">
+                          {item.brand}
+                        </span>
+                        <p className="text-[18px] font-bold text-wrap">
+                          {item.name}
+                        </p>
+                        <p className="text-[18px] text-darkGrayishBlue">
+                          High-Top Football Boot
+                        </p>
+                      </div>
+                      <p className="text-[20px]">{item.price}</p>
+                    </div>
+                    <div className="flex items-start pt-5 pb-1">
+                      <button className="bg-primary text-white transition py-1 px-3.5 rounded-lg">
+                        Add to cart
+                      </button>
+                      <p id={`added-${item.id}`} className="mt-2"></p>
+                    </div>
                   </Link>
                 </div>
-                </motion.div>
-              ))}
-            </div>
-            </AnimatePresence>
-            {totalItemsToShow < productData.length && (
-              <div className="flex justify-center mt-4">
-                <button
-                  onClick={handleLoadMore}
-                  className=" text-black hover:underline font-semibold mt-7"
-                >
-                  Load More
-                </button>
-              </div>
-            )}
+              </motion.div>
+            ))}
+          </div>
+        </AnimatePresence>
+        {totalItemsToShow < productData.length && (
+          <div className="flex justify-center mt-4">
+            <button
+              onClick={handleLoadMore}
+              className="text-black hover:underline font-semibold mt-7"
+            >
+              Load More
+            </button>
+          </div>
+        )}
       </motion.section>
-
 
       <motion.section
         className="container px-6 py-4 max-w-screen-xl"
@@ -201,7 +205,7 @@ const home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="w-full bg-grayishBlue p-4 px-16 flex items-center justify-between rounded-lg border border-white">
+        <div className="w-full bg-grayishBlue p-4 px-16 flex items-center justify-between rounded-xl border border-white">
           <img
             className="w-16 h-16"
             src="./public/images/adidas-logo.png"
@@ -246,7 +250,7 @@ const home = () => {
           </div>
           <img
             className="w-1/2 h-[312px] border border-white rounded-xl ml-20"
-            src="./public/images/Sports-shirts.webp"
+            src="./public/images/main.png"
             alt=""
           />
         </div>
@@ -259,8 +263,8 @@ const home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="w-1/2 bg-grayishBlue rounded-lg h-[360px]"></div>
-        <div className="w-1/2 bg-grayishBlue rounded-lg"></div>
+        <div className="w-1/2 bg-grayishBlue rounded-xl h-[360px]"></div>
+        <div className="w-1/2 bg-grayishBlue rounded-xl"></div>
       </motion.section>
 
       <motion.section
@@ -270,10 +274,10 @@ const home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="bg-black w-2/3 h-[380px] rounded-lg"></div>
+        <div className="bg-black w-2/3 h-[380px] rounded-xl"></div>
         <div className="flex-1 flex flex-col gap-4">
-          <div className="h-1/2 bg-grayishBlue rounded-lg"></div>
-          <div className="h-1/2 bg-grayishBlue rounded-lg"></div>
+          <div className="h-1/2 bg-grayishBlue rounded-xl"></div>
+          <div className="h-1/2 bg-grayishBlue rounded-xl"></div>
         </div>
       </motion.section>
     </>

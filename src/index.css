@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* @import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"); */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 *,
 html,
 body,
@@ -23,10 +23,9 @@ body,
   --tw-bg-opacity: rgb(180 219 113);
 }
 
-
 body {
   position: relative;
-  font-family:"Roboto", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
   overflow-x: hidden;
 }
@@ -42,11 +41,9 @@ html {
   background-image: url("/public/images/small-main.jpg");
 }
 
-.small-info{
+.small-info {
   background-image: url("/public/images/small-main-2.jpg");
-  object-fit: cover;
 }
-
 
 /************************** Header Section ***********************************/
 
@@ -55,13 +52,12 @@ header {
   padding: 0px 15px;
 }
 
-
 .nav-link:hover,
-.nav-link:focus{
+.nav-link:focus {
   color: var(--VeryDarkBlue);
   border-bottom: 5px solid var(--tw-bg-opacity);
 }
-.nav-link:-moz-focusring{
+.nav-link:-moz-focusring {
   color: var(--VeryDarkBlue);
   border-bottom: 5px solid var(--tw-bg-opacity);
 }
@@ -72,7 +68,7 @@ header {
   width: 30%;
 }
 
-.profile{
+.profile {
   width: 100%;
   max-width: 50px;
   max-height: 50px;
@@ -80,12 +76,12 @@ header {
   border: 2px solid transparent;
 }
 .profile:hover,
-.profile:focus{
+.profile:focus {
   border: 2px solid var(--tw-bg-opacity);
   height: 84px;
 }
 
-.big-one-img{
+.big-one-img {
   display: block;
   width: 100%;
   height: 430px;
@@ -96,22 +92,22 @@ header {
   cursor: pointer;
 }
 
-.small-sec{
+.small-sec {
   margin: 0 auto;
   display: flex;
   width: 100%;
   max-width: 440px;
-  justify-content:space-around;
+  justify-content: space-around;
 }
 
-.small-div{
+.small-div {
   width: max-content;
   height: 80px;
   background-color: white;
   border-radius: 12px;
 }
 
-.small-img{
+.small-img {
   border: none;
   cursor: pointer;
   width: 100%;
@@ -121,7 +117,7 @@ header {
   border-radius: 10px;
 }
 
-.small-img:hover{
+.small-img:hover {
   opacity: 0.8;
 }
 
@@ -130,6 +126,6 @@ header {
   height: 84px;
 }
 
-.small-div.active-img .small-img{
+.small-div.active-img .small-img {
   opacity: 0.5;
 }
