@@ -60,7 +60,7 @@ const Header = () => {
               </ul>
             </div>
             <div className="flex justify-between items-center gap-4 relative">
-              <ShoppingBag className="text-veryDarkBlue cursor-pointer" />
+             <Link to="/cart"> <ShoppingBag className="text-veryDarkBlue cursor-pointer" /></Link>
               <div>
                 <img
                   className="profile"
