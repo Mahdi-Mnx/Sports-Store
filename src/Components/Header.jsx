@@ -1,11 +1,36 @@
+import React, { useState, useEffect } from "react";
 import { ShoppingBag } from "lucide-react";
 import { Link } from "react-router-dom";
+
 const Header = () => {
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const handleScroll = () => {
+    if (window.scrollY > lastScrollY && window.scrollY > 100) {
+      setIsVisible(false);
+    } else if (window.scrollY < lastScrollY) {
+      setIsVisible(true);
+    }
+    setLastScrollY(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
+
   return (
     <>
-      <header className="z-20">
+      <header
+        className={`bg-white z-20 fixed top-0 left-0 w-full transition-transform duration-300 ${
+          isVisible ? "transform-none" : "-translate-y-full"
+        }`}
+      >
         <div>
-          <div className="flex justify-around border-b-2 border-grayishBlue items-center h-[80px] max-w-screen-xl">
+          <div className="flex justify-around border-b-2 border-grayishBlue items-center h-[80px] max-w-screen-xl mx-auto">
             <div>
               <Link to="/" className="text-4xl">
                 <img
@@ -60,7 +85,9 @@ const Header = () => {
               </ul>
             </div>
             <div className="flex justify-between items-center gap-4 relative">
-             <Link to="/cart"> <ShoppingBag className="text-veryDarkBlue cursor-pointer" /></Link>
+              <Link to="/cart">
+                <ShoppingBag className="text-veryDarkBlue cursor-pointer" />
+              </Link>
               <div>
                 <img
                   className="profile"
