@@ -48,31 +48,31 @@ const Contact = () => {
             <input
               type="text"
               placeholder="Your first name"
-              className="border-2 border-gray-100 px-1 pl-4 py-2 placeholder:text-gray-400 rounded-md placeholder:text-[16px]"
+              className="border-2 border-gray-100 px-1 pl-4 py-2 placeholder:text-gray-400 rounded-md placeholder:text-[16px] focus:outline-none"
             />
             <input
               type="text"
               placeholder="Your last name"
-              className="border-2 border-gray-100 px-1 pl-4 py-2 placeholder:text-gray-400 rounded-md placeholder:text-[16px]"
+              className="border-2 border-gray-100 px-1 pl-4 py-2 placeholder:text-gray-400 rounded-md placeholder:text-[16px] focus:outline-none"
             />
           </div>
           <p className="text-[19px] text-dark font-bold mt-6">Email:</p>
           <input
             type="text"
             placeholder="youremail@email.com"
-            className="w-full placeholder:text-[16px] border-2 border-gray-100 mt-2 rounded-md px-4 py-2"
+            className="w-full placeholder:text-[16px] focus:outline-none border-2 border-gray-100 mt-2 rounded-md px-4 py-2"
           />
           <p className="text-[19px] text-dark font-bold mt-6">Phone Number:</p>
           <input
             type="text"
             placeholder="+252#########"
-            className="w-full placeholder:text-[16px] border-2 border-gray-100 mt-2 rounded-md px-4 py-2"
+            className="w-full placeholder:text-[16px] focus:outline-none border-2 border-gray-100 mt-2 rounded-md px-4 py-2"
           />
           <p className="text-[19px] text-dark font-bold mt-6">Message:</p>
           <input
             type="text"
             placeholder="Type your messag here..."
-            className="w-full placeholder:text-[16px] pb-[80px] border-2 border-gray-100 mt-2 rounded-md px-4 py-2 bg-cadaan"
+            className="w-full placeholder:text-[16px] focus:outline-none pb-[80px] border-2 border-gray-100 mt-2 rounded-md px-4 py-2 bg-cadaan"
           />
 
           <button className="w-full bg-dark py-3 flex gap-3 items-center justify-center text-[19px] text-white mt-6 rounded-md">
