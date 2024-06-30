@@ -24,13 +24,13 @@ const Header = () => {
 
   return (
     <>
-      <header
-        className={`bg-white z-20 fixed top-0 left-0 w-full transition-transform duration-300 ${
-          isVisible ? "transform-none" : "-translate-y-full"
-        }`}
-      >
-        <div>
-          <div className="flex justify-around border-b-2 border-grayishBlue items-center h-[80px] max-w-screen-xl mx-auto">
+      <header>
+        <div
+          className={`bg-white z-50 fixed top-0 left-0 w-full h-[80px] transition-transform duration-300 ${
+            isVisible ? "transform-none" : "-translate-y-full"
+          }`}
+        >
+          <div className="flex justify-between px-8 border-b-2 border-grayishBlue items-center h-[80px] max-w-screen-xl mx-auto">
             <div>
               <Link to="/" className="text-4xl">
                 <img
@@ -41,7 +41,7 @@ const Header = () => {
               </Link>
             </div>
             <div className="header-col2">
-              <ul className="flex gap-5">
+              <ul className="flex justify-between w-[300px]">
                 <li>
                   <Link
                     to="/store"
@@ -50,22 +50,7 @@ const Header = () => {
                     Store
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    to="/man"
-                    className="nav-link text-darkGrayishBlue pb-[1.5rem]"
-                  >
-                    Men
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/women"
-                    className="nav-link text-darkGrayishBlue pb-[1.5rem]"
-                  >
-                    Women
-                  </Link>
-                </li>
+
                 <li>
                   <Link
                     to="/about"

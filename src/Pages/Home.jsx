@@ -70,8 +70,8 @@ const home = () => {
                   alt=""
                   className="w-8 h-8 rounded-full object-contain relative"
                 />
-                <button className="w-8 h-8 rounded-full bg-primary  flex items-center justify-center text-[18px] text-black absolute top-0 left-6 ">
-                  <CgArrowTopRight />
+                <button className="w-8 h-8 rounded-full  border-white border-[1.5px] bg-primary  flex items-center justify-center text-[18px] text-black absolute top-0 left-6 ">
+                  <CgArrowTopRight className="" />
                 </button>
               </div>
               <p className="text-[12px] text-white">
