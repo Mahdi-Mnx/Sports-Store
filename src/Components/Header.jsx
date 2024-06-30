@@ -55,7 +55,7 @@ const Header = () => {
                     to="/man"
                     className="nav-link text-darkGrayishBlue pb-[1.5rem]"
                   >
-                    Man
+                    Men
                   </Link>
                 </li>
                 <li>
