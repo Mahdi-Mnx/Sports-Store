@@ -29,7 +29,7 @@ const Product = () => {
   return (
     <>
       <motion.section
-        className="container max-w-screen-xl h-auto py-4 px-6"
+        className="container max-w-screen-xl h-auto py-4 px-6 pt-24"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}

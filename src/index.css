@@ -55,7 +55,7 @@ header {
 .nav-link:hover,
 .nav-link:focus {
   color: var(--VeryDarkBlue);
-  border-bottom: 5px solid var(--tw-bg-opacity);
+  border-bottom: 5px solid rgb(180 219 113);
 }
 .nav-link:-moz-focusring {
   color: var(--VeryDarkBlue);

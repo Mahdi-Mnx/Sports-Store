@@ -20,7 +20,7 @@ const home = () => {
   return (
     <>
       <motion.section
-        className="container max-w-screen-xl py-3 px-6 flex gap-4"
+        className="container max-w-screen-xl py-3 px-6 flex gap-4 pt-24"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -89,7 +89,7 @@ const home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="w-full flex items-center justify-between px-2 py-10 bg-grayishBlue rounded-xl">
+        <div className="w-full flex items-center justify-between px-6 py-10 bg-grayishBlue rounded-xl">
           <div className="flex items-start gap-4">
             <span className="flex justify-center items-center w-20 h-20 rounded-full bg-white text-black text-[48px] border border-black">
               <PiVan />
