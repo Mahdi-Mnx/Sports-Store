@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { CgArrowTopRight } from "react-icons/cg";
 import { BsStarFill } from "react-icons/bs";
 import { PiRepeat, PiVan, PiWallet } from "react-icons/pi";
-import productData from "../Components/Data";
+import productData from "../Data/Data";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
