@@ -220,8 +220,15 @@ const Store = () => {
           </motion.section>
         </div>
 
+
+
+
+
+
+
       </div>
     </div>
   );
 };
+
 export default Store;
