@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { FaBagShopping } from "react-icons/fa6";
-import productData from "../Components/Data";
+import productData from "../Data/Data";
 
 const Product = () => {
   const { id } = useParams();
@@ -21,7 +21,9 @@ const Product = () => {
   };
 
   if (!product) {
-    return <div>Product not found</div>;
+    return <div className=" h-screen flex justify-center items-center text-white font-bold">
+      <img className="w-[300px] h-[300px] object-cover rounded-3xl" src="/public/images/not.gif" alt="jacar" />
+    </div>;
   }
 
   return (

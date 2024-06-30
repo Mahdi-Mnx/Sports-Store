@@ -66,18 +66,18 @@ const productData = [
       "/public/images/nba-long-sleeve-2.png",
     ],
   },
-  //   {
-  //     id: 6,
-  //     brand: "Nike",
-  //     name: "Team 31",
-  //     price: "$77.99",
-  //     description:
-  //       "Pay tribute to Team 31—aka the NBA—in this Nike Dri-FIT NBA T-Shirt. It's a lightweight, softly knit tee with sweat-wicking technology.",
-  //     images: [
-  //       "/public/images/nba-shirt.jpeg",
-  //       "/public/images/nba-shirt-2.jpeg",
-  //     ],
-  //   },
+    // {
+    //   id: 6,
+    //   brand: "Nike",
+    //   name: "Team 31",
+    //   price: "$77.99",
+    //   description:
+    //     "Pay tribute to Team 31—aka the NBA—in this Nike Dri-FIT NBA T-Shirt. It's a lightweight, softly knit tee with sweat-wicking technology.",
+    //   images: [
+    //     "/public/images/nba-shirt.jpeg",
+    //     "/public/images/nba-shirt-2.jpeg",
+    //   ],
+    // },
   //   {
   //     id: 7,
   //     brand: "Nike",
