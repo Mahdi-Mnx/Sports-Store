@@ -21,9 +21,15 @@ const Product = () => {
   };
 
   if (!product) {
-    return <div className=" h-screen flex justify-center items-center text-white font-bold">
-      <img className="w-[300px] h-[300px] object-cover rounded-3xl" src="/public/images/not.gif" alt="jacar" />
-    </div>;
+    return (
+      <div className=" h-screen flex justify-center items-center text-white font-bold">
+        <img
+          className="w-[300px] h-[300px] object-cover rounded-3xl"
+          src="/public/images/not.gif"
+          alt="jacar"
+        />
+      </div>
+    );
   }
 
   return (

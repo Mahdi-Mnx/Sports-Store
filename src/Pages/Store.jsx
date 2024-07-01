@@ -1,16 +1,16 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import productData from '../Data/Data';
-import { Link } from 'react-router-dom';
-import { ChevronDown, ChevronUp } from 'lucide-react';
-import productType from '../Data/productType';
-import { Size } from '../Data/productSize';
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import productData from "../Data/Data";
+import { Link } from "react-router-dom";
+import { ChevronDown, ChevronUp } from "lucide-react";
+import productType from "../Data/productType";
+import { Size } from "../Data/productSize";
 
 const Store = () => {
   const [rowsToShow, setRowsToShow] = useState(3); // Start by showing 3 columns
   const [open, setOpen] = useState(false);
   const [openSize, setSizeOpen] = useState(false);
-  const [priceRange, setPriceRange] = useState([0, 35]); 
+  const [priceRange, setPriceRange] = useState([0, 35]);
   const itemsPerRow = 1; // Number of items per row
   const totalItemsToShow = rowsToShow * itemsPerRow; // Total items to show based on rows
 
@@ -31,7 +31,11 @@ const Store = () => {
   };
 
   return (
+<<<<<<< HEAD
     <div className=" container max-w-screen-xl pb-4 py-24 items-center">
+=======
+    <div className=" container max-w-screen-xl py-4 items-center pt-24">
+>>>>>>> c6a6d4d2a5a18226fd9459acaae94a838ef4714c
       <div className="flex justify-around gap-5 px-6">
         <div className="w-[20%] mt-4">
           <div className="bg-primary/20 h-auto rounded-lg p-2">
@@ -40,30 +44,55 @@ const Store = () => {
               <h3 className="text-xl text-black font-bold">Category</h3>
               <div className="p-4 bg-white rounded-md my-2">
                 <ul className="gap-4">
-                  <li className="text-lg font-medium transition-colors text-gray-500 hover:text-black cursor-pointer">Men</li>
-                  <li className="text-lg font-medium transition-colors text-gray-500 hover:text-black cursor-pointer">Women</li>
-                  <li className="text-lg font-medium transition-colors text-gray-500 hover:text-black cursor-pointer">Shoes</li>
-                  <li className="text-lg font-medium transition-colors text-gray-500 hover:text-black cursor-pointer">T-Shirt Sport</li>
-                  <li className="text-lg font-medium transition-colors text-gray-500 hover:text-black cursor-pointer">Equipment</li>
+                  <li className="text-lg font-medium transition-colors text-gray-500 hover:text-black cursor-pointer">
+                    Men
+                  </li>
+                  <li className="text-lg font-medium transition-colors text-gray-500 hover:text-black cursor-pointer">
+                    Women
+                  </li>
+                  <li className="text-lg font-medium transition-colors text-gray-500 hover:text-black cursor-pointer">
+                    Shoes
+                  </li>
+                  <li className="text-lg font-medium transition-colors text-gray-500 hover:text-black cursor-pointer">
+                    T-Shirt Sport
+                  </li>
+                  <li className="text-lg font-medium transition-colors text-gray-500 hover:text-black cursor-pointer">
+                    Equipment
+                  </li>
                 </ul>
               </div>
             </div>
 
             {/* Size type dropdown */}
-            <div className='my-4'>
-              <div className={`bg-white py-1 px-3 ${openSize ? "rounded-t-md": "rounded-md"} shadow flex justify-between items-center`}>
-                <h5 onClick={handleToggleSize} className="text-lg font-bold cursor-pointer">Size</h5>
+            <div className="my-4">
+              <div
+                className={`bg-white py-1 px-3 ${
+                  openSize ? "rounded-t-md" : "rounded-md"
+                } shadow flex justify-between items-center`}
+              >
+                <h5
+                  onClick={handleToggleSize}
+                  className="text-lg font-bold cursor-pointer"
+                >
+                  Size
+                </h5>
                 {openSize ? (
-                  <ChevronUp className="cursor-pointer" onClick={handleToggleSize} />
+                  <ChevronUp
+                    className="cursor-pointer"
+                    onClick={handleToggleSize}
+                  />
                 ) : (
-                  <ChevronDown className="cursor-pointer" onClick={handleToggleSize} />
+                  <ChevronDown
+                    className="cursor-pointer"
+                    onClick={handleToggleSize}
+                  />
                 )}
               </div>
               <AnimatePresence>
                 {openSize && (
                   <motion.div
                     initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
+                    animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     className="bg-white py-1 px-3 rounded-b-md shadow"
                   >
@@ -71,8 +100,17 @@ const Store = () => {
                       {Size.map((item, key) => (
                         <li key={key}>
                           <span className="items-center">
-                            <input className="w-[15px] h-[15px]" type="checkbox" id={item.id} />
-                            <label htmlFor={item.id} className="text-sm cursor-pointer ml-2 inline-block">{item.Size}</label>
+                            <input
+                              className="w-[15px] h-[15px]"
+                              type="checkbox"
+                              id={item.id}
+                            />
+                            <label
+                              htmlFor={item.id}
+                              className="text-sm cursor-pointer ml-2 inline-block"
+                            >
+                              {item.Size}
+                            </label>
                           </span>
                         </li>
                       ))}
@@ -83,20 +121,35 @@ const Store = () => {
             </div>
 
             {/* product type dropdown */}
-            <div className='mb-4'>
-              <div className={`bg-white py-1 px-3 ${open ? "rounded-t-md": "rounded-md"} shadow flex justify-between items-center`}>
-                <h5 onClick={handleToggle} className="text-lg font-bold cursor-pointer">Product Type</h5>
+            <div className="mb-4">
+              <div
+                className={`bg-white py-1 px-3 ${
+                  open ? "rounded-t-md" : "rounded-md"
+                } shadow flex justify-between items-center`}
+              >
+                <h5
+                  onClick={handleToggle}
+                  className="text-lg font-bold cursor-pointer"
+                >
+                  Product Type
+                </h5>
                 {open ? (
-                  <ChevronUp className="cursor-pointer" onClick={handleToggle} />
+                  <ChevronUp
+                    className="cursor-pointer"
+                    onClick={handleToggle}
+                  />
                 ) : (
-                  <ChevronDown className="cursor-pointer" onClick={handleToggle} />
+                  <ChevronDown
+                    className="cursor-pointer"
+                    onClick={handleToggle}
+                  />
                 )}
               </div>
               <AnimatePresence>
                 {open && (
                   <motion.div
                     initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
+                    animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     className="bg-white py-1 px-3 rounded-b-md shadow"
                   >
@@ -104,8 +157,17 @@ const Store = () => {
                       {productType.map((item, key) => (
                         <li key={key}>
                           <span className="items-center">
-                            <input className="w-[15px] h-[15px]" type="checkbox" id={item.id} />
-                            <label htmlFor={item.id} className="text-sm cursor-pointer ml-2 inline-block">{item.type}</label>
+                            <input
+                              className="w-[15px] h-[15px]"
+                              type="checkbox"
+                              id={item.id}
+                            />
+                            <label
+                              htmlFor={item.id}
+                              className="text-sm cursor-pointer ml-2 inline-block"
+                            >
+                              {item.type}
+                            </label>
                           </span>
                         </li>
                       ))}
@@ -114,13 +176,18 @@ const Store = () => {
                 )}
               </AnimatePresence>
             </div>
-            
-                
-              {/* Price Range */}
-            <div className='mb-4'>
+
+            {/* Price Range */}
+            <div className="mb-4">
               <h5 className="text-lg font-bold mb-2">Price Range</h5>
               <div className="bg-white rounded-md py-2 px-3">
-                <label htmlFor="priceRange" className="text-sm font-medium text-gray-700">Price Range: <span className='font-bold'>${priceRange[1]}</span></label>
+                <label
+                  htmlFor="priceRange"
+                  className="text-sm font-medium text-gray-700"
+                >
+                  Price Range:{" "}
+                  <span className="font-bold">${priceRange[1]}</span>
+                </label>
                 <input
                   type="range"
                   id="priceRange"
@@ -133,11 +200,11 @@ const Store = () => {
               </div>
             </div>
 
-              {/* Color  */}
-              <div className='mb-4'>
+            {/* Color  */}
+            <div className="mb-4">
               <h5 className="text-lg font-bold mb-2">Color</h5>
               <div className="bg-white rounded-md py-2 px-3">
-              <ul className="grid grid-cols-4 gap-3">
+                <ul className="grid grid-cols-4 gap-3">
                   <li className="w-5 h-5 rounded-full bg-green-500"></li>
                   <li className="w-5 h-5 rounded-full bg-blue-500"></li>
                   <li className="w-5 h-5 rounded-full bg-gray-500"></li>
@@ -146,16 +213,13 @@ const Store = () => {
                   <li className="w-5 h-5 rounded-full bg-teal-500"></li>
                   <li className="w-5 h-5 rounded-full bg-orange"></li>
                   <li className="w-5 h-5 rounded-full bg-indigo-500"></li>
-              </ul>
-
+                </ul>
               </div>
-              </div>
-
+            </div>
           </div>
         </div>
 
-
-          {/* products side  */}
+        {/* products side  */}
         <div className="w-[85%] p-4 flex justify-around">
           <motion.section
             className="px-6"
@@ -193,7 +257,9 @@ const Store = () => {
                               High-Top Football Boot
                             </p>
                           </div>
-                          <p className="text-[14px] font-bold pr-1">{item.price}</p>
+                          <p className="text-[14px] font-bold pr-1">
+                            {item.price}
+                          </p>
                         </div>
                         <div className="flex items-start pt-5 pb-1">
                           <button className="bg-primary text-white transition py-1 px-3.5 rounded-lg">
@@ -219,13 +285,6 @@ const Store = () => {
             )}
           </motion.section>
         </div>
-
-
-
-
-
-
-
       </div>
     </div>
   );

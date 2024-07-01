@@ -3,9 +3,11 @@ import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CgArrowTopRight } from "react-icons/cg";
 import { BsStarFill } from "react-icons/bs";
+import { FaCirclePlay } from "react-icons/fa6";
 import { PiRepeat, PiVan, PiWallet } from "react-icons/pi";
 import productData from "../Data/Data";
 import { useState } from "react";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 
 const home = () => {
@@ -16,6 +18,32 @@ const home = () => {
 
   const handleLoadMore = () => {
     setRowsToShow(rowsToShow + 2); // Load 3 more rows when clicked
+  };
+
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlayButtonClick = () => {
+    if (videoRef.current) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
+  };
+
+  const handleVideoPause = () => {
+    setIsPlaying(false);
+  };
+
+  const handleVideoClick = () => {
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play();
+        setIsPlaying(true);
+      } else {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      }
+    }
   };
   return (
     <>
@@ -89,7 +117,7 @@ const home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="w-full flex items-center justify-between px-6 py-10 bg-grayishBlue rounded-xl">
+        <div className="w-full flex items-center justify-between px-6 py-10 bg-slate-200 rounded-xl">
           <div className="flex items-start gap-4">
             <span className="flex justify-center items-center w-20 h-20 rounded-full bg-white text-black text-[48px] border border-black">
               <PiVan />
@@ -205,7 +233,7 @@ const home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="w-full bg-grayishBlue p-4 px-16 flex items-center justify-between rounded-xl border border-white">
+        <div className="w-full bg-dark p-4 px-16 flex items-center justify-between rounded-xl border border-white">
           <img
             className="w-16 h-16"
             src="./public/images/adidas-logo.png"
@@ -237,14 +265,14 @@ const home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="bg-primary w-full rounded-lg flex p-6 border border-white">
-          <div className="w-1/2 flex flex-col items-start py-16 pl-20 text-black">
+        <div className="bg-dark w-full rounded-lg flex p-6 border border-white">
+          <div className="w-1/2 flex flex-col items-start py-16 pl-20 text-white">
             <p className="font-bold text-[40px]">REACH OUT TO US</p>
             <p className="text-[20px]">
               Need assistance or have questions? <br />
               were just a message away!
             </p>
-            <button className="bg-white hover:bg-white/80 py-2 px-6 rounded-xl font-bold mt-6 text-lg">
+            <button className="bg-white text-dark hover:bg-white/80 py-2 px-6 rounded-xl font-bold mt-6 text-lg">
               SEND AN EMAIL
             </button>
           </div>
@@ -274,10 +302,39 @@ const home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="bg-black w-2/3 h-[380px] rounded-xl"></div>
+        <div className="relative w-2/3 h-[380px] overflow-hidden">
+          <video
+            ref={videoRef}
+            className="absolute top-0 left-0 w-full h-full object-cover rounded-xl"
+            src="/public/video/logo.mp4"
+            loop
+            onClick={handleVideoClick}
+            onPause={handleVideoPause}
+            onPlay={() => setIsPlaying(true)}
+          ></video>
+          {!isPlaying && (
+            <FaCirclePlay
+              className="absolute text-white text-6xl left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer"
+              onClick={handlePlayButtonClick}
+            />
+          )}
+        </div>
+
         <div className="flex-1 flex flex-col gap-4">
-          <div className="h-1/2 bg-grayishBlue rounded-xl"></div>
-          <div className="h-1/2 bg-grayishBlue rounded-xl"></div>
+          <div className="h-1/2 background-football-kits bg-cover bg-center border-2 border-gray-300 rounded-xl flex flex-col items-end pr-3 pt-4">
+            <button className="w-10 h-10 rounded-full bg-primary transition hover:bg-primary/90 flex items-center justify-center text-[26px] text-black">
+              <CgArrowTopRight />
+            </button>
+          </div>
+          <div className="h-1/2 background-ronaldo-messi bg-cover bg-top border-2 border-gray-300 rounded-xl flex flex-col items-start py-2 px-4">
+            <img className="w-16 h-10" src="/public/images/logo1.png" alt="" />
+            <button className="bg-white hover:bg-white/70 rounded-2xl py-2 px-5 mt-2 text-sm">
+              view more
+            </button>
+            <p className="text-3xl text-white mt-2">
+              Experience Sports <br /> Excellence Today!
+            </p>
+          </div>
         </div>
       </motion.section>
     </>
