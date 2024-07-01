@@ -21,53 +21,13 @@ const home = () => {
   return (
     <>
       <motion.section
-        className="container max-w-screen-2xl px-6 py-4 flex gap-6 pt-24"
+        className="container max-w-screen-xl py-3 px-6 flex gap-4 pt-24"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="relative w-2/3 h-[380px] overflow-hidden">
-          <video
-            className="absolute top-0 left-0 w-full h-full object-cover rounded-xl"
-            src="/public/video/logo.mp4"
-            loop
-            muted
-            autoPlay
-          ></video>
-        </div>
-
-        <div className="flex-1 flex flex-col gap-4">
-          <div className="h-1/2 background-football-kits bg-cover bg-center border-2 border-gray-300 rounded-xl flex flex-col items-end pr-3 pt-4">
-            <button className="w-10 h-10 rounded-full bg-primary transition hover:bg-primary/90 flex items-center justify-center text-[26px] text-black">
-              <CgArrowTopRight />
-            </button>
-          </div>
-          <div className="h-1/2  background-ronaldo-messi justify-between bg-cover bg-top border-2 border-gray-300 rounded-xl flex items-start py-2 px-4">
-            <div>
-              <img
-                className="w-16 h-10"
-                src="/public/images/logo1.png"
-                alt=""
-              />
-              <button className="bg-white hover:bg-white/90 rounded-md py-1 px-2 mt-2 text-sm">
-                view more
-              </button>
-            </div>
-            <p className="text-sm text-white mt-2">
-              Experience Sports <br /> Excellence Today!
-            </p>
-          </div>
-        </div>
-      </motion.section>
-      <motion.section
-        className="container max-w-screen-xl py-3 px-6 flex gap-4 "
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-      >
-        <div className="w-5/6 border border-white rounded-xl background-sports h-full bg-cover bg-center p-4 px-5 m-0 flex flex-col justify-between">
+        <div className="w-5/6 border  border-white rounded-xl background-sports h-[500px] bg-cover bg-center p-4 px-5 m-0 flex flex-col justify-between">
           <div className="text-white">
             <p className="text-[35px] font-bold">NASA-INSPIRED FOOTBALL </p>
             <p className="text-[35px] font-bold">SHOES DESIGNED</p>
@@ -75,7 +35,7 @@ const home = () => {
               SOON <CgArrowTopRight className=" inline-block text-2xl" />
             </button>
           </div>
-          <div className="pt-80 text-white">
+          <div className=" text-white">
             <p className="font-bold text-2xl mb-1">Top Trend Shoes 2025</p>
             <p className="text-sm text-gray-300">
               To give you a futuristic football experience
@@ -119,6 +79,47 @@ const home = () => {
                 One of the best shirt <br /> selling brand store
               </p>
             </div>
+          </div>
+        </div>
+      </motion.section>
+
+      <motion.section
+        className="container max-w-screen-2xl px-6 py-4 flex gap-6"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
+        <div className="relative w-2/3 h-[380px] overflow-hidden">
+          <video
+            className="absolute top-0 left-0 w-full h-full object-cover rounded-xl"
+            src="/public/video/logo.mp4"
+            loop
+            muted
+            autoPlay
+          ></video>
+        </div>
+
+        <div className="flex-1 flex flex-col gap-4">
+          <div className="h-1/2 background-football-kits bg-cover bg-center border-2 border-gray-300 rounded-xl flex flex-col items-end pr-3 pt-4">
+            <button className="w-10 h-10 rounded-full bg-primary transition hover:bg-primary/90 flex items-center justify-center text-[26px] text-black">
+              <CgArrowTopRight />
+            </button>
+          </div>
+          <div className="h-1/2  background-ronaldo-messi justify-between bg-cover bg-top border-2 border-gray-300 rounded-xl flex items-start py-2 px-4">
+            <div>
+              <img
+                className="w-16 h-10"
+                src="/public/images/logo1.png"
+                alt=""
+              />
+              <button className="bg-white hover:bg-white/90 rounded-md py-1 px-2 mt-2 text-sm">
+                view more
+              </button>
+            </div>
+            <p className="text-sm text-white mt-2">
+              Experience Sports <br /> Excellence Today!
+            </p>
           </div>
         </div>
       </motion.section>
@@ -306,49 +307,6 @@ const home = () => {
       >
         <div className="w-1/2 bg-grayishBlue rounded-xl h-[360px]"></div>
         <div className="w-1/2 bg-grayishBlue rounded-xl"></div>
-      </motion.section>
-
-      <motion.section
-        className="container max-w-screen-2xl px-6 py-4 flex gap-6"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-      >
-        <div className="relative w-2/3 h-[380px] overflow-hidden">
-          <video
-            ref={videoRef}
-            className="absolute top-0 left-0 w-full h-full object-cover rounded-xl"
-            src="/public/video/logo.mp4"
-            loop
-            onClick={handleVideoClick}
-            onPause={handleVideoPause}
-            onPlay={() => setIsPlaying(true)}
-          ></video>
-          {!isPlaying && (
-            <FaCirclePlay
-              className="absolute text-white text-6xl left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer"
-              onClick={handlePlayButtonClick}
-            />
-          )}
-        </div>
-
-        <div className="flex-1 flex flex-col gap-4">
-          <div className="h-1/2 background-football-kits bg-cover bg-center border-2 border-gray-300 rounded-xl flex flex-col items-end pr-3 pt-4">
-            <button className="w-10 h-10 rounded-full bg-primary transition hover:bg-primary/90 flex items-center justify-center text-[26px] text-black">
-              <CgArrowTopRight />
-            </button>
-          </div>
-          <div className="h-1/2 background-ronaldo-messi bg-cover bg-top border-2 border-gray-300 rounded-xl flex flex-col items-start py-2 px-4">
-            <img className="w-16 h-10" src="/public/images/logo1.png" alt="" />
-            <button className="bg-white hover:bg-white/70 rounded-2xl py-2 px-5 mt-2 text-sm">
-              view more
-            </button>
-            <p className="text-3xl text-white mt-2">
-              Experience Sports <br /> Excellence Today!
-            </p>
-          </div>
-        </div>
       </motion.section>
     </>
   );
