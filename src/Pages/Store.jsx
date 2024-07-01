@@ -31,7 +31,8 @@ const Store = () => {
   };
 
   return (
-    <div className=" container max-w-screen-xl py-4 items-center pt-24">
+    <div className=" container max-w-screen-xl pb-4 py-24 items-center">
+
       <div className="flex justify-around gap-5 px-6">
         <div className="w-[20%] mt-4">
           <div className="bg-primary/20 h-auto rounded-lg p-2">

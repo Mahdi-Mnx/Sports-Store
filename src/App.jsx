@@ -6,6 +6,7 @@ import Store from "./Pages/Store";
 import About from "./Pages/About";
 import Contact from "./Pages/Contact";
 import Cart from "./Pages/Cart";
+import Developer from "./Pages/Developer";
 function App() {
   return (
     <>
@@ -18,6 +19,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/product/:id" element={<Product />} />
+            <Route path="/developers" element={<Developer />} />
           </Route>
         </Routes>
       </Router>
