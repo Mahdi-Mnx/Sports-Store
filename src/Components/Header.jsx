@@ -67,6 +67,14 @@ const Header = () => {
                     Contact
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    to="/developers"
+                    className="nav-link text-darkGrayishBlue pb-[1.5rem]"
+                  >
+                    Developers
+                  </Link>
+                </li>
               </ul>
             </div>
             <div className="flex justify-between items-center gap-4 relative">
