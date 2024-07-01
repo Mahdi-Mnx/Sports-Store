@@ -117,7 +117,7 @@ const home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="w-full flex items-center justify-between px-6 py-10 bg-grayishBlue rounded-xl">
+        <div className="w-full flex items-center justify-between px-6 py-10 bg-slate-200 rounded-xl">
           <div className="flex items-start gap-4">
             <span className="flex justify-center items-center w-20 h-20 rounded-full bg-white text-black text-[48px] border border-black">
               <PiVan />
@@ -233,7 +233,7 @@ const home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="w-full bg-grayishBlue p-4 px-16 flex items-center justify-between rounded-xl border border-white">
+        <div className="w-full bg-dark p-4 px-16 flex items-center justify-between rounded-xl border border-white">
           <img
             className="w-16 h-16"
             src="./public/images/adidas-logo.png"
@@ -265,14 +265,14 @@ const home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="bg-primary w-full rounded-lg flex p-6 border border-white">
-          <div className="w-1/2 flex flex-col items-start py-16 pl-20 text-black">
+        <div className="bg-dark w-full rounded-lg flex p-6 border border-white">
+          <div className="w-1/2 flex flex-col items-start py-16 pl-20 text-white">
             <p className="font-bold text-[40px]">REACH OUT TO US</p>
             <p className="text-[20px]">
               Need assistance or have questions? <br />
               were just a message away!
             </p>
-            <button className="bg-white hover:bg-white/80 py-2 px-6 rounded-xl font-bold mt-6 text-lg">
+            <button className="bg-white text-dark hover:bg-white/80 py-2 px-6 rounded-xl font-bold mt-6 text-lg">
               SEND AN EMAIL
             </button>
           </div>
