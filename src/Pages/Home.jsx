@@ -21,7 +21,7 @@ const home = () => {
   return (
     <>
 
-<motion.section
+        <motion.section
             className="container max-w-screen-2xl px-6 py-4 flex gap-6 pt-24"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -65,7 +65,7 @@ const home = () => {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <div className="w-5/6 border border-white rounded-xl background-sports h-full bg-cover bg-center p-4 px-5 m-0 flex flex-col justify-between">
+          <div className="w-5/6 border  border-white rounded-xl background-sports h-[400px] bg-cover bg-center p-4 px-5 m-0 flex flex-col justify-between">
             <div className="text-white">
               <p className="text-[35px] font-bold">NASA-INSPIRED FOOTBALL </p>
               <p className="text-[35px] font-bold">SHOES DESIGNED</p>
@@ -73,7 +73,7 @@ const home = () => {
                 SOON <CgArrowTopRight className=" inline-block text-2xl" />
               </button>
             </div>
-            <div className="pt-80 text-white">
+            <div className=" text-white">
               <p className="font-bold text-2xl mb-1">Top Trend Shoes 2025</p>
               <p className="text-sm text-gray-300">
                 To give you a futuristic football experience
