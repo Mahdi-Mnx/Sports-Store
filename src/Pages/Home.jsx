@@ -6,6 +6,7 @@ import { BsStarFill } from "react-icons/bs";
 import { PiRepeat, PiVan, PiWallet } from "react-icons/pi";
 import productData from "../Data/Data";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const home = () => {
@@ -16,6 +17,16 @@ const home = () => {
 
   const handleLoadMore = () => {
     setRowsToShow(rowsToShow + 2); // Load 3 more rows when clicked
+  };
+
+  const navigate = useNavigate();
+
+  const handleClickStore = () => {
+    navigate("/store");
+  };
+
+  const handleClickContact = () => {
+    navigate("/contact");
   };
 
   return (
@@ -172,7 +183,10 @@ const home = () => {
 
       <div className="container max-w-screen-xl p-4 px-6 flex items-center justify-between">
         <p className="text-3xl text-black font-bold">New Features</p>
-        <button className="bg-primary text-white font-bold hover:bg-primary/90 px-5 py-2 rounded-lg text-lg border border-white">
+        <button
+          className="bg-primary text-white font-bold hover:bg-primary/90 px-5 py-2 rounded-lg text-lg border border-white"
+          onClick={handleClickStore}
+        >
           VIEW ALL
         </button>
       </div>
@@ -286,7 +300,10 @@ const home = () => {
               Need assistance or have questions? <br />
               were just a message away!
             </p>
-            <button className="bg-white text-dark hover:bg-white/80 py-2 px-6 rounded-xl font-bold mt-6 text-lg">
+            <button
+              className="bg-white text-dark hover:bg-white/80 py-2 px-6 rounded-xl font-bold mt-6 text-lg"
+              onClick={handleClickContact}
+            >
               SEND AN EMAIL
             </button>
           </div>
