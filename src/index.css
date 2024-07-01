@@ -41,6 +41,14 @@ html {
   background-image: url("/public/images/small-main.jpg");
 }
 
+.background-football-kits {
+  background-image: url("/public/images/football-kits-background-image.jpg");
+}
+
+.background-ronaldo-messi {
+  background-image: url("/public/images/cristiano-ronaldo-messi-background-image.png");
+}
+
 .small-info {
   background-image: url("/public/images/small-main-2.jpg");
 }
@@ -130,12 +138,10 @@ header {
   opacity: 0.5;
 }
 
-
-  /* side bar store  */
+/* side bar store  */
 
 /*   
   .custom-checkbox input {
     width: 24px;
     height: 24px;
   } */
-  
