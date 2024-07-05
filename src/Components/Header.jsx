@@ -42,7 +42,7 @@ const Header = () => {
             </div>
             <div className="header-col2">
               <ul className="flex justify-between gap-3 w-[300px]">
-              <li>
+                <li>
                   <Link
                     to="/"
                     className="nav-link text-darkGrayishBlue pb-[1.5rem]"
@@ -73,14 +73,6 @@ const Header = () => {
                     className="nav-link text-darkGrayishBlue pb-[1.5rem]"
                   >
                     Contact
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/developers"
-                    className="nav-link text-darkGrayishBlue pb-[1.5rem]"
-                  >
-                    Developers
                   </Link>
                 </li>
               </ul>
