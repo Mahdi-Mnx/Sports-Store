@@ -6,6 +6,7 @@ import { BsStarFill } from "react-icons/bs";
 import { PiRepeat, PiVan, PiWallet } from "react-icons/pi";
 import productData from "../Data/Data";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const home = () => {
@@ -18,111 +19,122 @@ const home = () => {
     setRowsToShow(rowsToShow + 2); // Load 3 more rows when clicked
   };
 
+  const navigate = useNavigate();
+
+  const handleClickStore = () => {
+    navigate("/store");
+  };
+
+  const handleClickContact = () => {
+    navigate("/contact");
+  };
+
   return (
     <>
-
-       
       <motion.section
-          className="container max-w-screen-xl py-3 px-6 flex gap-4 pt-24"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          <div className="w-5/6 border  border-white rounded-xl background-sports h-[500px] bg-cover bg-center p-4 px-5 m-0 flex flex-col justify-between">
+        className="container max-w-screen-xl py-3 px-6 flex gap-4 pt-24"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
+        <div className="w-5/6 border  border-white rounded-xl background-sports h-[500px] bg-cover bg-center p-4 px-5 m-0 flex flex-col justify-between">
+          <div className="text-white">
+            <p className="text-[35px] font-bold">NASA-INSPIRED FOOTBALL </p>
+            <p className="text-[35px] font-bold">SHOES DESIGNED</p>
+            <button className="bg-primary p-2 text-white rounded-xl px-6 font-bold mt-3 hover:bg-primary/90">
+              SOON <CgArrowTopRight className=" inline-block text-2xl" />
+            </button>
+          </div>
+          <div className=" text-white">
+            <p className="font-bold text-2xl mb-1">Top Trend Shoes 2025</p>
+            <p className="text-sm text-gray-300">
+              To give you a futuristic football experience
+            </p>
+            <p className="text-sm text-gray-300">
+              For premium and stylish jurseys.
+            </p>
+          </div>
+        </div>
+        <div className="w-3/6  flex flex-col gap-4">
+          <div className="background-div border border-white background-nike h-5/6 bg-cover bg-center rounded-xl p-6 flex flex-col justify-between items-start">
             <div className="text-white">
-              <p className="text-[35px] font-bold">NASA-INSPIRED FOOTBALL </p>
-              <p className="text-[35px] font-bold">SHOES DESIGNED</p>
-              <button className="bg-primary p-2 text-white rounded-xl px-6 font-bold mt-3 hover:bg-primary/90">
-                SOON <CgArrowTopRight className=" inline-block text-2xl" />
-              </button>
+              <p className="text-3xl font-bold">Our New</p>
+              <p className="text-3xl font-bold">Collection</p>
             </div>
-            <div className=" text-white">
-              <p className="font-bold text-2xl mb-1">Top Trend Shoes 2025</p>
-              <p className="text-sm text-gray-300">
-                To give you a futuristic football experience
-              </p>
-              <p className="text-sm text-gray-300">
-                For premium and stylish jurseys.
+            <button className="w-10 h-10 rounded-full bg-primary transition hover:bg-primary/90 flex items-center justify-center text-[26px] text-black">
+              <CgArrowTopRight />
+            </button>
+          </div>
+          <div className="border border-whit small-info bg-cover bg-center h-3/6 rounded-xl flex flex-col p-4">
+            <div className="flex justify-between text-white">
+              <p className="text-lg">Rating</p>
+              <div className="flex gap-2">
+                <p className=" text-[50px]">4.8</p>
+                <BsStarFill className="text-orange mt-4" />
+              </div>
+            </div>
+            <hr className="mt-12 m-1" />
+            <div className="flex items-start justify-between mt-4">
+              <div className="relative">
+                <img
+                  src="./public/images/moha-jakaar.jpeg"
+                  alt=""
+                  className="w-8 h-8 rounded-full object-contain relative"
+                />
+                <button className="w-8 h-8 rounded-full  border-white border-[1.5px] bg-primary  flex items-center justify-center text-[18px] text-black absolute top-0 left-6 ">
+                  <CgArrowTopRight className="" />
+                </button>
+              </div>
+              <p className="text-[12px] text-white">
+                One of the best shirt <br /> selling brand store
               </p>
             </div>
           </div>
-          <div className="w-3/6  flex flex-col gap-4">
-            <div className="background-div border border-white background-nike h-5/6 bg-cover bg-center rounded-xl p-6 flex flex-col justify-between items-start">
-              <div className="text-white">
-                <p className="text-3xl font-bold">Our New</p>
-                <p className="text-3xl font-bold">Collection</p>
-              </div>
-              <button className="w-10 h-10 rounded-full bg-primary transition hover:bg-primary/90 flex items-center justify-center text-[26px] text-black">
-                <CgArrowTopRight />
-              </button>
-            </div>
-            <div className="border border-whit small-info bg-cover bg-center h-3/6 rounded-xl flex flex-col p-4">
-              <div className="flex justify-between text-white">
-                <p className="text-lg">Rating</p>
-                <div className="flex gap-2">
-                  <p className=" text-[50px]">4.8</p>
-                  <BsStarFill className="text-orange mt-4" />
-                </div>
-              </div>
-              <hr className="mt-12 m-1" />
-              <div className="flex items-start justify-between mt-4">
-                <div className="relative">
-                  <img
-                    src="./public/images/moha-jakaar.jpeg"
-                    alt=""
-                    className="w-8 h-8 rounded-full object-contain relative"
-                  />
-                  <button className="w-8 h-8 rounded-full  border-white border-[1.5px] bg-primary  flex items-center justify-center text-[18px] text-black absolute top-0 left-6 ">
-                    <CgArrowTopRight className="" />
-                  </button>
-                </div>
-                <p className="text-[12px] text-white">
-                  One of the best shirt <br /> selling brand store
-                </p>
-              </div>
-            </div>
-          </div>
+        </div>
       </motion.section>
 
       <motion.section
-            className="container max-w-screen-2xl px-6 py-3 flex gap-6"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-          >
-            <div className="relative w-2/3 h-[380px] overflow-hidden">
-            <video
-              className="absolute top-0 left-0 w-full h-full object-cover rounded-xl"
-              src="/public/video/logo.mp4"
-              loop
-              muted
-              autoPlay
-            ></video>
-              
-            </div>
+        className="container max-w-screen-2xl px-6 py-4 flex gap-6"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
+        <div className="relative w-2/3 h-[380px] overflow-hidden">
+          <video
+            className="absolute top-0 left-0 w-full h-full object-cover rounded-xl"
+            src="/public/video/logo.mp4"
+            loop
+            muted
+            autoPlay
+          ></video>
+        </div>
 
-            <div className="flex-1 flex flex-col gap-4">
-              <div className="h-1/2 background-football-kits bg-cover bg-center border-2 border-gray-300 rounded-xl flex flex-col items-end pr-3 pt-4">
-                <button className="w-10 h-10 rounded-full bg-primary transition hover:bg-primary/90 flex items-center justify-center text-[26px] text-black">
-                  <CgArrowTopRight />
-                </button>
-              </div>
-              <div className="h-1/2  background-ronaldo-messi justify-between bg-cover bg-top border-2 border-gray-300 rounded-xl flex items-start py-2 px-4">
-                <div>
-                <img className="w-16 h-10" src="/public/images/logo1.png" alt="" />
-                <button className="bg-white hover:bg-white/90 rounded-md py-1 px-2 mt-2 text-sm">
-                  view more
-                </button>
-                </div>
-                <p className="text-sm text-white mt-2">
-                  Experience Sports <br /> Excellence Today!
-                </p>
-              </div>
+        <div className="flex-1 flex flex-col gap-4">
+          <div className="h-1/2 background-football-kits bg-cover bg-center border-2 border-gray-300 rounded-xl flex flex-col items-end pr-3 pt-4">
+            <button className="w-10 h-10 rounded-full bg-primary transition hover:bg-primary/90 flex items-center justify-center text-[26px] text-black">
+              <CgArrowTopRight />
+            </button>
+          </div>
+          <div className="h-1/2  background-ronaldo-messi justify-between bg-cover bg-top border-2 border-gray-300 rounded-xl flex items-start py-2 px-4">
+            <div>
+              <img
+                className="w-16 h-10"
+                src="/public/images/logo1.png"
+                alt=""
+              />
+              <button className="bg-white hover:bg-white/90 rounded-md py-1 px-2 mt-2 text-sm">
+                view more
+              </button>
             </div>
+            <p className="text-sm text-white mt-2">
+              Experience Sports <br /> Excellence Today!
+            </p>
+          </div>
+        </div>
       </motion.section>
-      
+
       <motion.section
         className="container max-w-screen-xl py-3 px-6"
         initial={{ opacity: 0, y: 50 }}
@@ -171,7 +183,10 @@ const home = () => {
 
       <div className="container max-w-screen-xl p-4 px-6 flex items-center justify-between">
         <p className="text-3xl text-black font-bold">New Features</p>
-        <button className="bg-primary text-white font-bold hover:bg-primary/90 px-5 py-2 rounded-lg text-lg border border-white">
+        <button
+          className="bg-primary text-white font-bold hover:bg-primary/90 px-5 py-2 rounded-lg text-lg border border-white"
+          onClick={handleClickStore}
+        >
           VIEW ALL
         </button>
       </div>
@@ -285,7 +300,10 @@ const home = () => {
               Need assistance or have questions? <br />
               were just a message away!
             </p>
-            <button className="bg-white text-dark hover:bg-white/80 py-2 px-6 rounded-xl font-bold mt-6 text-lg">
+            <button
+              className="bg-white text-dark hover:bg-white/80 py-2 px-6 rounded-xl font-bold mt-6 text-lg"
+              onClick={handleClickContact}
+            >
               SEND AN EMAIL
             </button>
           </div>
@@ -307,8 +325,6 @@ const home = () => {
         <div className="w-1/2 bg-grayishBlue rounded-xl h-[360px]"></div>
         <div className="w-1/2 bg-grayishBlue rounded-xl"></div>
       </motion.section>
-
-      
     </>
   );
 };

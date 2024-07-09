@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <div className="container max-w-screen-xl py-3 bg-black px-6 z-20">
@@ -11,15 +13,15 @@ const Footer = () => {
           </p>
         </div>
         <div className="flex gap-4 items-center ">
-          <button className=" bg-white shadow hover:underline border-white border-[1px] px-6 py-2 rounded-xl text-black hover:bg-transparent hover:text-white transition-colors">
+          <Link to="/privacy-policy" className=" bg-white shadow hover:underline border-white border-[1px] px-6 py-2 rounded-xl text-black hover:bg-transparent hover:text-white transition-colors">
             Privacy Policy
-          </button>
-          <button className="text-black hover:underline bg-orange rounded-xl px-6 py-2 hover:bg-orange/80">
+          </Link>
+          <Link to="/help-support" className="text-black hover:underline bg-orange rounded-xl px-6 py-2 hover:bg-orange/80">
             Help & Support
-          </button>
-          <button className=" border hover:underline text-black bg-grayishBlue rounded-xl px-6 py-2 hover:bg-grayishBlue/80">
+          </Link>
+          <Link to="/terms-conditions" className=" border hover:underline text-black bg-grayishBlue rounded-xl px-6 py-2 hover:bg-grayishBlue/80">
             Terms & Condition
-          </button>
+          </Link>
         </div>
       </div>
     </div>
