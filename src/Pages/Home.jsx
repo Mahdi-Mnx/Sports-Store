@@ -95,47 +95,6 @@ const home = () => {
       </motion.section>
 
       <motion.section
-        className="container max-w-screen-2xl px-6 py-4 flex gap-6"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-      >
-        <div className="relative w-2/3 h-[380px] overflow-hidden">
-          <video
-            className="absolute top-0 left-0 w-full h-full object-cover rounded-xl"
-            src="/public/video/logo.mp4"
-            loop
-            muted
-            autoPlay
-          ></video>
-        </div>
-
-        <div className="flex-1 flex flex-col gap-4">
-          <div className="h-1/2 background-football-kits bg-cover bg-center border-2 border-gray-300 rounded-xl flex flex-col items-end pr-3 pt-4">
-            <button className="w-10 h-10 rounded-full bg-primary transition hover:bg-primary/90 flex items-center justify-center text-[26px] text-black">
-              <CgArrowTopRight />
-            </button>
-          </div>
-          <div className="h-1/2  background-ronaldo-messi justify-between bg-cover bg-top border-2 border-gray-300 rounded-xl flex items-start py-2 px-4">
-            <div>
-              <img
-                className="w-16 h-10"
-                src="/public/images/logo1.png"
-                alt=""
-              />
-              <button className="bg-white hover:bg-white/90 rounded-md py-1 px-2 mt-2 text-sm">
-                view more
-              </button>
-            </div>
-            <p className="text-sm text-white mt-2">
-              Experience Sports <br /> Excellence Today!
-            </p>
-          </div>
-        </div>
-      </motion.section>
-
-      <motion.section
         className="container max-w-screen-xl py-3 px-6"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -283,6 +242,47 @@ const home = () => {
             src="./public/images/gucci-logo.png"
             alt=""
           />
+        </div>
+      </motion.section>
+
+      <motion.section
+        className="container max-w-screen-2xl px-6 py-4 flex gap-6"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
+        <div className="relative w-2/3 h-[380px] overflow-hidden">
+          <video
+            className="absolute top-0 left-0 w-full h-full object-cover rounded-xl"
+            src="/public/video/logo.mp4"
+            loop
+            muted
+            autoPlay
+          ></video>
+        </div>
+
+        <div className="flex-1 flex flex-col gap-4">
+          <div className="h-1/2 background-football-kits bg-cover bg-center border-2 border-gray-300 rounded-xl flex flex-col items-end pr-3 pt-4">
+            <button className="w-10 h-10 rounded-full bg-primary transition hover:bg-primary/90 flex items-center justify-center text-[26px] text-black">
+              <CgArrowTopRight />
+            </button>
+          </div>
+          <div className="h-1/2  background-ronaldo-messi justify-between bg-cover bg-top border-2 border-gray-300 rounded-xl flex items-start py-2 px-4">
+            <div>
+              <img
+                className="w-16 h-10"
+                src="/public/images/logo1.png"
+                alt=""
+              />
+              <button className="bg-white hover:bg-white/90 rounded-md py-1 px-2 mt-2 text-sm">
+                view more
+              </button>
+            </div>
+            <p className="text-sm text-white mt-2">
+              Experience Sports <br /> Excellence Today!
+            </p>
+          </div>
         </div>
       </motion.section>
 
