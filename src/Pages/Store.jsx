@@ -11,7 +11,7 @@ const Store = () => {
   const [rowsToShow, setRowsToShow] = useState(3); // Start by showing 3 columns
   const [open, setOpen] = useState(false);
   const [openSize, setSizeOpen] = useState(false);
-  const [priceRange, setPriceRange] = useState([0, maxPrice]);
+  const [priceRange, setPriceRange] = useState([0, 500]);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const itemsPerRow = 1; // Number of items per row
   const totalItemsToShow = rowsToShow * itemsPerRow; // Total items to show based on rows
@@ -207,7 +207,7 @@ const Store = () => {
                   type="range"
                   id="priceRange"
                   min="0"
-                  max={maxPrice}
+                  max="500"
                   value={priceRange[1]}
                   onChange={handlePriceChange}
                   className="w-full mt-2"
