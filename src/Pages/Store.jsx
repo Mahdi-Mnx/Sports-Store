@@ -43,7 +43,7 @@ const Store = () => {
         );
 
   return (
-    <div className=" container max-w-screen-xl pb-4 py-24 items-center">
+    <div className="container max-w-screen-xl pb-4 py-24 items-center">
       <div className="flex justify-around gap-5 px-6">
         <div className="w-[20%] mt-4">
           <div className="bg-primary/20 h-auto rounded-lg p-2">
@@ -52,42 +52,26 @@ const Store = () => {
               <h3 className="text-xl text-black font-bold">Category</h3>
               <div className="p-4 bg-white rounded-md my-2">
                 <ul className="gap-4">
-                  <li
-                    className="text-lg font-medium transition-colors text-gray-500 hover:text-black cursor-pointer"
-                    onClick={() => handleCategoryClick("All")}
-                  >
-                    All
-                  </li>
-                  <li
-                    className="text-lg font-medium transition-colors text-gray-500 hover:text-black cursor-pointer"
-                    onClick={() => handleCategoryClick("Men")}
-                  >
-                    Men
-                  </li>
-                  <li
-                    className="text-lg font-medium transition-colors text-gray-500 hover:text-black cursor-pointer"
-                    onClick={() => handleCategoryClick("Women")}
-                  >
-                    Women
-                  </li>
-                  <li
-                    className="text-lg font-medium transition-colors text-gray-500 hover:text-black cursor-pointer"
-                    onClick={() => handleCategoryClick("Shoes")}
-                  >
-                    Shoes
-                  </li>
-                  <li
-                    className="text-lg font-medium transition-colors text-gray-500 hover:text-black cursor-pointer"
-                    onClick={() => handleCategoryClick("T-Shirt Sport")}
-                  >
-                    T-Shirt Sport
-                  </li>
-                  <li
-                    className="text-lg font-medium transition-colors text-gray-500 hover:text-black cursor-pointer"
-                    onClick={() => handleCategoryClick("Equipment")}
-                  >
-                    Equipment
-                  </li>
+                  {[
+                    "All",
+                    "Men",
+                    "Women",
+                    "Shoes",
+                    "T-Shirt Sport",
+                    "Equipment",
+                  ].map((category) => (
+                    <li
+                      key={category}
+                      className={`text-lg font-medium transition-colors cursor-pointer ${
+                        selectedCategory === category
+                          ? "text-black font-bold"
+                          : "text-gray-500 hover:text-black"
+                      }`}
+                      onClick={() => handleCategoryClick(category)}
+                    >
+                      {category}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
