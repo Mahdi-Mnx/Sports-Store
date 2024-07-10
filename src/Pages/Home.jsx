@@ -187,7 +187,7 @@ const home = () => {
                           High-Top Football Boot
                         </p>
                       </div>
-                      <p className="text-[20px]">{item.price}</p>
+                      <p className="text-[20px]">${item.price}</p>
                     </div>
                     <div className="flex items-start pt-5 pb-1">
                       <button className="bg-primary text-white transition py-1 px-3.5 rounded-lg">

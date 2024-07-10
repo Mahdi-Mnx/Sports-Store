@@ -7,10 +7,11 @@ import productType from "../Data/productType";
 import { Size } from "../Data/productSize";
 
 const Store = () => {
+  const maxPrice = Math.max(...productData.map((product) => product.price));
   const [rowsToShow, setRowsToShow] = useState(3); // Start by showing 3 columns
   const [open, setOpen] = useState(false);
   const [openSize, setSizeOpen] = useState(false);
-  const [priceRange, setPriceRange] = useState([0, 35]);
+  const [priceRange, setPriceRange] = useState([0, maxPrice]);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const itemsPerRow = 1; // Number of items per row
   const totalItemsToShow = rowsToShow * itemsPerRow; // Total items to show based on rows
@@ -28,19 +29,20 @@ const Store = () => {
   };
 
   const handlePriceChange = (event) => {
-    setPriceRange([0, event.target.value]); // Set the price range
+    setPriceRange([0, parseFloat(event.target.value)]); // Set the price range
   };
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
   };
 
-  const filteredProducts =
-    selectedCategory === "All"
-      ? productData
-      : productData.filter((product) =>
-          product.categories.includes(selectedCategory)
-        );
+  const filteredProducts = productData.filter(
+    (product) =>
+      (selectedCategory === "All" ||
+        product.categories.includes(selectedCategory)) &&
+      product.price >= priceRange[0] &&
+      product.price <= priceRange[1]
+  );
 
   return (
     <div className="container max-w-screen-xl pb-4 py-24 items-center">
@@ -205,7 +207,7 @@ const Store = () => {
                   type="range"
                   id="priceRange"
                   min="0"
-                  max="200"
+                  max={maxPrice}
                   value={priceRange[1]}
                   onChange={handlePriceChange}
                   className="w-full mt-2"
@@ -271,7 +273,7 @@ const Store = () => {
                             </p>
                           </div>
                           <p className="text-[14px] font-bold pr-1">
-                            {item.price}
+                            ${item.price.toFixed(2)}
                           </p>
                         </div>
                         <div className="flex items-start pt-5 pb-1">

@@ -4,7 +4,7 @@ const productData = [
     brand: "Nike",
     name: "PREDATOR LEAGUE",
     categories: ["Men", "Shoes"],
-    price: "$269.99",
+    price: 269.99,
     description:
       "Experience ultimate control with the Predator League, designed for precision and power.",
     images: [
@@ -19,7 +19,7 @@ const productData = [
     brand: "Nike",
     name: "NIKE PREMIER",
     categories: ["Men", "Shoes"],
-    price: "$139.99",
+    price: 139.99,
     description:
       "Step up your game with Nike Premier, known for its comfort and durability.",
     images: [
@@ -34,7 +34,7 @@ const productData = [
     brand: "Nike",
     name: "NIKE SUPERFLY 9 ELITE",
     categories: ["Men", "Shoes"],
-    price: "$129.99",
+    price: 129.99,
     description:
       "Cristiano Ronaldo wouldn't be the competitor he is without setbacks. Made for those obsessed with the game",
     images: [
@@ -49,7 +49,7 @@ const productData = [
     brand: "Jordan",
     name: "JORDAN-SOCKS",
     categories: ["Men"],
-    price: "$12.99",
+    price: 12.99,
     description:
       "Your go-to, everyday, soft and reliable socks. Sweat-wicking technology keeps your feet cool and dry while a snug arch band feels supportive.",
     images: [
@@ -63,7 +63,7 @@ const productData = [
     brand: "Jordan",
     name: "Brooklyn Nets Essential",
     categories: ["Men"],
-    price: "$99.99",
+    price: 99.99,
     description:
       "The Brooklyn Nets and the Jumpman? What more could you ask for? Show your love for your squad in this relaxed fit, all-cotton Brooklyn Nets long-sleeve tee.",
     images: [
@@ -76,7 +76,7 @@ const productData = [
     brand: "Nike",
     name: "NIKE AIR MAX DN",
     categories: ["Women", "Shoes"],
-    price: "$159.99",
+    price: 159.99,
     description:
       "The Air Max Dn features our Dynamic Air unit system of dual-pressure tubes, creating a reactive sensation with every step. This results in a futuristic design that's comfortable enough to wear from day to night. Go ahead—Feel the Unreal.",
     images: [

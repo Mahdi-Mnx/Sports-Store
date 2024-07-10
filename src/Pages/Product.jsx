@@ -83,7 +83,7 @@ const Product = () => {
               </p>
               <div className="flex items-center gap-4 mt-6">
                 <div className="price">
-                  <h3 className="text-3xl font-bold">{product.price}</h3>
+                  <h3 className="text-3xl font-bold">${product.price}</h3>
                   <h4 className="text-darkGrayishBlue leading-5 line-through">
                     $291.98
                   </h4>
