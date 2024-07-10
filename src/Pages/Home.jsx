@@ -101,7 +101,7 @@ const home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="w-full flex items-center justify-between px-6 py-10 bg-slate-200 rounded-xl">
+        <div className="w-full flex items-center justify-between px-6 py-10 bg-darkGray rounded-xl">
           <div className="flex items-start gap-4">
             <span className="flex justify-center items-center w-20 h-20 rounded-full bg-white text-black text-[48px] border border-black">
               <PiVan />

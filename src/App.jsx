@@ -7,6 +7,9 @@ import About from "./Pages/About";
 import Contact from "./Pages/Contact";
 import Cart from "./Pages/Cart";
 import Developer from "./Pages/Developer";
+import PrivacyPolicy from "./Pages/PrivacyPolicy";
+import HelpSupport from "./Pages/HelpSupport";
+import TermsConditions from "./Pages/TermsConditions";
 function App() {
   return (
     <>
@@ -20,6 +23,9 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/product/:id" element={<Product />} />
             <Route path="/developers" element={<Developer />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/help-support" element={<HelpSupport />} />
+            <Route path="/terms-conditions" element={<TermsConditions />} />
           </Route>
         </Routes>
       </Router>
