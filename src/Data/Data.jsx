@@ -3,7 +3,8 @@ const productData = [
     id: 1,
     brand: "Nike",
     name: "PREDATOR LEAGUE",
-    price: "$269.99",
+    categories: ["Men", "Shoes"],
+    price: 269.99,
     description:
       "Experience ultimate control with the Predator League, designed for precision and power.",
     images: [
@@ -17,7 +18,8 @@ const productData = [
     id: 2,
     brand: "Nike",
     name: "NIKE PREMIER",
-    price: "$139.99",
+    categories: ["Men", "Shoes"],
+    price: 139.99,
     description:
       "Step up your game with Nike Premier, known for its comfort and durability.",
     images: [
@@ -31,7 +33,8 @@ const productData = [
     id: 3,
     brand: "Nike",
     name: "NIKE SUPERFLY 9 ELITE",
-    price: "$129.99",
+    categories: ["Men", "Shoes"],
+    price: 129.99,
     description:
       "Cristiano Ronaldo wouldn't be the competitor he is without setbacks. Made for those obsessed with the game",
     images: [
@@ -45,7 +48,8 @@ const productData = [
     id: 4,
     brand: "Jordan",
     name: "JORDAN-SOCKS",
-    price: "$12.99",
+    categories: ["Men"],
+    price: 12.99,
     description:
       "Your go-to, everyday, soft and reliable socks. Sweat-wicking technology keeps your feet cool and dry while a snug arch band feels supportive.",
     images: [
@@ -58,7 +62,8 @@ const productData = [
     id: 5,
     brand: "Jordan",
     name: "Brooklyn Nets Essential",
-    price: "$99.99",
+    categories: ["Men"],
+    price: 99.99,
     description:
       "The Brooklyn Nets and the Jumpman? What more could you ask for? Show your love for your squad in this relaxed fit, all-cotton Brooklyn Nets long-sleeve tee.",
     images: [
@@ -66,18 +71,22 @@ const productData = [
       "/public/images/nba-long-sleeve-2.png",
     ],
   },
-    // {
-    //   id: 6,
-    //   brand: "Nike",
-    //   name: "Team 31",
-    //   price: "$77.99",
-    //   description:
-    //     "Pay tribute to Team 31—aka the NBA—in this Nike Dri-FIT NBA T-Shirt. It's a lightweight, softly knit tee with sweat-wicking technology.",
-    //   images: [
-    //     "/public/images/nba-shirt.jpeg",
-    //     "/public/images/nba-shirt-2.jpeg",
-    //   ],
-    // },
+  {
+    id: 6,
+    brand: "Nike",
+    name: "NIKE AIR MAX DN",
+    categories: ["Women", "Shoes"],
+    price: 159.99,
+    description:
+      "The Air Max Dn features our Dynamic Air unit system of dual-pressure tubes, creating a reactive sensation with every step. This results in a futuristic design that's comfortable enough to wear from day to night. Go ahead—Feel the Unreal.",
+    images: [
+      "/public/images/air-max-dn-shoes-women.png",
+      "/public/images/air-max-dn-shoes-women-1.png",
+      "/public/images/air-max-dn-shoes-women-2.png",
+      "/public/images/air-max-dn-shoes-women-3.jpeg",
+      "/public/images/air-max-dn-shoes-women-4.png",
+    ],
+  },
   //   {
   //     id: 7,
   //     brand: "Nike",

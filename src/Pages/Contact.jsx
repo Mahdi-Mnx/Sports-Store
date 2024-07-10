@@ -6,8 +6,8 @@ import { IoPaperPlane, IoPaperPlaneOutline } from "react-icons/io5";
 const Contact = () => {
   return (
     <>
-      <motion.section className="pt-20 pb-6 container max-w-screen-2xl flex">
-        <div className="h-[630px] w-1/2  border-l-0 border-b-2 border-gray-200 flex flex-col ml-10 pt-10 items-start">
+      <motion.section className="pt-20 pb-6 container max-w-screen-2xl flex px-10">
+        <div className="h-[630px] w-1/2  border-l-0 border-r-2 border-b-2 border-gray-200 flex flex-col pt-10 items-start">
           <h1 className="text-[40px] text-dark font-bold">Contact Us</h1>
           <p className="mt-2 text-darkGray">
             Any question? We Would be <br /> happy to help you!
@@ -24,7 +24,6 @@ const Contact = () => {
             <MapPinIcon />
             <span className="font-bold text-[16px]">Hodon Bar-Ubax</span>
           </button>
-
           <div className="flex gap-5 absolute bottom-28">
             <span className="w-8 h-8 rounded-full bg-dark text-white text-[14px] flex items-center justify-center shadow-gray-900 shadow-2xl cursor-pointer">
               <FaFacebookF />
@@ -37,7 +36,8 @@ const Contact = () => {
             </span>
           </div>
         </div>
-        <div className="w-1/2 border-r-0 border-l-2  border-b-2 border-gray-200 mr-10 pt-11 pl-12 flex flex-col items-start">
+
+        <div className="w-1/2 border-r-0 border-b-2 border-gray-200 pt-11 pl-12 flex flex-col items-start">
           <div className="w-full flex justify-between font-bold text-[19px] text-dark  ">
             <label htmlFor="First-name">First Name:</label>
             <label htmlFor="First-name" className="mr-[140px]">

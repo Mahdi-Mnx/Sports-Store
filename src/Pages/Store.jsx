@@ -7,10 +7,12 @@ import productType from "../Data/productType";
 import { Size } from "../Data/productSize";
 
 const Store = () => {
+  const maxPrice = Math.max(...productData.map((product) => product.price));
   const [rowsToShow, setRowsToShow] = useState(3); // Start by showing 3 columns
   const [open, setOpen] = useState(false);
   const [openSize, setSizeOpen] = useState(false);
-  const [priceRange, setPriceRange] = useState([0, 35]);
+  const [priceRange, setPriceRange] = useState([0, 500]);
+  const [selectedCategory, setSelectedCategory] = useState("All");
   const itemsPerRow = 1; // Number of items per row
   const totalItemsToShow = rowsToShow * itemsPerRow; // Total items to show based on rows
 
@@ -27,12 +29,23 @@ const Store = () => {
   };
 
   const handlePriceChange = (event) => {
-    setPriceRange([0, event.target.value]); // Set the price range
+    setPriceRange([0, parseFloat(event.target.value)]); // Set the price range
   };
 
-  return (
-    <div className=" container max-w-screen-xl pb-4 py-24 items-center">
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
+  };
 
+  const filteredProducts = productData.filter(
+    (product) =>
+      (selectedCategory === "All" ||
+        product.categories.includes(selectedCategory)) &&
+      product.price >= priceRange[0] &&
+      product.price <= priceRange[1]
+  );
+
+  return (
+    <div className="container max-w-screen-xl pb-4 py-24 items-center">
       <div className="flex justify-around gap-5 px-6">
         <div className="w-[20%] mt-4">
           <div className="bg-primary/20 h-auto rounded-lg p-2">
@@ -41,21 +54,26 @@ const Store = () => {
               <h3 className="text-xl text-black font-bold">Category</h3>
               <div className="p-4 bg-white rounded-md my-2">
                 <ul className="gap-4">
-                  <li className="text-lg font-medium transition-colors text-gray-500 hover:text-black cursor-pointer">
-                    Men
-                  </li>
-                  <li className="text-lg font-medium transition-colors text-gray-500 hover:text-black cursor-pointer">
-                    Women
-                  </li>
-                  <li className="text-lg font-medium transition-colors text-gray-500 hover:text-black cursor-pointer">
-                    Shoes
-                  </li>
-                  <li className="text-lg font-medium transition-colors text-gray-500 hover:text-black cursor-pointer">
-                    T-Shirt Sport
-                  </li>
-                  <li className="text-lg font-medium transition-colors text-gray-500 hover:text-black cursor-pointer">
-                    Equipment
-                  </li>
+                  {[
+                    "All",
+                    "Men",
+                    "Women",
+                    "Shoes",
+                    "T-Shirt Sport",
+                    "Equipment",
+                  ].map((category) => (
+                    <li
+                      key={category}
+                      className={`text-lg font-medium transition-colors cursor-pointer ${
+                        selectedCategory === category
+                          ? "text-black font-bold"
+                          : "text-gray-500 hover:text-black"
+                      }`}
+                      onClick={() => handleCategoryClick(category)}
+                    >
+                      {category}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -189,7 +207,7 @@ const Store = () => {
                   type="range"
                   id="priceRange"
                   min="0"
-                  max="200"
+                  max="500"
                   value={priceRange[1]}
                   onChange={handlePriceChange}
                   className="w-full mt-2"
@@ -227,7 +245,7 @@ const Store = () => {
           >
             <AnimatePresence>
               <div className="grid grid-cols-3 gap-4">
-                {productData.slice(0, totalItemsToShow).map((item) => (
+                {filteredProducts.slice(0, totalItemsToShow).map((item) => (
                   <motion.div
                     key={item.id}
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -255,7 +273,7 @@ const Store = () => {
                             </p>
                           </div>
                           <p className="text-[14px] font-bold pr-1">
-                            {item.price}
+                            ${item.price.toFixed(2)}
                           </p>
                         </div>
                         <div className="flex items-start pt-5 pb-1">
@@ -270,7 +288,7 @@ const Store = () => {
                 ))}
               </div>
             </AnimatePresence>
-            {totalItemsToShow < productData.length && (
+            {totalItemsToShow < filteredProducts.length && (
               <div className="flex justify-center mt-4">
                 <button
                   onClick={handleLoadMore}
