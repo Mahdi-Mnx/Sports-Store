@@ -11,6 +11,7 @@ const Store = () => {
   const [open, setOpen] = useState(false);
   const [openSize, setSizeOpen] = useState(false);
   const [priceRange, setPriceRange] = useState([0, 35]);
+  const [selectedCategory, setSelectedCategory] = useState("All");
   const itemsPerRow = 1; // Number of items per row
   const totalItemsToShow = rowsToShow * itemsPerRow; // Total items to show based on rows
 
@@ -30,9 +31,19 @@ const Store = () => {
     setPriceRange([0, event.target.value]); // Set the price range
   };
 
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
+  };
+
+  const filteredProducts =
+    selectedCategory === "All"
+      ? productData
+      : productData.filter((product) =>
+          product.categories.includes(selectedCategory)
+        );
+
   return (
     <div className=" container max-w-screen-xl pb-4 py-24 items-center">
-
       <div className="flex justify-around gap-5 px-6">
         <div className="w-[20%] mt-4">
           <div className="bg-primary/20 h-auto rounded-lg p-2">
@@ -41,19 +52,40 @@ const Store = () => {
               <h3 className="text-xl text-black font-bold">Category</h3>
               <div className="p-4 bg-white rounded-md my-2">
                 <ul className="gap-4">
-                  <li className="text-lg font-medium transition-colors text-gray-500 hover:text-black cursor-pointer">
+                  <li
+                    className="text-lg font-medium transition-colors text-gray-500 hover:text-black cursor-pointer"
+                    onClick={() => handleCategoryClick("All")}
+                  >
+                    All
+                  </li>
+                  <li
+                    className="text-lg font-medium transition-colors text-gray-500 hover:text-black cursor-pointer"
+                    onClick={() => handleCategoryClick("Men")}
+                  >
                     Men
                   </li>
-                  <li className="text-lg font-medium transition-colors text-gray-500 hover:text-black cursor-pointer">
+                  <li
+                    className="text-lg font-medium transition-colors text-gray-500 hover:text-black cursor-pointer"
+                    onClick={() => handleCategoryClick("Women")}
+                  >
                     Women
                   </li>
-                  <li className="text-lg font-medium transition-colors text-gray-500 hover:text-black cursor-pointer">
+                  <li
+                    className="text-lg font-medium transition-colors text-gray-500 hover:text-black cursor-pointer"
+                    onClick={() => handleCategoryClick("Shoes")}
+                  >
                     Shoes
                   </li>
-                  <li className="text-lg font-medium transition-colors text-gray-500 hover:text-black cursor-pointer">
+                  <li
+                    className="text-lg font-medium transition-colors text-gray-500 hover:text-black cursor-pointer"
+                    onClick={() => handleCategoryClick("T-Shirt Sport")}
+                  >
                     T-Shirt Sport
                   </li>
-                  <li className="text-lg font-medium transition-colors text-gray-500 hover:text-black cursor-pointer">
+                  <li
+                    className="text-lg font-medium transition-colors text-gray-500 hover:text-black cursor-pointer"
+                    onClick={() => handleCategoryClick("Equipment")}
+                  >
                     Equipment
                   </li>
                 </ul>
@@ -227,7 +259,7 @@ const Store = () => {
           >
             <AnimatePresence>
               <div className="grid grid-cols-3 gap-4">
-                {productData.slice(0, totalItemsToShow).map((item) => (
+                {filteredProducts.slice(0, totalItemsToShow).map((item) => (
                   <motion.div
                     key={item.id}
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -270,7 +302,7 @@ const Store = () => {
                 ))}
               </div>
             </AnimatePresence>
-            {totalItemsToShow < productData.length && (
+            {totalItemsToShow < filteredProducts.length && (
               <div className="flex justify-center mt-4">
                 <button
                   onClick={handleLoadMore}
