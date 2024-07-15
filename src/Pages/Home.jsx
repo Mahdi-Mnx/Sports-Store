@@ -7,13 +7,14 @@ import productData from "../Data/Data";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useCart } from "../Components/CartContext";
+import toast, { Toaster } from "react-hot-toast";
 
 const Home = () => {
   const [rowsToShow, setRowsToShow] = useState(3); // Start by showing 3 column
   const itemsPerRow = 2; // Number of rows
   const totalItemsToShow = rowsToShow * itemsPerRow; // Total items to show based on rows
-  const { dispatch } = useCart();
-  const [addedProductId, setAddedProductId] = useState(null); // To store the id of the added product
+  const { cart, dispatch } = useCart();
+  
 
   const handleLoadMore = () => {
     setRowsToShow(rowsToShow + 2); // Load 3 more rows when clicked
@@ -30,13 +31,16 @@ const Home = () => {
   };
 
   const addToCart = (item) => {
-    dispatch({ type: "ADD_TO_CART", payload: item });
-    setAddedProductId(item.id); // Set the added product id to show the message
+    const existingItem = cart.find((cartItem) => cartItem.id === item.id);
 
-    // Remove the message after 2 seconds
-    setTimeout(() => {
-      setAddedProductId(null);
-    }, 900);
+    if (existingItem) {
+      toast("Product already in cart",{
+        icon:"🚫"
+      });
+      return;
+    }
+    dispatch({ type: "ADD_TO_CART", payload: item });
+    toast.success("added curt successfuly.")
   };
 
   return (
@@ -208,20 +212,6 @@ const Home = () => {
                     >
                       Add to cart
                     </button>
-                    <AnimatePresence>
-                      {addedProductId === item.id && (
-                        <motion.span
-                          className="ml-[10px] text-secondery font-bold mt-[5px]"
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          exit={{ opacity: 0, x: -10 }}
-                          transition={{ duration: 0.25 }}
-                        >
-                          Added to cart!
-                        </motion.span>
-                      )}
-                    </AnimatePresence>
-                    <p id={`added-${item.id}`} className="mt-2"></p>
                   </div>
                 </div>
               </motion.div>
@@ -341,17 +331,10 @@ const Home = () => {
           />
         </div>
       </motion.section>
-
-      <motion.section
-        className="container max-w-screen-2xl py-4 px-6 flex gap-5"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-      >
-        <div className="w-1/2 bg-grayishBlue rounded-xl h-[360px]"></div>
-        <div className="w-1/2 bg-grayishBlue rounded-xl"></div>
-      </motion.section>
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+      />
     </>
   );
 };
