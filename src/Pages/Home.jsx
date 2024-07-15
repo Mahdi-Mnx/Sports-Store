@@ -9,16 +9,8 @@ import { Link } from "react-router-dom";
 import { useCart } from "../Components/CartContext";
 
 const Home = () => {
-  const [rowsToShow, setRowsToShow] = useState(3); // Start by showing 3 column
-  const itemsPerRow = 2; // Number of rows
-  const totalItemsToShow = rowsToShow * itemsPerRow; // Total items to show based on rows
   const { dispatch } = useCart();
   const [addedProductId, setAddedProductId] = useState(null); // To store the id of the added product
-
-  const handleLoadMore = () => {
-    setRowsToShow(rowsToShow + 2); // Load 3 more rows when clicked
-  };
-
   const navigate = useNavigate();
 
   const handleClickStore = () => {
@@ -38,6 +30,9 @@ const Home = () => {
       setAddedProductId(null);
     }, 900);
   };
+
+  // Limit to show only 6 items
+  const itemsToShow = productData.slice(0, 6);
 
   return (
     <>
@@ -170,7 +165,7 @@ const Home = () => {
       >
         <AnimatePresence>
           <div className="grid grid-cols-3 gap-4 items-center">
-            {productData.slice(0, totalItemsToShow).map((item) => (
+            {itemsToShow.map((item) => (
               <motion.div
                 key={item.id}
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -195,7 +190,7 @@ const Home = () => {
                           {item.name}
                         </p>
                         <p className="text-[18px] text-darkGrayishBlue">
-                          High-Top Football Boot
+                          {item.type}
                         </p>
                       </div>
                       <p className="text-[20px]">${item.price}</p>
@@ -228,16 +223,6 @@ const Home = () => {
             ))}
           </div>
         </AnimatePresence>
-        {totalItemsToShow < productData.length && (
-          <div className="flex justify-center mt-4">
-            <button
-              onClick={handleLoadMore}
-              className="text-black hover:underline font-semibold mt-7"
-            >
-              Load More
-            </button>
-          </div>
-        )}
       </motion.section>
 
       <motion.section
@@ -302,7 +287,10 @@ const Home = () => {
                 src="/public/images/logo1.png"
                 alt=""
               />
-              <button className="bg-white hover:bg-white/90 rounded-md py-1 px-2 mt-2 text-sm">
+              <button
+                className="bg-white hover:bg-white/90 rounded-md py-1 px-2 mt-2 text-sm"
+                onClick={handleClickStore}
+              >
                 view more
               </button>
             </div>
@@ -340,17 +328,6 @@ const Home = () => {
             alt=""
           />
         </div>
-      </motion.section>
-
-      <motion.section
-        className="container max-w-screen-2xl py-4 px-6 flex gap-5"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-      >
-        <div className="w-1/2 bg-grayishBlue rounded-xl h-[360px]"></div>
-        <div className="w-1/2 bg-grayishBlue rounded-xl"></div>
       </motion.section>
     </>
   );

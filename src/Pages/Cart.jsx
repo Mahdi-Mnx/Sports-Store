@@ -57,7 +57,7 @@ const CartPage = () => {
     <div className="container mx-auto py-4 pt-20">
       <h1 className="text-2xl font-bold mb-4">Shopping Cart</h1>
       {cart.length === 0 ? (
-        <p>
+        <p className=" mb-[310px]">
           Your cart is empty. <Link to="/">Continue shopping</Link>.
         </p>
       ) : (

@@ -284,7 +284,7 @@ const Store = () => {
                               {item.name}
                             </p>
                             <p className="text-[12px] text-darkGrayishBlue">
-                              High-Top Football Boot
+                              {item.type}
                             </p>
                           </div>
                           <p className="text-[14px] font-bold pr-1">

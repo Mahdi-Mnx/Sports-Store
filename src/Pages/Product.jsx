@@ -1,4 +1,3 @@
-// Product Component
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
@@ -13,6 +12,7 @@ const Product = () => {
   const [imageIndex, setImageIndex] = useState(0);
   const [itemCount, setItemCount] = useState(1); // Start with 1 item
   const { dispatch } = useCart();
+  const [addedToCart, setAddedToCart] = useState(false);
 
   const handleMinus = () => {
     setItemCount((prevCount) => Math.max(prevCount - 1, 1)); // Ensure at least 1 item
@@ -28,7 +28,16 @@ const Product = () => {
         type: "ADD_TO_CART",
         payload: { ...product, quantity: itemCount },
       });
+      setAddedToCart(true);
+      setTimeout(() => {
+        setAddedToCart(false);
+      }, 1000);
     }
+  };
+
+  const getTotal = () => {
+    const total = product.price * itemCount;
+    return total.toFixed(2);
   };
 
   if (!product) {
@@ -48,8 +57,9 @@ const Product = () => {
       <motion.section
         className="container max-w-screen-xl h-auto py-4 px-6 pt-24"
         initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
+        exit={{ opacity: 0, y: -50 }}
         viewport={{ once: true }}
       >
         <div className="h-screen max-w-screen-xl flex justify-around items-center">
@@ -123,12 +133,30 @@ const Product = () => {
                     <FaPlus />
                   </button>
                 </div>
+                <div>
+                  {itemCount > 0 && (
+                    <p className="text-xl font-bold">Total: ${getTotal()}</p>
+                  )}
+                </div>
+              </div>
+              <div className="flex items-center mt-4">
                 <button
                   className="bg-primary text-white py-2 hover:bg-primary/90 w-72 rounded-lg"
                   onClick={handleAddToCart}
                 >
                   <FaBagShopping className="inline-block mr-2" /> Add to cart
                 </button>
+                {addedToCart && (
+                  <motion.p
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -10 }}
+                    transition={{ duration: 0.25 }}
+                    className="ml-4 text-secondery"
+                  >
+                    Added to cart!
+                  </motion.p>
+                )}
               </div>
             </div>
           </div>
