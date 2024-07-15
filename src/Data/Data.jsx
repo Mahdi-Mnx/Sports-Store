@@ -19,6 +19,7 @@ const productData = [
     brand: "Nike",
     name: "NIKE PREMIER",
     categories: ["Men", "Shoes"],
+    size: "xl",
     price: 139.99,
     description:
       "Step up your game with Nike Premier, known for its comfort and durability.",
@@ -48,7 +49,7 @@ const productData = [
     id: 4,
     brand: "Jordan",
     name: "JORDAN-SOCKS",
-    categories: ["Men"],
+    categories: ["Men", "Socks"],
     price: 12.99,
     description:
       "Your go-to, everyday, soft and reliable socks. Sweat-wicking technology keeps your feet cool and dry while a snug arch band feels supportive.",
@@ -62,7 +63,7 @@ const productData = [
     id: 5,
     brand: "Jordan",
     name: "Brooklyn Nets Essential",
-    categories: ["Men"],
+    categories: ["Men", "Shirts"],
     price: 99.99,
     description:
       "The Brooklyn Nets and the Jumpman? What more could you ask for? Show your love for your squad in this relaxed fit, all-cotton Brooklyn Nets long-sleeve tee.",

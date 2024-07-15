@@ -1,19 +1,19 @@
-// eslint-disable-next-line no-unused-vars
-import React from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CgArrowTopRight } from "react-icons/cg";
 import { BsStarFill } from "react-icons/bs";
 import { PiRepeat, PiVan, PiWallet } from "react-icons/pi";
 import productData from "../Data/Data";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useCart } from "../Components/CartContext";
 
-const home = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+const Home = () => {
   const [rowsToShow, setRowsToShow] = useState(3); // Start by showing 3 column
   const itemsPerRow = 2; // Number of rows
   const totalItemsToShow = rowsToShow * itemsPerRow; // Total items to show based on rows
+  const { dispatch } = useCart();
+  const [addedProductId, setAddedProductId] = useState(null); // To store the id of the added product
 
   const handleLoadMore = () => {
     setRowsToShow(rowsToShow + 2); // Load 3 more rows when clicked
@@ -29,6 +29,16 @@ const home = () => {
     navigate("/contact");
   };
 
+  const addToCart = (item) => {
+    dispatch({ type: "ADD_TO_CART", payload: item });
+    setAddedProductId(item.id); // Set the added product id to show the message
+
+    // Remove the message after 2 seconds
+    setTimeout(() => {
+      setAddedProductId(null);
+    }, 900);
+  };
+
   return (
     <>
       <motion.section
@@ -38,10 +48,11 @@ const home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="w-5/6 border  border-white rounded-xl background-sports h-[500px] bg-cover bg-center p-4 px-5 m-0 flex flex-col justify-between">
+        <div className="w-5/6 border border-white rounded-xl background-sports h-[500px] bg-cover bg-center p-4 px-5 m-0 flex flex-col justify-between">
           <div className="text-white">
-            <p className="text-[35px] font-bold">NASA-INSPIRED FOOTBALL </p>
-            <p className="text-[35px] font-bold">SHOES DESIGNED</p>
+            <p className="text-[35px] font-bold">
+              NASA-INSPIRED FOOTBALL SHOES DESIGNED
+            </p>
             <button className="bg-primary p-2 text-white rounded-xl px-6 font-bold mt-3 hover:bg-primary/90">
               SOON <CgArrowTopRight className=" inline-block text-2xl" />
             </button>
@@ -56,7 +67,7 @@ const home = () => {
             </p>
           </div>
         </div>
-        <div className="w-3/6  flex flex-col gap-4">
+        <div className="w-3/6 flex flex-col gap-4">
           <div className="background-div border border-white background-nike h-5/6 bg-cover bg-center rounded-xl p-6 flex flex-col justify-between items-start">
             <div className="text-white">
               <p className="text-3xl font-bold">Our New</p>
@@ -82,7 +93,7 @@ const home = () => {
                   alt=""
                   className="w-8 h-8 rounded-full object-contain relative"
                 />
-                <button className="w-8 h-8 rounded-full  border-white border-[1.5px] bg-primary  flex items-center justify-center text-[18px] text-black absolute top-0 left-6 ">
+                <button className="w-8 h-8 rounded-full border-white border-[1.5px] bg-primary flex items-center justify-center text-[18px] text-black absolute top-0 left-6">
                   <CgArrowTopRight className="" />
                 </button>
               </div>
@@ -127,7 +138,7 @@ const home = () => {
           </div>
 
           <div className="flex items-start gap-4">
-            <span className="flex justify-center items-center w-20 h-20 rounded-full bg-white text-black text-[48px] border  border-black">
+            <span className="flex justify-center items-center w-20 h-20 rounded-full bg-white text-black text-[48px] border border-black">
               <PiRepeat />
             </span>
             <div className="flex flex-col text-black mt-1">
@@ -189,13 +200,29 @@ const home = () => {
                       </div>
                       <p className="text-[20px]">${item.price}</p>
                     </div>
-                    <div className="flex items-start pt-5 pb-1">
-                      <button className="bg-primary text-white transition py-1 px-3.5 rounded-lg">
-                        Add to cart
-                      </button>
-                      <p id={`added-${item.id}`} className="mt-2"></p>
-                    </div>
                   </Link>
+                  <div className="flex items-start pt-5 pb-1">
+                    <button
+                      onClick={() => addToCart({ ...item, quantity: 1 })}
+                      className="bg-primary text-white transition py-1 px-3.5 rounded-lg"
+                    >
+                      Add to cart
+                    </button>
+                    <AnimatePresence>
+                      {addedProductId === item.id && (
+                        <motion.span
+                          className="ml-[10px] text-secondery font-bold mt-[5px]"
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          exit={{ opacity: 0, x: -10 }}
+                          transition={{ duration: 0.25 }}
+                        >
+                          Added to cart!
+                        </motion.span>
+                      )}
+                    </AnimatePresence>
+                    <p id={`added-${item.id}`} className="mt-2"></p>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -268,7 +295,7 @@ const home = () => {
               <CgArrowTopRight />
             </button>
           </div>
-          <div className="h-1/2  background-ronaldo-messi justify-between bg-cover bg-top border-2 border-gray-300 rounded-xl flex items-start py-2 px-4">
+          <div className="h-1/2 background-ronaldo-messi justify-between bg-cover bg-top border-2 border-gray-300 rounded-xl flex items-start py-2 px-4">
             <div>
               <img
                 className="w-16 h-10"
@@ -329,4 +356,4 @@ const home = () => {
   );
 };
 
-export default home;
+export default Home;
