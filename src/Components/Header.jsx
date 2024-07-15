@@ -27,9 +27,6 @@ const Header = () => {
 
   const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
 
-  console.log("Cart: ", cart);
-  console.log("Total Items: ", totalItems);
-
   return (
     <>
       <header>
@@ -87,20 +84,17 @@ const Header = () => {
             <div className="flex justify-between items-center gap-4 relative">
               <div className="relative flex">
                 <Link to="/cart" className="relative">
-                  <FaShoppingCart className="text-veryDarkBlue text-2xl cursor-pointer" />
+                  <ShoppingBag className="text-veryDarkBlue text-2xl cursor-pointer" />
                   {totalItems > 0 && (
                     <span className="absolute top-[-8px] right-[-8px] bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
                       {totalItems}
                     </span>
                   )}
                 </Link>
-                <Link to="/product-purchased" className="ml-4">
-                  <ShoppingBag className="text-veryDarkBlue cursor-pointer" />
-                </Link>
               </div>
               <div>
                 <img
-                  className="profile"
+                  className="w-8 h-8 rounded-full cursor-pointer"
                   src="/public/images/profile.jpg"
                   alt="Profile"
                 />
