@@ -29,7 +29,7 @@ GOG is an e-commerce platform built with React. It features a clean and responsi
 - Shopping cart with add, remove, increase, and decrease item quantity functionalities.
 - Checkout process with form validation.
 - Toast notifications for various actions (e.g., adding to cart, placing orders).
-- Responsive design for a seamless experience on all devices.
+- Responsive design for wep devices.
 - Persistent state using localStorage.
 
 ## Technologies Used
