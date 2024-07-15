@@ -49,8 +49,7 @@ Follow these steps to set up the project locally:
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/yourusername/gog-ecommerce.git
-    cd gog-ecommerce
+    git clone https://github.com/Mahdi-Mnx/Sports-Store.git
     ```
 
 2. **Install dependencies:**
