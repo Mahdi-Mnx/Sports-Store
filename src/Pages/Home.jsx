@@ -7,16 +7,16 @@ import productData from "../Data/Data";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useCart } from "../Components/CartContext";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 const Home = () => {
-  const [rowsToShow, setRowsToShow] = useState(3); // Start by showing 3 column
-  const itemsPerRow = 2; // Number of rows
+  const [rowsToShow, setRowsToShow] = useState(3); // Start by showing 3 rows
+  const itemsPerRow = 2; // Number of items per row
   const totalItemsToShow = rowsToShow * itemsPerRow; // Total items to show based on rows
   const { cart, dispatch } = useCart();
 
   const handleLoadMore = () => {
-    setRowsToShow(rowsToShow + 2); // Load 3 more rows when clicked
+    setRowsToShow(rowsToShow + 2); // Load 2 more rows when clicked
   };
 
   const navigate = useNavigate();
@@ -39,8 +39,10 @@ const Home = () => {
       return;
     }
     dispatch({ type: "ADD_TO_CART", payload: item });
-    toast.success("added curt successfuly.");
+    toast.success("Added to cart successfully.");
   };
+
+  const itemsToShow = productData.slice(0, totalItemsToShow); // Define itemsToShow
 
   return (
     <>
@@ -66,7 +68,7 @@ const Home = () => {
               To give you a futuristic football experience
             </p>
             <p className="text-sm text-gray-300">
-              For premium and stylish jurseys.
+              For premium and stylish jerseys.
             </p>
           </div>
         </div>
@@ -80,7 +82,7 @@ const Home = () => {
               <CgArrowTopRight />
             </button>
           </div>
-          <div className="border border-whit small-info bg-cover bg-center h-3/6 rounded-xl flex flex-col p-4">
+          <div className="border border-white small-info bg-cover bg-center h-3/6 rounded-xl flex flex-col p-4">
             <div className="flex justify-between text-white">
               <p className="text-lg">Rating</p>
               <div className="flex gap-2">
@@ -123,7 +125,7 @@ const Home = () => {
             <div className="flex flex-col text-black mt-1">
               <p className="font-bold text-[19px] mb-1">Worldwide Shipping</p>
               <p className="text-[14px] leading-4 ">
-                Experience global delivary <br /> right to your doorstep.
+                Experience global delivery <br /> right to your doorstep.
               </p>
             </div>
           </div>
@@ -217,6 +219,14 @@ const Home = () => {
             ))}
           </div>
         </AnimatePresence>
+        <div className="flex justify-center py-4">
+          <button
+            onClick={handleLoadMore}
+            className="bg-primary text-white font-bold hover:bg-primary/90 px-5 py-2 rounded-lg text-lg border border-white"
+          >
+            Load More
+          </button>
+        </div>
       </motion.section>
 
       <motion.section
@@ -307,7 +317,7 @@ const Home = () => {
             <p className="font-bold text-[40px]">REACH OUT TO US</p>
             <p className="text-[20px]">
               Need assistance or have questions? <br />
-              were just a message away!
+              we're just a message away!
             </p>
             <button
               className="bg-white text-dark hover:bg-white/80 py-2 px-6 rounded-xl font-bold mt-6 text-lg"
@@ -323,7 +333,6 @@ const Home = () => {
           />
         </div>
       </motion.section>
-      <Toaster position="top-center" reverseOrder={false} />
     </>
   );
 };

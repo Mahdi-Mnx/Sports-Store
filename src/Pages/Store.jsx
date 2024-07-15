@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import toast, { Toaster } from 'react-hot-toast';
 import productData from "../Data/Data";
 import { Link } from "react-router-dom";
 import { ChevronDown, ChevronUp } from "lucide-react";
@@ -8,12 +7,13 @@ import { Size } from "../Data/productSize";
 import { useCart } from "../Components/CartContext";
 
 const Store = () => {
-  const { cart, dispatch } = useCart();
+  const { dispatch } = useCart();
   const [open, setOpen] = useState(false);
   const [openSize, setSizeOpen] = useState(false);
   const [priceRange, setPriceRange] = useState([10, 500]);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedProductTypes, setSelectedProductTypes] = useState([]);
+  const [addedProductId, setAddedProductId] = useState(null);
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -54,17 +54,12 @@ const Store = () => {
   );
 
   const addToCart = (item) => {
-    const existingItem = cart.find((cartItem) => cartItem.id === item.id);
-
-    if (existingItem) {
-      toast("Product already in cart",{
-        icon:"🚫"
-      });
-      return;
-    }
-
     dispatch({ type: "ADD_TO_CART", payload: { ...item, quantity: 1 } });
-    toast.success("added curt successfuly.")
+    setAddedProductId(item.id);
+
+    setTimeout(() => {
+      setAddedProductId(null);
+    }, 900);
   };
 
   return (
@@ -304,6 +299,20 @@ const Store = () => {
                         >
                           Add to cart
                         </button>
+                        <AnimatePresence>
+                          {addedProductId === item.id && (
+                            <motion.span
+                              className="ml-[10px] text-secondery font-bold mt-[5px]"
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              exit={{ opacity: 0, x: -10 }}
+                              transition={{ duration: 0.25 }}
+                            >
+                              Added to cart!
+                            </motion.span>
+                          )}
+                        </AnimatePresence>
+                        <p id={`added-${item.id}`} className="mt-2"></p>
                       </div>
                     </div>
                   </motion.div>
@@ -313,10 +322,6 @@ const Store = () => {
           </motion.section>
         </div>
       </div>
-      <Toaster
-        position="top-center"
-        reverseOrder={false}
-      />
     </div>
   );
 };
