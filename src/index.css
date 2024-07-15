@@ -138,10 +138,13 @@ header {
   opacity: 0.5;
 }
 
-/* side bar store  */
+/* Custom toast styles */
+.custom-toast {
+  border: 1px solid #4CAF50;
+  padding: 16px;
+  color: #4CAF50;
+  font-size: 1rem;
+  border-radius: 8px;
+  background: #f0fdf4;
+}
 
-/*   
-  .custom-checkbox input {
-    width: 24px;
-    height: 24px;
-  } */

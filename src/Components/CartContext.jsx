@@ -1,49 +1,36 @@
 // CartContext.js
 import React, { createContext, useReducer, useContext, useEffect } from "react";
-
 const CartContext = createContext();
 
 const cartReducer = (state, action) => {
-  switch (action.type) {
-    case "ADD_TO_CART":
-      const existingItemIndex = state.findIndex(
-        (item) => item.id === action.payload.id
-      );
+  const { type, payload } = action;
+
+  const reducers = {
+    ADD_TO_CART: () => {
+      const existingItemIndex = state.findIndex((item) => item.id === payload.id);
       if (existingItemIndex > -1) {
-        const updatedCart = [...state];
-        updatedCart[existingItemIndex] = {
-          ...updatedCart[existingItemIndex],
-          quantity:
-            updatedCart[existingItemIndex].quantity +
-            (action.payload.quantity || 1),
-        };
-        return updatedCart;
-      } else {
-        return [
-          ...state,
-          { ...action.payload, quantity: action.payload.quantity || 1 },
-        ];
+        return state;
       }
-    case "REMOVE_FROM_CART":
-      return state.filter((item) => item.id !== action.payload);
-    case "CLEAR_CART":
-      return [];
-    case "INCREASE_QUANTITY":
-      return state.map((item) =>
-        item.id === action.payload
-          ? { ...item, quantity: item.quantity + 1 }
-          : item
-      );
-    case "DECREASE_QUANTITY":
-      return state.map((item) =>
-        item.id === action.payload && item.quantity > 1
+      return [...state, { ...payload, quantity: payload.quantity || 1 }];
+    },
+    REMOVE_FROM_CART: () => state.filter((item) => item.id !== payload),
+    CLEAR_CART: () => [],
+    INCREASE_QUANTITY: () =>
+      state.map((item) =>
+        item.id === payload ? { ...item, quantity: item.quantity + 1 } : item
+      ),
+    DECREASE_QUANTITY: () =>
+      state.map((item) =>
+        item.id === payload && item.quantity > 1
           ? { ...item, quantity: item.quantity - 1 }
           : item
-      );
-    default:
-      return state;
-  }
+      ),
+    DEFAULT: () => state,
+  };
+
+  return (reducers[type] || reducers.DEFAULT)();
 };
+
 
 export const CartProvider = ({ children }) => {
   const [cart, dispatch] = useReducer(cartReducer, [], () => {

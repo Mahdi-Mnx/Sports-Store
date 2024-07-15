@@ -5,17 +5,17 @@ import { FaPlus, FaMinus } from "react-icons/fa";
 import { FaBagShopping } from "react-icons/fa6";
 import productData from "../Data/Data";
 import { useCart } from "../Components/CartContext";
+import toast, { Toaster } from "react-hot-toast";
 
 const Product = () => {
   const { id } = useParams();
   const product = productData.find((p) => p.id === parseInt(id));
   const [imageIndex, setImageIndex] = useState(0);
-  const [itemCount, setItemCount] = useState(1); // Start with 1 item
-  const { dispatch } = useCart();
-  const [addedToCart, setAddedToCart] = useState(false);
+  const [itemCount, setItemCount] = useState(1);
+  const { cart, dispatch } = useCart();
 
   const handleMinus = () => {
-    setItemCount((prevCount) => Math.max(prevCount - 1, 1)); // Ensure at least 1 item
+    setItemCount((prevCount) => Math.max(prevCount - 1, 1));
   };
 
   const handleAdd = () => {
@@ -23,21 +23,21 @@ const Product = () => {
   };
 
   const handleAddToCart = () => {
+    const existingItem = cart.find((cartItem) => cartItem.id === product.id);
+
+    if (existingItem) {
+      toast("Product already in cart", {
+        icon: "🚫",
+      });
+      return;
+    }
     if (itemCount > 0) {
       dispatch({
         type: "ADD_TO_CART",
         payload: { ...product, quantity: itemCount },
       });
-      setAddedToCart(true);
-      setTimeout(() => {
-        setAddedToCart(false);
-      }, 1000);
+      toast.success("added curt successfuly.");
     }
-  };
-
-  const getTotal = () => {
-    const total = product.price * itemCount;
-    return total.toFixed(2);
   };
 
   if (!product) {
@@ -161,6 +161,7 @@ const Product = () => {
             </div>
           </div>
         </div>
+        <Toaster position="top-center" reverseOrder={false} />
       </motion.section>
     </>
   );

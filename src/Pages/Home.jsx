@@ -7,10 +7,18 @@ import productData from "../Data/Data";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useCart } from "../Components/CartContext";
+import toast, { Toaster } from "react-hot-toast";
 
 const Home = () => {
-  const { dispatch } = useCart();
-  const [addedProductId, setAddedProductId] = useState(null); // To store the id of the added product
+  const [rowsToShow, setRowsToShow] = useState(3); // Start by showing 3 column
+  const itemsPerRow = 2; // Number of rows
+  const totalItemsToShow = rowsToShow * itemsPerRow; // Total items to show based on rows
+  const { cart, dispatch } = useCart();
+
+  const handleLoadMore = () => {
+    setRowsToShow(rowsToShow + 2); // Load 3 more rows when clicked
+  };
+
   const navigate = useNavigate();
 
   const handleClickStore = () => {
@@ -22,17 +30,17 @@ const Home = () => {
   };
 
   const addToCart = (item) => {
+    const existingItem = cart.find((cartItem) => cartItem.id === item.id);
+
+    if (existingItem) {
+      toast("Product already in cart", {
+        icon: "🚫",
+      });
+      return;
+    }
     dispatch({ type: "ADD_TO_CART", payload: item });
-    setAddedProductId(item.id); // Set the added product id to show the message
-
-    // Remove the message after 2 seconds
-    setTimeout(() => {
-      setAddedProductId(null);
-    }, 900);
+    toast.success("added curt successfuly.");
   };
-
-  // Limit to show only 6 items
-  const itemsToShow = productData.slice(0, 6);
 
   return (
     <>
@@ -203,20 +211,6 @@ const Home = () => {
                     >
                       Add to cart
                     </button>
-                    <AnimatePresence>
-                      {addedProductId === item.id && (
-                        <motion.span
-                          className="ml-[10px] text-secondery font-bold mt-[5px]"
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          exit={{ opacity: 0, x: -10 }}
-                          transition={{ duration: 0.25 }}
-                        >
-                          Added to cart!
-                        </motion.span>
-                      )}
-                    </AnimatePresence>
-                    <p id={`added-${item.id}`} className="mt-2"></p>
                   </div>
                 </div>
               </motion.div>
@@ -329,6 +323,7 @@ const Home = () => {
           />
         </div>
       </motion.section>
+      <Toaster position="top-center" reverseOrder={false} />
     </>
   );
 };
