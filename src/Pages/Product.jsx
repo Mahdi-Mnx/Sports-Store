@@ -1,4 +1,3 @@
-// Product Component
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
@@ -12,11 +11,11 @@ const Product = () => {
   const { id } = useParams();
   const product = productData.find((p) => p.id === parseInt(id));
   const [imageIndex, setImageIndex] = useState(0);
-  const [itemCount, setItemCount] = useState(1); 
+  const [itemCount, setItemCount] = useState(1);
   const { cart, dispatch } = useCart();
 
   const handleMinus = () => {
-    setItemCount((prevCount) => Math.max(prevCount - 1, 1)); 
+    setItemCount((prevCount) => Math.max(prevCount - 1, 1));
   };
 
   const handleAdd = () => {
@@ -27,8 +26,8 @@ const Product = () => {
     const existingItem = cart.find((cartItem) => cartItem.id === product.id);
 
     if (existingItem) {
-      toast("Product already in cart",{
-        icon:"🚫"
+      toast("Product already in cart", {
+        icon: "🚫",
       });
       return;
     }
@@ -37,9 +36,8 @@ const Product = () => {
         type: "ADD_TO_CART",
         payload: { ...product, quantity: itemCount },
       });
-      toast.success("added curt successfuly.")
+      toast.success("added curt successfuly.");
     }
-   
   };
 
   if (!product) {
@@ -59,8 +57,9 @@ const Product = () => {
       <motion.section
         className="container max-w-screen-xl h-auto py-4 px-6 pt-24"
         initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
+        exit={{ opacity: 0, y: -50 }}
         viewport={{ once: true }}
       >
         <div className="h-screen max-w-screen-xl flex justify-around items-center">
@@ -134,20 +133,35 @@ const Product = () => {
                     <FaPlus />
                   </button>
                 </div>
+                <div>
+                  {itemCount > 0 && (
+                    <p className="text-xl font-bold">Total: ${getTotal()}</p>
+                  )}
+                </div>
+              </div>
+              <div className="flex items-center mt-4">
                 <button
                   className="bg-primary text-white py-2 hover:bg-primary/90 w-72 rounded-lg"
                   onClick={handleAddToCart}
                 >
                   <FaBagShopping className="inline-block mr-2" /> Add to cart
                 </button>
+                {addedToCart && (
+                  <motion.p
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -10 }}
+                    transition={{ duration: 0.25 }}
+                    className="ml-4 text-secondery"
+                  >
+                    Added to cart!
+                  </motion.p>
+                )}
               </div>
             </div>
           </div>
         </div>
-        <Toaster
-        position="top-center"
-        reverseOrder={false}
-      />
+        <Toaster position="top-center" reverseOrder={false} />
       </motion.section>
     </>
   );

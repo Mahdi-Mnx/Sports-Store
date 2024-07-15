@@ -5,22 +5,21 @@ import { FaPlus, FaMinus } from "react-icons/fa";
 import { Delete } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 
-
 const CartPage = () => {
   const { cart, dispatch } = useCart();
   const navigate = useNavigate();
 
   const removeFromCart = (id) => {
     dispatch({ type: "REMOVE_FROM_CART", payload: id });
-    toast('Deleted product done!', {
-      icon: '👍',
+    toast("Deleted product done!", {
+      icon: "👍",
     });
   };
 
   const clearCart = () => {
     dispatch({ type: "CLEAR_CART" });
-    toast('Empty Now!', {
-      icon: '🎈',
+    toast("Empty Now!", {
+      icon: "🎈",
     });
   };
 
@@ -44,9 +43,13 @@ const CartPage = () => {
       {cart.length === 0 ? (
         <p className="text-center">
           Your cart is empty.{" "}
-          <Link className="bg-black py-0.5 px-3 text-white rounded-md" to="/store">
+          <Link
+            className="bg-black py-0.5 px-3 text-white rounded-md"
+            to="/store"
+          >
             Continue shopping
-          </Link>.
+          </Link>
+          .
         </p>
       ) : (
         <div>
@@ -124,10 +127,7 @@ const CartPage = () => {
           </div>
         </div>
       )}
-      <Toaster
-        position="top-center"
-        reverseOrder={false}
-      />
+      <Toaster position="top-center" reverseOrder={false} />
     </div>
   );
 };

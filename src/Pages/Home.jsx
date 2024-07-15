@@ -14,7 +14,6 @@ const Home = () => {
   const itemsPerRow = 2; // Number of rows
   const totalItemsToShow = rowsToShow * itemsPerRow; // Total items to show based on rows
   const { cart, dispatch } = useCart();
-  
 
   const handleLoadMore = () => {
     setRowsToShow(rowsToShow + 2); // Load 3 more rows when clicked
@@ -34,13 +33,13 @@ const Home = () => {
     const existingItem = cart.find((cartItem) => cartItem.id === item.id);
 
     if (existingItem) {
-      toast("Product already in cart",{
-        icon:"🚫"
+      toast("Product already in cart", {
+        icon: "🚫",
       });
       return;
     }
     dispatch({ type: "ADD_TO_CART", payload: item });
-    toast.success("added curt successfuly.")
+    toast.success("added curt successfuly.");
   };
 
   return (
@@ -174,7 +173,7 @@ const Home = () => {
       >
         <AnimatePresence>
           <div className="grid grid-cols-3 gap-4 items-center">
-            {productData.slice(0, totalItemsToShow).map((item) => (
+            {itemsToShow.map((item) => (
               <motion.div
                 key={item.id}
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -199,7 +198,7 @@ const Home = () => {
                           {item.name}
                         </p>
                         <p className="text-[18px] text-darkGrayishBlue">
-                          High-Top Football Boot
+                          {item.type}
                         </p>
                       </div>
                       <p className="text-[20px]">${item.price}</p>
@@ -218,16 +217,6 @@ const Home = () => {
             ))}
           </div>
         </AnimatePresence>
-        {totalItemsToShow < productData.length && (
-          <div className="flex justify-center mt-4">
-            <button
-              onClick={handleLoadMore}
-              className="text-black hover:underline font-semibold mt-7"
-            >
-              Load More
-            </button>
-          </div>
-        )}
       </motion.section>
 
       <motion.section
@@ -292,7 +281,10 @@ const Home = () => {
                 src="/public/images/logo1.png"
                 alt=""
               />
-              <button className="bg-white hover:bg-white/90 rounded-md py-1 px-2 mt-2 text-sm">
+              <button
+                className="bg-white hover:bg-white/90 rounded-md py-1 px-2 mt-2 text-sm"
+                onClick={handleClickStore}
+              >
                 view more
               </button>
             </div>
@@ -331,10 +323,7 @@ const Home = () => {
           />
         </div>
       </motion.section>
-      <Toaster
-        position="top-center"
-        reverseOrder={false}
-      />
+      <Toaster position="top-center" reverseOrder={false} />
     </>
   );
 };
