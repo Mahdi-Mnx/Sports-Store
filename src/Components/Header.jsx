@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { ShoppingBag } from "lucide-react";
+import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useCart } from "../Components/CartContext"; // Make sure the path is correct
 
 const Header = () => {
+  const { cart } = useCart();
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -21,6 +24,11 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [lastScrollY]);
+
+  const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+
+  console.log("Cart: ", cart);
+  console.log("Total Items: ", totalItems);
 
   return (
     <>
@@ -58,7 +66,6 @@ const Header = () => {
                     Store
                   </Link>
                 </li>
-
                 <li>
                   <Link
                     to="/about"
@@ -78,9 +85,19 @@ const Header = () => {
               </ul>
             </div>
             <div className="flex justify-between items-center gap-4 relative">
-              <Link to="/cart">
-                <ShoppingBag className="text-veryDarkBlue cursor-pointer" />
-              </Link>
+              <div className="relative flex">
+                <Link to="/cart" className="relative">
+                  <FaShoppingCart className="text-veryDarkBlue text-2xl cursor-pointer" />
+                  {totalItems > 0 && (
+                    <span className="absolute top-[-8px] right-[-8px] bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
+                      {totalItems}
+                    </span>
+                  )}
+                </Link>
+                <Link to="/product-purchased" className="ml-4">
+                  <ShoppingBag className="text-veryDarkBlue cursor-pointer" />
+                </Link>
+              </div>
               <div>
                 <img
                   className="profile"

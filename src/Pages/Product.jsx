@@ -5,24 +5,35 @@ import { useParams } from "react-router-dom";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { FaBagShopping } from "react-icons/fa6";
 import productData from "../Data/Data";
+import { useCart } from "../Components/CartContext";
 
 const Product = () => {
   const { id } = useParams();
   const product = productData.find((p) => p.id === parseInt(id));
   const [imageIndex, setImageIndex] = useState(0);
-  const [itemCount, setItemCount] = useState(0);
+  const [itemCount, setItemCount] = useState(1); // Start with 1 item
+  const { dispatch } = useCart();
 
   const handleMinus = () => {
-    setItemCount((prevCount) => Math.max(prevCount - 1, 0));
+    setItemCount((prevCount) => Math.max(prevCount - 1, 1)); // Ensure at least 1 item
   };
 
   const handleAdd = () => {
     setItemCount((prevCount) => prevCount + 1);
   };
 
+  const handleAddToCart = () => {
+    if (itemCount > 0) {
+      dispatch({
+        type: "ADD_TO_CART",
+        payload: { ...product, quantity: itemCount },
+      });
+    }
+  };
+
   if (!product) {
     return (
-      <div className=" h-screen flex justify-center items-center text-white font-bold">
+      <div className="h-screen flex justify-center items-center text-white font-bold">
         <img
           className="w-[300px] h-[300px] object-cover rounded-3xl"
           src="/public/images/not.gif"
@@ -112,7 +123,10 @@ const Product = () => {
                     <FaPlus />
                   </button>
                 </div>
-                <button className="bg-primary text-white py-2 hover:bg-primary/90 w-72 rounded-lg">
+                <button
+                  className="bg-primary text-white py-2 hover:bg-primary/90 w-72 rounded-lg"
+                  onClick={handleAddToCart}
+                >
                   <FaBagShopping className="inline-block mr-2" /> Add to cart
                 </button>
               </div>

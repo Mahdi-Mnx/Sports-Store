@@ -3,22 +3,17 @@ import { motion, AnimatePresence } from "framer-motion";
 import productData from "../Data/Data";
 import { Link } from "react-router-dom";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import productType from "../Data/productType";
 import { Size } from "../Data/productSize";
+import { useCart } from "../Components/CartContext";
 
 const Store = () => {
-  const maxPrice = Math.max(...productData.map((product) => product.price));
-  const [rowsToShow, setRowsToShow] = useState(3); // Start by showing 3 columns
+  const { dispatch } = useCart();
   const [open, setOpen] = useState(false);
   const [openSize, setSizeOpen] = useState(false);
-  const [priceRange, setPriceRange] = useState([0, 500]);
+  const [priceRange, setPriceRange] = useState([10, 500]);
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const itemsPerRow = 1; // Number of items per row
-  const totalItemsToShow = rowsToShow * itemsPerRow; // Total items to show based on rows
-
-  const handleLoadMore = () => {
-    setRowsToShow(rowsToShow + 3); // Load 3 more rows when clicked
-  };
+  const [selectedProductTypes, setSelectedProductTypes] = useState([]);
+  const [addedProductId, setAddedProductId] = useState(null);
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -29,20 +24,43 @@ const Store = () => {
   };
 
   const handlePriceChange = (event) => {
-    setPriceRange([0, parseFloat(event.target.value)]); // Set the price range
+    setPriceRange([10, parseFloat(event.target.value)]);
   };
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
   };
 
+  const handleProductTypeChange = (type) => {
+    setSelectedProductTypes((prevSelected) =>
+      prevSelected.includes(type)
+        ? prevSelected.filter((t) => t !== type)
+        : [...prevSelected, type]
+    );
+  };
+
+  const uniqueProductTypes = [
+    ...new Set(productData.flatMap((product) => product.categories)),
+  ];
+
   const filteredProducts = productData.filter(
     (product) =>
       (selectedCategory === "All" ||
         product.categories.includes(selectedCategory)) &&
       product.price >= priceRange[0] &&
-      product.price <= priceRange[1]
+      product.price <= priceRange[1] &&
+      (selectedProductTypes.length === 0 ||
+        selectedProductTypes.some((type) => product.categories.includes(type)))
   );
+
+  const addToCart = (item) => {
+    dispatch({ type: "ADD_TO_CART", payload: { ...item, quantity: 1 } });
+    setAddedProductId(item.id);
+
+    setTimeout(() => {
+      setAddedProductId(null);
+    }, 900);
+  };
 
   return (
     <div className="container max-w-screen-xl pb-4 py-24 items-center">
@@ -54,26 +72,21 @@ const Store = () => {
               <h3 className="text-xl text-black font-bold">Category</h3>
               <div className="p-4 bg-white rounded-md my-2">
                 <ul className="gap-4">
-                  {[
-                    "All",
-                    "Men",
-                    "Women",
-                    "Shoes",
-                    "T-Shirt Sport",
-                    "Equipment",
-                  ].map((category) => (
-                    <li
-                      key={category}
-                      className={`text-lg font-medium transition-colors cursor-pointer ${
-                        selectedCategory === category
-                          ? "text-black font-bold"
-                          : "text-gray-500 hover:text-black"
-                      }`}
-                      onClick={() => handleCategoryClick(category)}
-                    >
-                      {category}
-                    </li>
-                  ))}
+                  {["All", "Men", "Women", "Shirts", "Shoes", "Socks"].map(
+                    (category) => (
+                      <li
+                        key={category}
+                        className={`text-lg font-medium transition-colors cursor-pointer ${
+                          selectedCategory === category
+                            ? "text-black font-bold"
+                            : "text-gray-500 hover:text-black"
+                        }`}
+                        onClick={() => handleCategoryClick(category)}
+                      >
+                        {category}
+                      </li>
+                    )
+                  )}
                 </ul>
               </div>
             </div>
@@ -169,19 +182,21 @@ const Store = () => {
                     className="bg-white py-1 px-3 rounded-b-md shadow"
                   >
                     <ul>
-                      {productType.map((item, key) => (
+                      {uniqueProductTypes.map((item, key) => (
                         <li key={key}>
                           <span className="items-center">
                             <input
                               className="w-[15px] h-[15px]"
                               type="checkbox"
-                              id={item.id}
+                              id={item}
+                              checked={selectedProductTypes.includes(item)}
+                              onChange={() => handleProductTypeChange(item)}
                             />
                             <label
-                              htmlFor={item.id}
+                              htmlFor={item}
                               className="text-sm cursor-pointer ml-2 inline-block"
                             >
-                              {item.type}
+                              {item}
                             </label>
                           </span>
                         </li>
@@ -206,7 +221,7 @@ const Store = () => {
                 <input
                   type="range"
                   id="priceRange"
-                  min="0"
+                  min="10"
                   max="500"
                   value={priceRange[1]}
                   onChange={handlePriceChange}
@@ -234,7 +249,7 @@ const Store = () => {
           </div>
         </div>
 
-        {/* products side  */}
+        {/* products side */}
         <div className="w-[85%] p-4 flex justify-around">
           <motion.section
             className="px-6"
@@ -245,7 +260,7 @@ const Store = () => {
           >
             <AnimatePresence>
               <div className="grid grid-cols-3 gap-4">
-                {filteredProducts.slice(0, totalItemsToShow).map((item) => (
+                {filteredProducts.map((item) => (
                   <motion.div
                     key={item.id}
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -276,28 +291,34 @@ const Store = () => {
                             ${item.price.toFixed(2)}
                           </p>
                         </div>
-                        <div className="flex items-start pt-5 pb-1">
-                          <button className="bg-primary text-white transition py-1 px-3.5 rounded-lg">
-                            Add to cart
-                          </button>
-                          <p id={`added-${item.id}`} className="mt-2"></p>
-                        </div>
                       </Link>
+                      <div className="flex items-start pt-5 pb-1">
+                        <button
+                          className="bg-primary text-white transition py-1 px-3.5 rounded-lg"
+                          onClick={() => addToCart({ ...item, quantity: 1 })}
+                        >
+                          Add to cart
+                        </button>
+                        <AnimatePresence>
+                          {addedProductId === item.id && (
+                            <motion.span
+                              className="ml-[10px] text-secondery font-bold mt-[5px]"
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              exit={{ opacity: 0, x: -10 }}
+                              transition={{ duration: 0.25 }}
+                            >
+                              Added to cart!
+                            </motion.span>
+                          )}
+                        </AnimatePresence>
+                        <p id={`added-${item.id}`} className="mt-2"></p>
+                      </div>
                     </div>
                   </motion.div>
                 ))}
               </div>
             </AnimatePresence>
-            {totalItemsToShow < filteredProducts.length && (
-              <div className="flex justify-center mt-4">
-                <button
-                  onClick={handleLoadMore}
-                  className="text-red-500 py-2 hover:underline font-semibold mt-7"
-                >
-                  Load More
-                </button>
-              </div>
-            )}
           </motion.section>
         </div>
       </div>
