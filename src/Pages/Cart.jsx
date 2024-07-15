@@ -3,6 +3,8 @@ import { useCart } from "../Components/CartContext";
 import { Link, useNavigate } from "react-router-dom";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { Delete } from "lucide-react";
+import toast, { Toaster } from "react-hot-toast";
+
 
 const CartPage = () => {
   const { cart, dispatch } = useCart();
@@ -10,10 +12,16 @@ const CartPage = () => {
 
   const removeFromCart = (id) => {
     dispatch({ type: "REMOVE_FROM_CART", payload: id });
+    toast('Deleted product done!', {
+      icon: '👍',
+    });
   };
 
   const clearCart = () => {
     dispatch({ type: "CLEAR_CART" });
+    toast('Empty Now!', {
+      icon: '🎈',
+    });
   };
 
   const increaseQuantity = (id) => {
@@ -116,6 +124,10 @@ const CartPage = () => {
           </div>
         </div>
       )}
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+      />
     </div>
   );
 };

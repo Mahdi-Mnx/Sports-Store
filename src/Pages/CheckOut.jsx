@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useCart } from "../Components/CartContext";
 import { useNavigate } from "react-router-dom";
-import { FaPlus, FaMinus } from "react-icons/fa";
-import { Delete } from "lucide-react";
+import toast, { Toaster } from "react-hot-toast";
 
 const CheckoutPage = () => {
   const { cart, dispatch } = useCart();
@@ -23,26 +22,28 @@ const CheckoutPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    toast('Thanks Your Order ', {
+      icon: '🎉🎊',
+    });
     const purchasedData = { purchasedItems: cart, customerInfo: formData };
     // Save purchased items to localStorage
     localStorage.setItem("purchasedProducts", JSON.stringify(purchasedData));
-    // Navigate to the PurchasedProducts page
-    navigate("/product-purchased", { state: purchasedData });
+   
+    
     // Clear the cart
     dispatch({ type: "CLEAR_CART" });
-  };
-
-  const calculateTotalPrice = () => {
-    return cart
-      .reduce((total, item) => total + item.price * item.quantity, 0)
-      .toFixed(2);
+    
+    // Delay navigation to show the toast notification
+    setTimeout(() => {
+      navigate("/product-purchased", { state: purchasedData });
+    }, 2000);
+   
   };
 
   return (
     <div className="container mx-auto py-4 pt-20 px-6">
-      <h1 className="text-3xl font-bold py-5 text-center text-gray-800">
-        Checkout
-      </h1>
+      <Toaster />
+      <h1 className="text-3xl font-bold py-5 text-center text-gray-800">Checkout</h1>
 
       <div className="max-w-lg mx-auto mb-8">
         <h2 className="text-2xl font-bold mb-4 text-gray-700">Order Summary</h2>
@@ -72,7 +73,7 @@ const CheckoutPage = () => {
           <li className="flex justify-between items-center mt-4 border-t pt-4">
             <span className="text-lg font-bold">Total Price:</span>
             <span className="text-lg font-bold">
-              ${calculateTotalPrice()}
+              ${cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)}
             </span>
           </li>
         </ul>
@@ -190,6 +191,10 @@ const CheckoutPage = () => {
           </button>
         </form>
       </div>
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+      />
     </div>
   );
 };
