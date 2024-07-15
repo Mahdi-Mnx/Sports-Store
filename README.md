@@ -58,14 +58,9 @@ Follow these steps to set up the project locally:
     npm install
     ```
 
-3. **Start the development server:**
+3. **Build the project for production:**
     ```bash
-    npm start
-    ```
-
-4. **Build the project for production:**
-    ```bash
-    npm run build
+    npm run dev
     ```
 
 
