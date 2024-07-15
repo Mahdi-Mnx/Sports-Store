@@ -62,7 +62,10 @@ Follow these steps to set up the project locally:
     npm run dev
     ```
 
-
+4. **Demo Live:**
+```
+url here
+```
 ## Components
 
 ### CartContext.js
