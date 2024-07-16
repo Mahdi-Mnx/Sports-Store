@@ -7,7 +7,7 @@ import productData from "../Data/Data";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useCart } from "../Components/CartContext";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 
 const Home = () => {
   const [rowsToShow, setRowsToShow] = useState(3); // Start by showing 3 rows
@@ -333,6 +333,7 @@ const Home = () => {
           />
         </div>
       </motion.section>
+      <Toaster position="top-center" reverseOrder={false} />
     </>
   );
 };

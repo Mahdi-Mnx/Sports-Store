@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ShoppingBag } from "lucide-react";
-import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useCart } from "../Components/CartContext"; // Make sure the path is correct
+import { useCart } from "../Components/CartContext";
 
 const Header = () => {
   const { cart } = useCart();
@@ -77,6 +76,14 @@ const Header = () => {
                     className="nav-link text-darkGrayishBlue pb-[1.5rem]"
                   >
                     Contact
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/product-purchased"
+                    className="nav-link text-darkGrayishBlue pb-[1.5rem]"
+                  >
+                    History
                   </Link>
                 </li>
               </ul>
