@@ -15,7 +15,7 @@ import nike from "../../public/images/nike-logo.png"
 import gucci from "../../public/images/gucci-logo.png"
 import logo from "../../public/images/logo1.png"
 import main from "../../public/images/main.png"
-
+import video from "../../public/video/logo.mp4"
 
 const Home = () => {
   const [rowsToShow, setRowsToShow] = useState(3); // Start by showing 3 rows
@@ -279,7 +279,7 @@ const Home = () => {
         <div className="relative w-2/3 h-[380px] overflow-hidden">
           <video
             className="absolute top-0 left-0 w-full h-full object-cover rounded-xl"
-            src="/public/video/logo.mp4"
+            src={video}
             loop
             muted
             autoPlay
