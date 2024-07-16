@@ -8,6 +8,14 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useCart } from "../Components/CartContext";
 import toast, { Toaster } from "react-hot-toast";
+import person from "../../public/images/moha-jakaar.jpeg"
+import adidas from "../../public/images/adidas-logo.png"
+import puma from "../../public/images/puma-logo.png"
+import nike from "../../public/images/nike-logo.png"
+import gucci from "../../public/images/gucci-logo.png"
+import logo from "../../public/images/logo1.png"
+import main from "../../public/images/main.png"
+
 
 const Home = () => {
   const [rowsToShow, setRowsToShow] = useState(3); // Start by showing 3 rows
@@ -94,7 +102,7 @@ const Home = () => {
             <div className="flex items-start justify-between mt-4">
               <div className="relative">
                 <img
-                  src="./public/images/moha-jakaar.jpeg"
+                  src={person}
                   alt=""
                   className="w-8 h-8 rounded-full object-contain relative"
                 />
@@ -239,24 +247,24 @@ const Home = () => {
         <div className="w-full bg-dark p-4 px-16 flex items-center justify-between rounded-xl border border-white">
           <img
             className="w-16 h-16"
-            src="./public/images/adidas-logo.png"
-            alt=""
+            src={adidas}
+            alt="adidas"
           />
           <img
             className="w-18 h-12"
-            src="./public/images/puma-logo.png"
-            alt=""
+            src={puma}
+            alt="puma"
           />
           <img
             className="w-20 h-20"
-            src="./public/images/nike-logo.png"
-            alt=""
+            src={nike}
+            alt="nike"
           />
           <img className="w-10 h-10" src="./public/images/lv-logo.png" alt="" />
           <img
             className="w-24 h-24"
-            src="./public/images/gucci-logo.png"
-            alt=""
+            src={gucci}
+            alt="gucci"
           />
         </div>
       </motion.section>
@@ -288,8 +296,8 @@ const Home = () => {
             <div>
               <img
                 className="w-16 h-10"
-                src="/public/images/logo1.png"
-                alt=""
+                src={logo}
+                alt="logo"
               />
               <button
                 className="bg-white hover:bg-white/90 rounded-md py-1 px-2 mt-2 text-sm"
@@ -328,8 +336,8 @@ const Home = () => {
           </div>
           <img
             className="w-1/2 h-[312px] border border-white rounded-xl ml-20"
-            src="./public/images/main.png"
-            alt=""
+            src={main}
+            alt="main"
           />
         </div>
       </motion.section>

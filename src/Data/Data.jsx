@@ -9,10 +9,10 @@ const productData = [
     description:
       "Experience ultimate control with the Predator League, designed for precision and power.",
     images: [
-      "/public/images/9-pro-2.png",
-      "/public/images/9-pro.png",
-      "/public/images/9-pro-3.png",
-      "/public/images/9-pro-4.png",
+      "/images/9-pro-2.png",
+      "/images/9-pro.png",
+      "/images/9-pro-3.png",
+      "/images/9-pro-4.png",
     ],
   },
   {
@@ -26,10 +26,10 @@ const productData = [
     description:
       "Step up your game with Nike Premier, known for its comfort and durability.",
     images: [
-      "/public/images/nikepremier-2.png",
-      "/public/images/nikepremier.png",
-      "/public/images/nikepremier-3.png",
-      "/public/images/nikepremier-4.png",
+      "/images/nikepremier-2.png",
+      "/images/nikepremier.png",
+      "/images/nikepremier-3.png",
+      "/images/nikepremier-4.png",
     ],
   },
   {
@@ -42,10 +42,10 @@ const productData = [
     description:
       "Cristiano Ronaldo wouldn't be the competitor he is without setbacks. Made for those obsessed with the game",
     images: [
-      "/public/images/superfly-elite-2.png",
-      "/public/images/superfly-elite.png",
-      "/public/images/superfly-elite-3.png",
-      "/public/images/superfly-elite-4.png",
+      "/images/superfly-elite-2.png",
+      "/images/superfly-elite.png",
+      "/images/superfly-elite-3.png",
+      "/images/superfly-elite-4.png",
     ],
   },
   {
@@ -58,9 +58,9 @@ const productData = [
     description:
       "Your go-to, everyday, soft and reliable socks. Sweat-wicking technology keeps your feet cool and dry while a snug arch band feels supportive.",
     images: [
-      "/public/images/jordan-socks.JPEG",
-      "/public/images/jordan-socks-2.png",
-      "/public/images/jordan-socks-3.png",
+      "/images/jordan-socks.JPEG",
+      "/images/jordan-socks-2.png",
+      "/images/jordan-socks-3.png",
     ],
   },
   {
@@ -73,8 +73,8 @@ const productData = [
     description:
       "The Brooklyn Nets and the Jumpman? What more could you ask for? Show your love for your squad in this relaxed fit, all-cotton Brooklyn Nets long-sleeve tee.",
     images: [
-      "/public/images/nba-long-sleeve.png",
-      "/public/images/nba-long-sleeve-2.png",
+      "/images/nba-long-sleeve.png",
+      "/images/nba-long-sleeve-2.png",
     ],
   },
   {
@@ -87,11 +87,11 @@ const productData = [
     description:
       "The Air Max Dn features our Dynamic Air unit system of dual-pressure tubes, creating a reactive sensation with every step. This results in a futuristic design that's comfortable enough to wear from day to night. Go ahead—Feel the Unreal.",
     images: [
-      "/public/images/air-max-dn-shoes-women.png",
-      "/public/images/air-max-dn-shoes-women-1.png",
-      "/public/images/air-max-dn-shoes-women-2.png",
-      "/public/images/air-max-dn-shoes-women-3.jpeg",
-      "/public/images/air-max-dn-shoes-women-4.png",
+      "/images/air-max-dn-shoes-women.png",
+      "/images/air-max-dn-shoes-women-1.png",
+      "/images/air-max-dn-shoes-women-2.png",
+      "/images/air-max-dn-shoes-women-3.jpeg",
+      "/images/air-max-dn-shoes-women-4.png",
     ],
   },
   {
@@ -104,10 +104,10 @@ const productData = [
     description:
       "Like other shirts from our Stadium collection, this one pairs replica design details with sweat-wicking fabric to give you a game-ready look inspired by your favourite team.",
     images: [
-      "/public/images/tottenham-hotspur.png",
-      "/public/images/tottenham-hotspur-1.png",
-      "/public/images/tottenham-hotspur-2.png",
-      "/public/images/tottenham-hotspur-3.jpg",
+      "/images/tottenham-hotspur.png",
+      "/images/tottenham-hotspur-1.png",
+      "/images/tottenham-hotspur-2.png",
+      "/images/tottenham-hotspur-3.jpg",
     ],
   },
   {
@@ -120,10 +120,10 @@ const productData = [
     description:
       "Ideal for the pitch or as a display of support for your team, these socks help keep you comfortable through to the final whistle.",
     images: [
-      "/public/images/tottenham-hotspur-strike-away-dri-fit-football-knee-high-socks.png",
-      "/public/images/tottenham-hotspur-strike-away-dri-fit-football-knee-high-socks-1.png",
-      "/public/images/tottenham-hotspur-strike-away-dri-fit-football-knee-high-socks-2.png",
-      "/public/images/tottenham-hotspur-strike-away-dri-fit-football-knee-high-socks-3.jpg",
+      "/images/tottenham-hotspur-strike-away-dri-fit-football-knee-high-socks.png",
+      "/images/tottenham-hotspur-strike-away-dri-fit-football-knee-high-socks-1.png",
+      "/images/tottenham-hotspur-strike-away-dri-fit-football-knee-high-socks-2.png",
+      "/images/tottenham-hotspur-strike-away-dri-fit-football-knee-high-socks-3.jpg",
     ],
   },
   {
@@ -136,11 +136,11 @@ const productData = [
     description:
       "Like other shirts from our Stadium collection, this one pairs replica design details with sweat-wicking technology to give you a game-ready look inspired by your favourite team. This product is made from 100% recycled polyester fibres.",
     images: [
-      "/public/images/tottenham-hotspur-women.jpg",
-      "/public/images/tottenham-hotspur-women-1.jpg",
-      "/public/images/tottenham-hotspur-women-2.jpg",
-      "/public/images/tottenham-hotspur-women-3.jpg",
-      "/public/images/tottenham-hotspur-women-4.jpg",
+      "/images/tottenham-hotspur-women.jpg",
+      "/images/tottenham-hotspur-women-1.jpg",
+      "/images/tottenham-hotspur-women-2.jpg",
+      "/images/tottenham-hotspur-women-3.jpg",
+      "/images/tottenham-hotspur-women-4.jpg",
     ],
   },
   {
@@ -153,9 +153,9 @@ const productData = [
     description:
       "Our Stadium collection pairs replica design details with sweat-wicking technology to give you a game-ready look inspired by your favourite team.",
     images: [
-      "/public/images/chelsea-fc-2024-stadium-home-women.png",
-      "/public/images/chelsea-fc-2024-stadium-home-women-1.png",
-      "/public/images/chelsea-fc-2024-stadium-home-women-2.jpg",
+      "/images/chelsea-fc-2024-stadium-home-women.png",
+      "/images/chelsea-fc-2024-stadium-home-women-1.png",
+      "/images/chelsea-fc-2024-stadium-home-women-2.jpg",
     ],
   },
   {
@@ -168,9 +168,9 @@ const productData = [
     description:
       "A reactive sensation with every step. This results in a futuristic design that's comfortable enough to wear from day to night. Go ahead—Feel the Unreal.",
     images: [
-      "/public/images/fc-barcelona-2022-23-stadium-home-women.png",
-      "/public/images/fc-barcelona-2022-23-stadium-home-women-1.png",
-      "/public/images/fc-barcelona-2022-23-stadium-home-women-2.jpg",
+      "/images/fc-barcelona-2022-23-stadium-home-women.png",
+      "/images/fc-barcelona-2022-23-stadium-home-women-1.png",
+      "/images/fc-barcelona-2022-23-stadium-home-women-2.jpg",
     ],
   },
   {
@@ -183,9 +183,9 @@ const productData = [
     description:
       "Our Stadium collection pairs replica design details with sweat-wicking technology to give you a game-ready look inspired by your favourite team.",
     images: [
-      "/public/images/sporting-cp-women.png",
-      "/public/images/sporting-cp-women-1.png",
-      "/public/images/sporting-cp-women-2.png",
+      "/images/sporting-cp-women.png",
+      "/images/sporting-cp-women-1.png",
+      "/images/sporting-cp-women-2.png",
     ],
   },
   {
@@ -198,10 +198,10 @@ const productData = [
     description:
       "These socks are ready for action. Sweat-wicking technology helps keep you dry and comfortable whether you're practising your best football dribble or celebrating your team's win.",
     images: [
-      "/public/images/strike-football-crew-socks-white.png",
-      "/public/images/strike-football-crew-socks-white-1.png",
-      "/public/images/strike-football-crew-socks-white-2.png",
-      "/public/images/strike-football-crew-socks-white-3.png",
+      "/images/strike-football-crew-socks-white.png",
+      "/images/strike-football-crew-socks-white-1.png",
+      "/images/strike-football-crew-socks-white-2.png",
+      "/images/strike-football-crew-socks-white-3.png",
     ],
   },
   {
@@ -214,10 +214,10 @@ const productData = [
     description:
       "These socks are ready for action. Sweat-wicking technology helps keep you dry and comfortable whether you're practising your best football dribble or celebrating your team's win.",
     images: [
-      "/public/images/strike-football-crew-socks-black.png",
-      "/public/images/strike-football-crew-socks-black-1.png",
-      "/public/images/strike-football-crew-socks-black-2.png",
-      "/public/images/strike-football-crew-socks-black-3.png",
+      "/images/strike-football-crew-socks-black.png",
+      "/images/strike-football-crew-socks-black-1.png",
+      "/images/strike-football-crew-socks-black-2.png",
+      "/images/strike-football-crew-socks-black-3.png",
     ],
   },
   {
@@ -230,10 +230,10 @@ const productData = [
     description:
       "These socks are ready for action. Sweat-wicking technology helps keep you dry and comfortable whether you're practising your best football dribble or celebrating your team's win.",
     images: [
-      "/public/images/strike-football-crew-socks.png",
-      "/public/images/strike-football-crew-socks-1.png",
-      "/public/images/strike-football-crew-socks-2.png",
-      "/public/images/strike-football-crew-socks-3.png",
+      "/images/strike-football-crew-socks.png",
+      "/images/strike-football-crew-socks-1.png",
+      "/images/strike-football-crew-socks-2.png",
+      "/images/strike-football-crew-socks-3.png",
     ],
   },
   {
@@ -246,10 +246,10 @@ const productData = [
     description:
       "These socks are ready for action. Sweat-wicking technology helps keep you dry and comfortable whether you're practising your best football dribble or celebrating your team's win.",
     images: [
-      "/public/images/strike-football-crew-socks-blue.jpg",
-      "/public/images/strike-football-crew-socks-blue-1.jpg",
-      "/public/images/strike-football-crew-socks-blue-2.jpg",
-      "/public/images/strike-football-crew-socks-blue-3.jpg",
+      "/images/strike-football-crew-socks-blue.jpg",
+      "/images/strike-football-crew-socks-blue-1.jpg",
+      "/images/strike-football-crew-socks-blue-2.jpg",
+      "/images/strike-football-crew-socks-blue-3.jpg",
     ],
   },
   {
@@ -262,10 +262,10 @@ const productData = [
     description:
       "Add in game-changing Nike Gripknit for exceptional touch and you have a championship-level boot ready for personal brilliance.",
     images: [
-      "/public/images/phantom-gx-2-elite.jpg",
-      "/public/images/phantom-gx-2-elite-1.jpg",
-      "/public/images/phantom-gx-2-elite-2.png",
-      "/public/images/phantom-gx-2-elite-3.png",
+      "/images/phantom-gx-2-elite.jpg",
+      "/images/phantom-gx-2-elite-1.jpg",
+      "/images/phantom-gx-2-elite-2.png",
+      "/images/phantom-gx-2-elite-3.png",
     ],
   },
   {
@@ -278,10 +278,10 @@ const productData = [
     description:
       "We design Elite boots for you and the world's biggest stars to give you high-level quality, because you demand greatness from yourself and your footwear.",
     images: [
-      "/public/images/phantom-luna-2-elite.png",
-      "/public/images/phantom-luna-2-elite-1.png",
-      "/public/images/phantom-luna-2-elite-2.png",
-      "/public/images/phantom-luna-2-elite-3.png",
+      "/images/phantom-luna-2-elite.png",
+      "/images/phantom-luna-2-elite-1.png",
+      "/images/phantom-luna-2-elite-2.png",
+      "/images/phantom-luna-2-elite-3.png",
     ],
   },
   {
@@ -294,10 +294,10 @@ const productData = [
     description:
       "We design Elite boots for you and the world's biggest stars to give you high-level quality, because you demand greatness from yourself and your footwear.",
     images: [
-      "/public/images/phantom-luna-2-elite-women.png",
-      "/public/images/phantom-luna-2-elite-women-1.png",
-      "/public/images/phantom-luna-2-elite-women-2.png",
-      "/public/images/phantom-luna-2-elite-women-3.png",
+      "/images/phantom-luna-2-elite-women.png",
+      "/images/phantom-luna-2-elite-women-1.png",
+      "/images/phantom-luna-2-elite-women-2.png",
+      "/images/phantom-luna-2-elite-women-3.png",
     ],
   },
   {
@@ -310,11 +310,11 @@ const productData = [
     description:
       "The 2024/25 Poland Away Shirt toes the line between established and unconventional. We fused together their classic reds and blues for a purple kit that honours their history.",
     images: [
-      "/public/images/poland.png",
-      "/public/images/poland-1.png",
-      "/public/images/poland-2.png",
-      "/public/images/poland-3.jpg",
-      "/public/images/poland-4.jpg",
+      "/images/poland.png",
+      "/images/poland-1.png",
+      "/images/poland-2.png",
+      "/images/poland-3.jpg",
+      "/images/poland-4.jpg",
     ],
   },
   {
@@ -327,11 +327,11 @@ const productData = [
     description:
       "It celebrates the future of the squad. Shocking side panels and other unique details push it even further into the modern era of English football.",
     images: [
-      "/public/images/england-2024-25-stadium-away.jpg",
-      "/public/images/england-2024-25-stadium-away-1.jpg",
-      "/public/images/england-2024-25-stadium-away-2.jpg",
-      "/public/images/england-2024-25-stadium-away-3.png",
-      "/public/images/england-2024-25-stadium-away-4.png",
+      "/images/england-2024-25-stadium-away.jpg",
+      "/images/england-2024-25-stadium-away-1.jpg",
+      "/images/england-2024-25-stadium-away-2.jpg",
+      "/images/england-2024-25-stadium-away-3.png",
+      "/images/england-2024-25-stadium-away-4.png",
     ],
   },
   {
@@ -344,11 +344,11 @@ const productData = [
     description:
       "The future of the squad. Shocking side panels and other unique details push it even further into the modern era of English football.",
     images: [
-      "/public/images/england-2024-25-stadium-home.png",
-      "/public/images/england-2024-25-stadium-home-1.png",
-      "/public/images/england-2024-25-stadium-home-2.jpg",
-      "/public/images/england-2024-25-stadium-home-3.jpg",
-      "/public/images/england-2024-25-stadium-home-4.png",
+      "/images/england-2024-25-stadium-home.png",
+      "/images/england-2024-25-stadium-home-1.png",
+      "/images/england-2024-25-stadium-home-2.jpg",
+      "/images/england-2024-25-stadium-home-3.jpg",
+      "/images/england-2024-25-stadium-home-4.png",
     ],
   },
   {
@@ -361,11 +361,11 @@ const productData = [
     description:
       "The future of the squad. Shocking side panels and other unique details push it even further into the modern era of Netherlands football.",
     images: [
-      "/public/images/netherlands-2024-25-stadium-home-men.jpg",
-      "/public/images/netherlands-2024-25-stadium-home-men-1.jpg",
-      "/public/images/netherlands-2024-25-stadium-home-men-2.jpg",
-      "/public/images/netherlands-2024-25-stadium-home-men-3.jpg",
-      "/public/images/netherlands-2024-25-stadium-home-men-4.jpg",
+      "/images/netherlands-2024-25-stadium-home-men.jpg",
+      "/images/netherlands-2024-25-stadium-home-men-1.jpg",
+      "/images/netherlands-2024-25-stadium-home-men-2.jpg",
+      "/images/netherlands-2024-25-stadium-home-men-3.jpg",
+      "/images/netherlands-2024-25-stadium-home-men-4.jpg",
     ],
   },
   {
@@ -378,11 +378,11 @@ const productData = [
     description:
       "The future of the squad. Shocking side panels and other unique details push it even further into the modern era of Netherlands football.",
     images: [
-      "/public/images/netherlands-2024-25-stadium-home.jpg",
-      "/public/images/netherlands-2024-25-stadium-home-1.jpg",
-      "/public/images/netherlands-2024-25-stadium-home-2.jpg",
-      "/public/images/netherlands-2024-25-stadium-home-3.jpg",
-      "/public/images/netherlands-2024-25-stadium-home-4.jpg",
+      "/images/netherlands-2024-25-stadium-home.jpg",
+      "/images/netherlands-2024-25-stadium-home-1.jpg",
+      "/images/netherlands-2024-25-stadium-home-2.jpg",
+      "/images/netherlands-2024-25-stadium-home-3.jpg",
+      "/images/netherlands-2024-25-stadium-home-4.jpg",
     ],
   },
   {
@@ -395,10 +395,10 @@ const productData = [
     description:
       "A reactive sensation with every step. This results in a futuristic design that's comfortable enough to wear from day to night. Go ahead—Feel the Unreal.",
     images: [
-      "/public/images/paris-saint-germain.png",
-      "/public/images/paris-saint-germain-1.png",
-      "/public/images/paris-saint-germain-2.jpg",
-      "/public/images/paris-saint-germain-3.png",
+      "/images/paris-saint-germain.png",
+      "/images/paris-saint-germain-1.png",
+      "/images/paris-saint-germain-2.jpg",
+      "/images/paris-saint-germain-3.png",
     ],
   },
   {
@@ -411,10 +411,10 @@ const productData = [
     description:
       "A reactive sensation with every step. This results in a futuristic design that's comfortable enough to wear from day to night. Go ahead—Feel the Unreal.",
     images: [
-      "/public/images/paris-saint-germain-women.png",
-      "/public/images/paris-saint-germain-women-1.png",
-      "/public/images/paris-saint-germain-women-2.jpg",
-      "/public/images/paris-saint-germain-women-3.jpg",
+      "/images/paris-saint-germain-women.png",
+      "/images/paris-saint-germain-women-1.png",
+      "/images/paris-saint-germain-women-2.jpg",
+      "/images/paris-saint-germain-women-3.jpg",
     ],
   },
   {
@@ -427,10 +427,10 @@ const productData = [
     description:
       "A reactive sensation with every step. This results in a futuristic design that's comfortable enough to wear from day to night. Go ahead—Feel the Unreal.",
     images: [
-      "/public/images/paris-saint-germain-strike-knee-high.png",
-      "/public/images/paris-saint-germain-strike-knee-high-1.png",
-      "/public/images/paris-saint-germain-strike-knee-high-2.png",
-      "/public/images/paris-saint-germain-strike-knee-high-3.jpg",
+      "/images/paris-saint-germain-strike-knee-high.png",
+      "/images/paris-saint-germain-strike-knee-high-1.png",
+      "/images/paris-saint-germain-strike-knee-high-2.png",
+      "/images/paris-saint-germain-strike-knee-high-3.jpg",
     ],
   },
   {
@@ -443,11 +443,11 @@ const productData = [
     description:
       "The early days when players wrapped the national flag around them with pride. On the back of the shirt, the nation's name unites and inspires today's talented stars.",
     images: [
-      "/public/images/turkiye.png",
-      "/public/images/turkiye-1.png",
-      "/public/images/turkiye-2.jpg",
-      "/public/images/turkiye-3.jpg",
-      "/public/images/turkiye-4.png",
+      "/images/turkiye.png",
+      "/images/turkiye-1.png",
+      "/images/turkiye-2.jpg",
+      "/images/turkiye-3.jpg",
+      "/images/turkiye-4.png",
     ],
   },
   {
@@ -460,10 +460,10 @@ const productData = [
     description:
       "The turns and straightaways around the oval. Feel the power and drive of the forefoot plate as you get up on your toes and hightail it towards the tape.",
     images: [
-      "/public/images/rival-sprint.png",
-      "/public/images/rival-sprint-1.png",
-      "/public/images/rival-sprint-2.png",
-      "/public/images/rival-sprint-3.png",
+      "/images/rival-sprint.png",
+      "/images/rival-sprint-1.png",
+      "/images/rival-sprint-2.png",
+      "/images/rival-sprint-3.png",
     ],
   },
   {
@@ -476,10 +476,10 @@ const productData = [
     description:
       "Tiempo to date, the Legend 10 is for any position on the pitch, whether you're sending a pinpoint pass through the defence or tracking back to stop a break-away.",
     images: [
-      "/public/images/tiempo-legend.png",
-      "/public/images/tiempo-legend-1.png",
-      "/public/images/tiempo-legend-2.png",
-      "/public/images/tiempo-legend-3.png",
+      "/images/tiempo-legend.png",
+      "/images/tiempo-legend-1.png",
+      "/images/tiempo-legend-2.png",
+      "/images/tiempo-legend-3.png",
     ],
   },
 ];

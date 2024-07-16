@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { ShoppingBag } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useCart } from "../Components/CartContext";
-
+import logo from "../../public/images/logo11.png"
+import profile from "../../public/images/profile.jpg"
 const Header = () => {
   const { cart } = useCart();
   const [isVisible, setIsVisible] = useState(true);
@@ -39,7 +40,7 @@ const Header = () => {
               <Link to="/" className="text-4xl">
                 <img
                   className="w-32"
-                  src="/public/images/logo11.png"
+                  src={logo}
                   alt="Logo"
                 />
               </Link>
@@ -102,7 +103,7 @@ const Header = () => {
               <div>
                 <img
                   className="w-8 h-8 rounded-full cursor-pointer"
-                  src="/public/images/profile.jpg"
+                  src={profile}
                   alt="Profile"
                 />
               </div>
