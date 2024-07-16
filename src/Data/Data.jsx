@@ -58,7 +58,7 @@ const productData = [
     description:
       "Your go-to, everyday, soft and reliable socks. Sweat-wicking technology keeps your feet cool and dry while a snug arch band feels supportive.",
     images: [
-      "/images/jordan-socks.JPEG",
+      "/images/jordan-socks.jpeg",
       "/images/jordan-socks-2.png",
       "/images/jordan-socks-3.png",
     ],
