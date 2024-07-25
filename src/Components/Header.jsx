@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { ShoppingBag } from "lucide-react";
-import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useCart } from "../Components/CartContext"; // Make sure the path is correct
-
+import { useCart } from "../Components/CartContext";
+import logo from "../../public/images/logo11.png"
+import profile from "../../public/images/profile.jpg"
 const Header = () => {
   const { cart } = useCart();
   const [isVisible, setIsVisible] = useState(true);
@@ -40,7 +40,7 @@ const Header = () => {
               <Link to="/" className="text-4xl">
                 <img
                   className="w-32"
-                  src="/public/images/logo11.png"
+                  src={logo}
                   alt="Logo"
                 />
               </Link>
@@ -79,6 +79,14 @@ const Header = () => {
                     Contact
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    to="/product-purchased"
+                    className="nav-link text-darkGrayishBlue pb-[1.5rem]"
+                  >
+                    History
+                  </Link>
+                </li>
               </ul>
             </div>
             <div className="flex justify-between items-center gap-4 relative">
@@ -95,7 +103,7 @@ const Header = () => {
               <div>
                 <img
                   className="w-8 h-8 rounded-full cursor-pointer"
-                  src="/public/images/profile.jpg"
+                  src={profile}
                   alt="Profile"
                 />
               </div>

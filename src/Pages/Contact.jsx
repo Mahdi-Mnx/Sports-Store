@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { MailIcon, MapPinIcon, PhoneIcon } from "lucide-react";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa6";
-import { IoPaperPlane, IoPaperPlaneOutline } from "react-icons/io5";
+import { IoPaperPlaneOutline } from "react-icons/io5";
 const Contact = () => {
   return (
     <>
