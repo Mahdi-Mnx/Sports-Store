@@ -64,7 +64,7 @@ Follow these steps to set up the project locally:
 
 4. **Demo Live:**
 ```
-url here
+https://sports-store-chi.vercel.app/
 ```
 ## Components
 

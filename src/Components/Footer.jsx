@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-
+import logo from "../../public/images/logo1.png"
 const Footer = () => {
   return (
     <div className="container max-w-screen-xl py-3 bg-black px-6 z-20">
       <div className="w-full flex items-center justify-between">
         <div className="flex items-center">
-          <img className="w-16 h-10" src="/public/images/logo1.png" alt="" />
+          <img className="w-16 h-10" src={logo} alt="" />
           <div className="border h-9 border-white mx-3 ml-12"></div>
           <p className="text-white text-center">
             {" "}
