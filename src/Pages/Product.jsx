@@ -133,11 +133,6 @@ const Product = () => {
                     <FaPlus />
                   </button>
                 </div>
-                <div>
-                  {itemCount > 0 && (
-                    <p className="text-xl font-bold">Total: ${getTotal()}</p>
-                  )}
-                </div>
               </div>
               <div className="flex items-center mt-4">
                 <button
@@ -146,17 +141,6 @@ const Product = () => {
                 >
                   <FaBagShopping className="inline-block mr-2" /> Add to cart
                 </button>
-                {addedToCart && (
-                  <motion.p
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -10 }}
-                    transition={{ duration: 0.25 }}
-                    className="ml-4 text-secondery"
-                  >
-                    Added to cart!
-                  </motion.p>
-                )}
               </div>
             </div>
           </div>

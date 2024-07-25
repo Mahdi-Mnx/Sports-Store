@@ -421,7 +421,7 @@ const productData = [
     id: 27,
     brand: "Jordan",
     name: "Nike Dri-FIT Strike",
-    categories: ["Men", "Women", "Shirts"],
+    categories: ["Men", "Women", "Socks"],
     price: 84.99,
     type: "Men's Jordan Dri-FIT",
     description:
