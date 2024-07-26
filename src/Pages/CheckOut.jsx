@@ -22,28 +22,28 @@ const CheckoutPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    toast('Thanks Your Order ', {
-      icon: '🎉🎊',
+    toast("Thanks For Your Order ", {
+      icon: "🎉🎊",
     });
     const purchasedData = { purchasedItems: cart, customerInfo: formData };
     // Save purchased items to localStorage
     localStorage.setItem("purchasedProducts", JSON.stringify(purchasedData));
-   
-    
+
     // Clear the cart
     dispatch({ type: "CLEAR_CART" });
-    
+
     // Delay navigation to show the toast notification
     setTimeout(() => {
       navigate("/product-purchased", { state: purchasedData });
     }, 2000);
-   
   };
 
   return (
     <div className="container mx-auto py-4 pt-20 px-6">
       <Toaster />
-      <h1 className="text-3xl font-bold py-5 text-center text-gray-800">Checkout</h1>
+      <h1 className="text-3xl font-bold py-5 text-center text-gray-800">
+        Checkout
+      </h1>
 
       <div className="max-w-lg mx-auto mb-8">
         <h2 className="text-2xl font-bold mb-4 text-gray-700">Order Summary</h2>
@@ -73,14 +73,19 @@ const CheckoutPage = () => {
           <li className="flex justify-between items-center mt-4 border-t pt-4">
             <span className="text-lg font-bold">Total Price:</span>
             <span className="text-lg font-bold">
-              ${cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)}
+              $
+              {cart
+                .reduce((total, item) => total + item.price * item.quantity, 0)
+                .toFixed(2)}
             </span>
           </li>
         </ul>
       </div>
 
       <div className="max-w-lg mx-auto p-8 bg-white rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold mb-6 text-gray-700">Billing Details</h2>
+        <h2 className="text-2xl font-bold mb-6 text-gray-700">
+          Billing Details
+        </h2>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label className="block text-sm font-medium text-gray-700">
@@ -191,10 +196,7 @@ const CheckoutPage = () => {
           </button>
         </form>
       </div>
-      <Toaster
-        position="top-center"
-        reverseOrder={false}
-      />
+      <Toaster position="top-center" reverseOrder={false} />
     </div>
   );
 };
