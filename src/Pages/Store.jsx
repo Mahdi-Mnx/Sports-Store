@@ -14,6 +14,7 @@ const Store = () => {
   const [priceRange, setPriceRange] = useState([10, 500]);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedProductTypes, setSelectedProductTypes] = useState([]);
+  const [selectedColors, setSelectedColors] = useState([]);
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -39,8 +40,24 @@ const Store = () => {
     );
   };
 
+  const handleColorChange = (color) => {
+    if (color === "All Colors") {
+      setSelectedColors([]);
+    } else {
+      setSelectedColors((prevSelected) =>
+        prevSelected.includes(color)
+          ? prevSelected.filter((c) => c !== color)
+          : [...prevSelected, color]
+      );
+    }
+  };
+
   const uniqueProductTypes = [
     ...new Set(productData.flatMap((product) => product.categories)),
+  ];
+
+  const uniqueColors = [
+    ...new Set(productData.flatMap((product) => product.colors)),
   ];
 
   const filteredProducts = productData.filter(
@@ -50,20 +67,24 @@ const Store = () => {
       product.price >= priceRange[0] &&
       product.price <= priceRange[1] &&
       (selectedProductTypes.length === 0 ||
-        selectedProductTypes.some((type) => product.categories.includes(type)))
+        selectedProductTypes.some((type) =>
+          product.categories.includes(type)
+        )) &&
+      (selectedColors.length === 0 ||
+        selectedColors.some((color) => product.colors.includes(color)))
   );
 
   const addToCart = (item) => {
     const existingItem = cart.find((cartItem) => cartItem.id === item.id);
 
     if (existingItem) {
-      toast("Product already in cart", {
+      toast("Product is already in cart", {
         icon: "🚫",
       });
       return;
     }
     dispatch({ type: "ADD_TO_CART", payload: { ...item, quantity: 1 } });
-    toast.success("cart added product successfuly..")
+    toast.success("Added to cart successfully.");
   };
 
   return (
@@ -234,19 +255,50 @@ const Store = () => {
               </div>
             </div>
 
-            {/* Color  */}
+            {/* Color */}
             <div className="mb-4">
               <h5 className="text-lg font-bold mb-2">Color</h5>
               <div className="bg-white rounded-md py-2 px-3">
                 <ul className="grid grid-cols-4 gap-3">
-                  <li className="w-5 h-5 rounded-full bg-green-500"></li>
-                  <li className="w-5 h-5 rounded-full bg-blue-500"></li>
-                  <li className="w-5 h-5 rounded-full bg-gray-500"></li>
-                  <li className="w-5 h-5 rounded-full bg-purple-500"></li>
-                  <li className="w-5 h-5 rounded-full bg-pink-500"></li>
-                  <li className="w-5 h-5 rounded-full bg-teal-500"></li>
-                  <li className="w-5 h-5 rounded-full bg-orange"></li>
-                  <li className="w-5 h-5 rounded-full bg-indigo-500"></li>
+                  <li
+                    key="all"
+                    className={`relative w-5 h-5 rounded-full cursor-pointer border ${
+                      selectedColors.length === 0
+                        ? "border-black"
+                        : "border-gray-300"
+                    }`}
+                    style={{ backgroundColor: "white" }}
+                    onClick={() => handleColorChange("All Colors")}
+                  >
+                    <span
+                      className="absolute w-[18px] h-[1px] bg-red-500 rotate-45"
+                      style={{
+                        top: "50%",
+                        right: "0",
+                        transform: "rotate(-45deg) translateY(-50%)",
+                      }}
+                    ></span>
+                    <span
+                      className="absolute w-[18px] h-[1px] bg-red-500 rotate-45"
+                      style={{
+                        top: "50%",
+                        left: "0",
+                        transform: "rotate(45deg) translateY(-50%)",
+                      }}
+                    ></span>
+                  </li>
+                  {uniqueColors.map((color) => (
+                    <li
+                      key={color}
+                      className={`w-5 h-5 rounded-full cursor-pointer border ${
+                        selectedColors.includes(color)
+                          ? "border-black"
+                          : "border-gray-300"
+                      }`}
+                      style={{ backgroundColor: color }}
+                      onClick={() => handleColorChange(color)}
+                    ></li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -303,7 +355,6 @@ const Store = () => {
                         >
                           Add to cart
                         </button>
-                        
                       </div>
                     </div>
                   </motion.div>

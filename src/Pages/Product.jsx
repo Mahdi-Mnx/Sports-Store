@@ -26,7 +26,7 @@ const Product = () => {
     const existingItem = cart.find((cartItem) => cartItem.id === product.id);
 
     if (existingItem) {
-      toast("Product already in cart", {
+      toast("Product is already in cart", {
         icon: "🚫",
       });
       return;
@@ -36,7 +36,7 @@ const Product = () => {
         type: "ADD_TO_CART",
         payload: { ...product, quantity: itemCount },
       });
-      toast.success("added curt successfuly.");
+      toast.success("Added to cart successfully.");
     }
   };
 

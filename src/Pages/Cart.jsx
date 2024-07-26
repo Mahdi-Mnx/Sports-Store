@@ -11,14 +11,14 @@ const CartPage = () => {
 
   const removeFromCart = (id) => {
     dispatch({ type: "REMOVE_FROM_CART", payload: id });
-    toast("Deleted product done!", {
+    toast("Product removed!", {
       icon: "👍",
     });
   };
 
   const clearCart = () => {
     dispatch({ type: "CLEAR_CART" });
-    toast("Empty Now!", {
+    toast("Cart is Empty Now! Continue shopping", {
       icon: "🎈",
     });
   };
@@ -49,7 +49,6 @@ const CartPage = () => {
           >
             Continue shopping
           </Link>
-          .
         </p>
       ) : (
         <div>

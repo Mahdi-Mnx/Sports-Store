@@ -34,23 +34,23 @@ html {
 }
 
 .background-sports {
-  background-image: url("/public/images/main.png");
+  background-image: url("/images/main.png");
 }
 
 .background-nike {
-  background-image: url("/public/images/small-main.jpg");
+  background-image: url("/images/small-main.jpg");
 }
 
 .background-football-kits {
-  background-image: url("/public/images/football-kits-background-image.jpg");
+  background-image: url("/images/football-kits-background-image.jpg");
 }
 
 .background-ronaldo-messi {
-  background-image: url("/public/images/cristiano-ronaldo-messi-background-image.png");
+  background-image: url("/images/cristiano-ronaldo-messi-background-image.png");
 }
 
 .small-info {
-  background-image: url("/public/images/small-main-2.jpg");
+  background-image: url("/images/small-main-2.jpg");
 }
 
 /************************** Header Section ***********************************/
@@ -140,11 +140,10 @@ header {
 
 /* Custom toast styles */
 .custom-toast {
-  border: 1px solid #4CAF50;
+  border: 1px solid #4caf50;
   padding: 16px;
-  color: #4CAF50;
+  color: #4caf50;
   font-size: 1rem;
   border-radius: 8px;
   background: #f0fdf4;
 }
-

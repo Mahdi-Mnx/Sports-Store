@@ -4,6 +4,7 @@ const productData = [
     brand: "Nike",
     name: "PREDATOR LEAGUE",
     categories: ["Men", "Shoes"],
+    colors: ["Black"],
     price: 269.99,
     type: "FG Low-Top Football Boot",
     description:
@@ -20,7 +21,7 @@ const productData = [
     brand: "Nike",
     name: "NIKE PREMIER",
     categories: ["Men", "Shoes"],
-    size: "xl",
+    colors: ["Black"],
     price: 139.99,
     type: "FG Low-Top Football Boot",
     description:
@@ -37,6 +38,7 @@ const productData = [
     brand: "Nike",
     name: "NIKE SUPERFLY 9 ELITE",
     categories: ["Men", "Shoes"],
+    colors: ["Green"],
     price: 129.99,
     type: "FG Low-Top Football Boot",
     description:
@@ -53,6 +55,7 @@ const productData = [
     brand: "Jordan",
     name: "JORDAN-SOCKS",
     categories: ["Men", "Socks"],
+    colors: ["White"],
     price: 12.99,
     type: "High-Top Football Sock",
     description:
@@ -68,20 +71,19 @@ const productData = [
     brand: "Jordan",
     name: "Brooklyn Nets Essential",
     categories: ["Men", "Shirts"],
+    colors: ["Black"],
     price: 99.99,
     type: "High-Top Football Shirt",
     description:
       "The Brooklyn Nets and the Jumpman? What more could you ask for? Show your love for your squad in this relaxed fit, all-cotton Brooklyn Nets long-sleeve tee.",
-    images: [
-      "/images/nba-long-sleeve.png",
-      "/images/nba-long-sleeve-2.png",
-    ],
+    images: ["/images/nba-long-sleeve.png", "/images/nba-long-sleeve-2.png"],
   },
   {
     id: 6,
     brand: "Nike",
     name: "NIKE AIR MAX DN",
     categories: ["Women", "Shoes"],
+    colors: ["Pink"],
     price: 159.99,
     type: "FG Low-Top Football Women Boot",
     description:
@@ -99,6 +101,7 @@ const productData = [
     brand: "Nike",
     name: "Tottenham Hotspur Away",
     categories: ["Men", "Shirts"],
+    colors: ["Blue"],
     price: 64.99,
     type: "High-Top Football Shirt",
     description:
@@ -115,6 +118,7 @@ const productData = [
     brand: "Nike",
     name: "Tottenham Hotspur Socks",
     categories: ["Women", "Men", "Socks"],
+    colors: ["Blue"],
     price: 17.99,
     type: "Low-Top Football Sock",
     description:
@@ -131,6 +135,7 @@ const productData = [
     brand: "Nike",
     name: "Tottenham Hotspur Away",
     categories: ["Women", "Shirts"],
+    colors: ["Blue"],
     price: 84.99,
     type: "High-Top Football Women Shirt",
     description:
@@ -148,6 +153,7 @@ const productData = [
     brand: "Nike",
     name: "Chelsea F.C Home",
     categories: ["Women", "Shirts"],
+    colors: ["Blue"],
     price: 84.99,
     type: "High-Top Football Women Shirt",
     description:
@@ -163,6 +169,7 @@ const productData = [
     brand: "Nike",
     name: "F.C. Barcelona Home",
     categories: ["Women", "Shirts"],
+    colors: ["Red", "Blue", "Black"],
     price: 79.99,
     type: "High-Top Football Women Shirt",
     description:
@@ -178,6 +185,7 @@ const productData = [
     brand: "Nike",
     name: "Sporting CP x CR7 ",
     categories: ["Women", "Shirts"],
+    colors: ["Black", "Yellow"],
     price: 159.99,
     type: "High-Top Football Women Shirt",
     description:
@@ -193,6 +201,7 @@ const productData = [
     brand: "Nike",
     name: "Nike Strike White",
     categories: ["Women", "Men", "Socks"],
+    colors: ["White"],
     price: 11.99,
     type: "Football Crew Socks",
     description:
@@ -209,6 +218,7 @@ const productData = [
     brand: "Nike",
     name: "Nike Strike Black",
     categories: ["Women", "Men", "Socks"],
+    colors: ["Black"],
     price: 11.99,
     type: "Football Crew Socks",
     description:
@@ -225,6 +235,7 @@ const productData = [
     brand: "Nike",
     name: "Nike Strike Red",
     categories: ["Women", "Men", "Socks"],
+    colors: ["Red"],
     price: 11.99,
     type: "Football Crew Socks",
     description:
@@ -241,6 +252,7 @@ const productData = [
     brand: "Nike",
     name: "Nike Strike Blue",
     categories: ["Women", "Men", "Socks"],
+    colors: ["Blue"],
     price: 11.99,
     type: "Football Crew Socks",
     description:
@@ -257,6 +269,7 @@ const productData = [
     brand: "Nike",
     name: "Nike Phantom GX 2 Elite",
     categories: ["Women", "Men", "Shoes"],
+    colors: ["Gray"],
     price: 244.99,
     type: "FG Low-Top Football Boot",
     description:
@@ -273,6 +286,7 @@ const productData = [
     brand: "Nike",
     name: "Nike Phantom Luna 2 Elite",
     categories: ["Men", "Shoes"],
+    colors: ["Pink"],
     price: 254.99,
     type: "FG High-Top Football Boot",
     description:
@@ -289,6 +303,7 @@ const productData = [
     brand: "Nike",
     name: "Nike Phantom 2 Elite SE",
     categories: ["Women", "Shoes"],
+    colors: ["White"],
     price: 274.99,
     type: "FG Low-Top Football Women Boot",
     description:
@@ -305,6 +320,7 @@ const productData = [
     brand: "Nike",
     name: "Poland Away",
     categories: ["Women", "Shirts"],
+    colors: ["White", "Red"],
     price: 84.99,
     type: "High-Top Football shirt",
     description:
@@ -322,6 +338,7 @@ const productData = [
     brand: "Nike",
     name: "England Women's Team",
     categories: ["Womens", "Shirts"],
+    colors: ["Gray"],
     price: 84.99,
     type: "Women's Nike Dri-FIT ",
     description:
@@ -339,6 +356,7 @@ const productData = [
     brand: "Nike",
     name: "England Home",
     categories: ["Men", "Shirts"],
+    colors: ["White"],
     price: 78.99,
     type: "Men's Nike Dri-FIT",
     description:
@@ -356,6 +374,7 @@ const productData = [
     brand: "Nike",
     name: "Netherlands Home",
     categories: ["Men", "Shirts"],
+    colors: ["Orange"],
     price: 78.99,
     type: "Men's Nike Dri-FIT",
     description:
@@ -373,6 +392,7 @@ const productData = [
     brand: "Nike",
     name: "Netherlands Women's Team",
     categories: ["Women", "Shirts"],
+    colors: ["Orange"],
     price: 78.99,
     type: "Women's Nike Dri-FIT",
     description:
@@ -390,6 +410,7 @@ const productData = [
     brand: "Jordan",
     name: "Paris Saint-Germain Third",
     categories: ["Men", "Shirts"],
+    colors: ["Black"],
     price: 84.99,
     type: "Men's Jordan Dri-FIT",
     description:
@@ -406,6 +427,7 @@ const productData = [
     brand: "Jordan",
     name: "Paris Saint-Germain Third",
     categories: ["Women", "Shirts"],
+    colors: ["Black"],
     price: 84.99,
     type: "Women's Jordan Dri-FIT",
     description:
@@ -422,6 +444,7 @@ const productData = [
     brand: "Jordan",
     name: "Nike Dri-FIT Strike",
     categories: ["Men", "Women", "Socks"],
+    colors: ["Black"],
     price: 84.99,
     type: "Men's Jordan Dri-FIT",
     description:
@@ -438,6 +461,7 @@ const productData = [
     brand: "Nike",
     name: "Türkiye Home",
     categories: ["Men", "Shirts"],
+    colors: ["White", "Red"],
     price: 84.99,
     type: "Men's Nike Dri-FIT",
     description:
@@ -455,6 +479,7 @@ const productData = [
     brand: "Nike",
     name: "Nike Rival Sprint",
     categories: ["Women", "Men", "Shoes"],
+    colors: ["White"],
     price: 79.99,
     type: "Athletics Sprinting Spikes",
     description:
@@ -471,6 +496,7 @@ const productData = [
     brand: "Nike",
     name: "Nike Tiempo Legend",
     categories: ["Women", "Men", "Shoes"],
+    colors: ["Yellow", "White"],
     price: 54.99,
     type: "Multi-Ground Low-Top Football Boot",
     description:
