@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { ShoppingBag } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useCart } from "../Components/CartContext";
-import logo from "../../public/images/logo11.png"
-import profile from "../../public/images/profile.jpg"
+import logo from "/images/logo11.png";
+import profile from "/images/profile.jpg";
 const Header = () => {
   const { cart } = useCart();
   const [isVisible, setIsVisible] = useState(true);
@@ -38,11 +38,7 @@ const Header = () => {
           <div className="flex justify-between px-8 border-b-2 border-grayishBlue items-center h-[80px] max-w-screen-xl mx-auto">
             <div>
               <Link to="/" className="text-4xl">
-                <img
-                  className="w-32"
-                  src={logo}
-                  alt="Logo"
-                />
+                <img className="w-32" src={logo} alt="Logo" />
               </Link>
             </div>
             <div className="header-col2">
