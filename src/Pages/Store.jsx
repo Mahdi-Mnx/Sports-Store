@@ -8,6 +8,7 @@ import { useCart } from "../Components/CartContext";
 import toast, { Toaster } from "react-hot-toast";
 
 const Store = () => {
+  document.title = "Store - Buy anything";
   const { cart, dispatch } = useCart();
   const [open, setOpen] = useState(false);
   const [openSize, setSizeOpen] = useState(false);
@@ -89,8 +90,8 @@ const Store = () => {
 
   return (
     <div className="container max-w-screen-xl pb-4 py-24 items-center">
-      <div className="flex justify-around gap-5 px-6">
-        <div className="w-[20%] mt-4">
+      <div className="flex flex-col lg:flex-row justify-around gap-5 px-6">
+        <div className="w-full lg:w-[20%] mt-4">
           <div className="bg-primary/20 h-auto rounded-lg p-2">
             {/* category */}
             <div>
@@ -306,16 +307,16 @@ const Store = () => {
         </div>
 
         {/* products side */}
-        <div className="w-[85%] p-4 flex justify-around">
+        <div className="w-full lg:w-[85%] p-4 flex justify-around">
           <motion.section
-            className="px-6"
+            className="md:px-4 px-0"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
             <AnimatePresence>
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {filteredProducts.map((item) => (
                   <motion.div
                     key={item.id}

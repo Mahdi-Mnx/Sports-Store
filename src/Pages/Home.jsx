@@ -19,6 +19,7 @@ import main from "/images/main.png";
 import video from "/video/logo.mp4";
 
 const Home = () => {
+  document.title = "Home - GOG Store";
   const [rowsToShow, setRowsToShow] = useState(3); // Start by showing 3 rows
   const itemsPerRow = 2; // Number of items per row
   const totalItemsToShow = rowsToShow * itemsPerRow; // Total items to show based on rows
@@ -56,15 +57,15 @@ const Home = () => {
   return (
     <>
       <motion.section
-        className="container max-w-screen-xl py-3 px-6 flex gap-4 pt-24"
+        className="container max-w-screen-xl py-3 px-6 flex flex-col lg:flex-row gap-4 pt-24"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="w-5/6 border border-white rounded-xl background-sports h-[500px] bg-cover bg-center p-4 px-5 m-0 flex flex-col justify-between">
+        <div className="w-full lg:w-5/6 border border-white rounded-xl background-sports h-[300px] md:h-[500px] bg-cover bg-center p-4 px-5 m-0 flex flex-col justify-between">
           <div className="text-white">
-            <p className="text-[35px] font-bold">
+            <p className="text-[25px] lg:text-[35px] font-bold">
               NASA-INSPIRED FOOTBALL SHOES DESIGNED
             </p>
             <button className="bg-primary p-2 text-white rounded-xl px-6 font-bold mt-3 hover:bg-primary/90">
@@ -72,7 +73,9 @@ const Home = () => {
             </button>
           </div>
           <div className=" text-white">
-            <p className="font-bold text-2xl mb-1">Top Trend Shoes 2025</p>
+            <p className="font-bold text-xl lg:text-2xl mb-1">
+              Top Trend Shoes 2025
+            </p>
             <p className="text-sm text-gray-300">
               To give you a futuristic football experience
             </p>
@@ -81,21 +84,21 @@ const Home = () => {
             </p>
           </div>
         </div>
-        <div className="w-3/6 flex flex-col gap-4">
-          <div className="background-div border border-white background-nike h-5/6 bg-cover bg-center rounded-xl p-6 flex flex-col justify-between items-start">
+        <div className="w-full lg:w-3/6 flex flex-col gap-4">
+          <div className="background-div border border-white background-nike h-[300px] md:h-64 lg:h-5/6 bg-cover bg-center rounded-xl p-6 flex flex-col justify-between items-start">
             <div className="text-white">
-              <p className="text-3xl font-bold">Our New</p>
-              <p className="text-3xl font-bold">Collection</p>
+              <p className="text-2xl lg:text-3xl font-bold">Our New</p>
+              <p className="text-2xl lg:text-3xl font-bold">Collection</p>
             </div>
             <button className="w-10 h-10 rounded-full bg-primary transition hover:bg-primary/90 flex items-center justify-center text-[26px] text-black">
               <CgArrowTopRight />
             </button>
           </div>
-          <div className="border border-white small-info bg-cover bg-center h-3/6 rounded-xl flex flex-col p-4">
+          <div className="border border-white small-info bg-cover bg-center h-[180px] md:h-64 lg:h-5/6 rounded-xl flex flex-col p-4">
             <div className="flex justify-between text-white">
               <p className="text-lg">Rating</p>
               <div className="flex gap-2">
-                <p className=" text-[50px]">4.8</p>
+                <p className="text-[30px] lg:text-[50px]">4.8</p>
                 <BsStarFill className="text-orange mt-4" />
               </div>
             </div>
@@ -126,38 +129,44 @@ const Home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="w-full flex items-center justify-between px-6 py-10 bg-darkGray rounded-xl">
-          <div className="flex items-start gap-4">
-            <span className="flex justify-center items-center w-20 h-20 rounded-full bg-white text-black text-[48px] border border-black">
+        <div className="w-full flex flex-col lg:flex-row items-center justify-between px-6 py-10 bg-darkGray rounded-xl">
+          <div className="flex items-start gap-4 mb-4 lg:mb-0">
+            <span className="flex justify-center items-center w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-white text-black text-[36px] lg:text-[48px] border border-black">
               <PiVan />
             </span>
             <div className="flex flex-col text-black mt-1">
-              <p className="font-bold text-[19px] mb-1">Worldwide Shipping</p>
-              <p className="text-[14px] leading-4 ">
+              <p className="font-bold text-[17px] lg:text-[19px] mb-1">
+                Worldwide Shipping
+              </p>
+              <p className="text-[12px] lg:text-[14px] leading-4 ">
                 Experience global delivery <br /> right to your doorstep.
               </p>
             </div>
           </div>
 
-          <div className="flex items-start gap-4">
-            <span className="flex justify-center items-center w-20 h-20 rounded-full bg-white text-black text-[48px] border border-black">
+          <div className="flex items-start gap-4 mb-4 lg:mb-0">
+            <span className="flex justify-center items-center w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-white text-black text-[36px] lg:text-[48px] border border-black">
               <PiWallet />
             </span>
             <div className="flex flex-col text-black mt-1">
-              <p className="font-bold text-[19px] mb-1">Secure Payment</p>
-              <p className="text-[14px] leading-4 ">
+              <p className="font-bold text-[17px] lg:text-[19px] mb-1">
+                Secure Payment
+              </p>
+              <p className="text-[12px] lg:text-[14px] leading-4 ">
                 Rest assured, your payment <br /> is always safe and secure.
               </p>
             </div>
           </div>
 
           <div className="flex items-start gap-4">
-            <span className="flex justify-center items-center w-20 h-20 rounded-full bg-white text-black text-[48px] border border-black">
+            <span className="flex justify-center items-center w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-white text-black text-[36px] lg:text-[48px] border border-black">
               <PiRepeat />
             </span>
             <div className="flex flex-col text-black mt-1">
-              <p className="font-bold text-[19px] mb-1">30 Days Free Returns</p>
-              <p className="text-[14px] leading-4 ">
+              <p className="font-bold text-[17px] lg:text-[19px] mb-1">
+                30 Days Free Returns
+              </p>
+              <p className="text-[12px] lg:text-[14px] leading-4 ">
                 Enjoy 30 days of easy, hassle- <br /> free returns.
               </p>
             </div>
@@ -165,10 +174,12 @@ const Home = () => {
         </div>
       </motion.section>
 
-      <div className="container max-w-screen-xl p-4 px-6 flex items-center justify-between">
-        <p className="text-3xl text-black font-bold">New Features</p>
+      <div className="container max-w-screen-xl p-4 px-6 flex flex-col lg:flex-row items-center justify-between">
+        <p className="text-2xl lg:text-3xl text-black font-bold">
+          New Features
+        </p>
         <button
-          className="bg-primary text-white font-bold hover:bg-primary/90 px-5 py-2 rounded-lg text-lg border border-white"
+          className="bg-primary text-white font-bold hover:bg-primary/90 px-5 py-2 rounded-lg text-lg border border-white mt-4 lg:mt-0"
           onClick={handleClickStore}
         >
           VIEW ALL
@@ -183,7 +194,7 @@ const Home = () => {
         viewport={{ once: true }}
       >
         <AnimatePresence>
-          <div className="grid grid-cols-3 gap-4 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items-center">
             {itemsToShow.map((item) => (
               <motion.div
                 key={item.id}
@@ -205,14 +216,14 @@ const Home = () => {
                         <span className="text-sm text-orange font-semibold">
                           {item.brand}
                         </span>
-                        <p className="text-[18px] font-bold text-wrap">
+                        <p className="text-[16px] lg:text-[18px] font-bold text-wrap">
                           {item.name}
                         </p>
-                        <p className="text-[18px] text-darkGrayishBlue">
+                        <p className="text-[16px] lg:text-[18px] text-darkGrayishBlue">
                           {item.type}
                         </p>
                       </div>
-                      <p className="text-[20px]">${item.price}</p>
+                      <p className="text-[18px]">${item.price}</p>
                     </div>
                   </Link>
                   <div className="flex items-start pt-5 pb-1">
@@ -245,23 +256,39 @@ const Home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="w-full bg-dark p-4 px-16 flex items-center justify-between rounded-xl border border-white">
-          <img className="w-16 h-16" src={adidas} alt="adidas" />
-          <img className="w-18 h-12" src={puma} alt="puma" />
-          <img className="w-20 h-20" src={nike} alt="nike" />
-          <img className="w-10 h-10" src={lv} alt="" />
-          <img className="w-24 h-24" src={gucci} alt="gucci" />
+        <div className="w-full bg-dark p-4 px-1 lg:px-16 flex flex-col lg:flex-row items-center justify-between rounded-xl border border-white">
+          <img
+            className="w-16 h-16 lg:w-20 lg:h-20 mb-4 lg:mb-0"
+            src={adidas}
+            alt="adidas"
+          />
+          <img
+            className="w-18 h-12 lg:w-20 lg:h-16 mb-4 lg:mb-0"
+            src={puma}
+            alt="puma"
+          />
+          <img
+            className="w-20 h-20 lg:w-24 lg:h-24 mb-4 lg:mb-0"
+            src={nike}
+            alt="nike"
+          />
+          <img
+            className="w-10 h-10 lg:w-12 lg:h-12 mb-4 lg:mb-0"
+            src={lv}
+            alt="lv"
+          />
+          <img className="w-24 h-24 lg:w-28 lg:h-28" src={gucci} alt="gucci" />
         </div>
       </motion.section>
 
       <motion.section
-        className="container max-w-screen-2xl px-6 py-4 flex gap-6"
+        className="container max-w-screen-2xl px-6 py-4 flex flex-col lg:flex-row gap-6"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="relative w-2/3 h-[380px] overflow-hidden">
+        <div className="relative w-full lg:w-2/3 h-[240px] lg:h-[380px] overflow-hidden">
           <video
             className="absolute top-0 left-0 w-full h-full object-cover rounded-xl"
             src={video}
@@ -272,14 +299,14 @@ const Home = () => {
         </div>
 
         <div className="flex-1 flex flex-col gap-4">
-          <div className="h-1/2 background-football-kits bg-cover bg-center border-2 border-gray-300 rounded-xl flex flex-col items-end pr-3 pt-4">
-            <button className="w-10 h-10 rounded-full bg-primary transition hover:bg-primary/90 flex items-center justify-center text-[26px] text-black">
+          <div className="h-24 lg:h-1/2 background-football-kits bg-cover bg-center border-2 border-gray-300 rounded-xl flex flex-col items-end pr-3 pt-4">
+            <button className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-primary transition hover:bg-primary/90 flex items-center justify-center text-[20px] lg:text-[26px] text-black">
               <CgArrowTopRight />
             </button>
           </div>
-          <div className="h-1/2 background-ronaldo-messi justify-between bg-cover bg-top border-2 border-gray-300 rounded-xl flex items-start py-2 px-4">
+          <div className="h-[160px] lg:h-1/2 background-ronaldo-messi justify-between bg-cover bg-top border-2 border-gray-300 rounded-xl flex items-start py-2 px-4">
             <div>
-              <img className="w-16 h-10" src={logo} alt="logo" />
+              <img className="w-10 h-6 lg:w-16 lg:h-10" src={logo} alt="logo" />
               <button
                 className="bg-white hover:bg-white/90 rounded-md py-1 px-2 mt-2 text-sm"
                 onClick={handleClickStore}
@@ -287,7 +314,7 @@ const Home = () => {
                 view more
               </button>
             </div>
-            <p className="text-sm text-white mt-2">
+            <p className="text-xs lg:text-sm text-white mt-2">
               Experience Sports <br /> Excellence Today!
             </p>
           </div>
@@ -301,10 +328,12 @@ const Home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="bg-dark w-full rounded-lg flex p-6 border border-white">
-          <div className="w-1/2 flex flex-col items-start py-16 pl-20 text-white">
-            <p className="font-bold text-[40px]">REACH OUT TO US</p>
-            <p className="text-[20px]">
+        <div className="bg-dark w-full rounded-lg flex flex-col lg:flex-row p-6 border border-white">
+          <div className="w-full lg:w-1/2 flex flex-col items-start py-8 lg:py-16 pl-10 lg:pl-20 text-white">
+            <p className="font-bold text-[30px] lg:text-[40px]">
+              REACH OUT TO US
+            </p>
+            <p className="text-[16px] lg:text-[20px]">
               Need assistance or have questions? <br />
               we're just a message away!
             </p>
@@ -316,7 +345,7 @@ const Home = () => {
             </button>
           </div>
           <img
-            className="w-1/2 h-[312px] border border-white rounded-xl ml-20"
+            className="w-full lg:w-1/2 h-[200px] lg:h-[312px] border border-white rounded-xl mt-4 lg:mt-0 lg:ml-20"
             src={main}
             alt="main"
           />

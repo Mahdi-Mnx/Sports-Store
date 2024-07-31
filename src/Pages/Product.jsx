@@ -62,27 +62,29 @@ const Product = () => {
         exit={{ opacity: 0, y: -50 }}
         viewport={{ once: true }}
       >
-        <div className="h-screen max-w-screen-xl flex justify-around items-center">
-          <div className="w-[45%] h-auto">
-            <div className="flex flex-col gap-y-3 h-[600px] mx-auto">
+        <div className="flex flex-col md:flex-row justify-around items-center gap-8">
+          <div className="w-full md:w-1/2 h-auto">
+            <div className="flex flex-col gap-y-3 h-auto mx-auto">
               <div className="big-one pt-8">
                 <img
-                  className="big-one-img"
+                  className="big-one-img w-full h-auto object-cover rounded-lg"
                   src={product.images[imageIndex]}
                   alt="Product"
                 />
               </div>
-              <div className="small-sec flex">
+              <div className="small-sec flex justify-center gap-2 mt-4">
                 {product.images.map((img, index) => (
                   <div
                     key={index}
-                    className={`small-div ${
-                      imageIndex === index && "active-img"
-                    }`}
+                    className={`small-div cursor-pointer border-2 ${
+                      imageIndex === index
+                        ? "border-primary"
+                        : "border-gray-300"
+                    } rounded-lg overflow-hidden`}
                     onClick={() => setImageIndex(index)}
                   >
                     <img
-                      className="small-img"
+                      className="small-img w-16 h-16 object-cover"
                       src={img}
                       alt={`Thumbnail ${index + 1}`}
                     />
@@ -91,15 +93,15 @@ const Product = () => {
               </div>
             </div>
           </div>
-          <div className="w-[50%] h-auto">
-            <div className="w-[80%]">
-              <h4 className="text-xl text-primary font-medium mt-[-80px]">
+          <div className="w-full md:w-1/2 h-auto">
+            <div className="w-full md:w-[80%]">
+              <h4 className="text-xl text-primary font-medium">
                 {product.brand}
               </h4>
-              <h1 className="text-5xl text-black font-bold leading-[65px]">
+              <h1 className="text-4xl md:text-5xl text-black font-bold leading-tight">
                 {product.name}
               </h1>
-              <p className="text-[17px] leading-7 text-darkGrayishBlue mt-4">
+              <p className="text-lg md:text-[17px] leading-7 text-darkGrayishBlue mt-4">
                 {product.description}
               </p>
               <div className="flex items-center gap-4 mt-6">
@@ -115,8 +117,8 @@ const Product = () => {
                   </h5>
                 </div>
               </div>
-              <div className="flex items-center mt-16 justify-between">
-                <div className="bg-lightGrayishBlue px-4 flex items-center gap-10 py-1 rounded-md">
+              <div className="flex items-center mt-6 gap-4">
+                <div className="bg-lightGrayishBlue px-4 flex items-center gap-4 py-1 rounded-md">
                   <button
                     aria-label="Decrease item count"
                     className="text-primary font-bold text-xl cursor-pointer hover:bg-primary/10 rounded-md p-1"
@@ -136,7 +138,7 @@ const Product = () => {
               </div>
               <div className="flex items-center mt-4">
                 <button
-                  className="bg-primary text-white py-2 hover:bg-primary/90 w-72 rounded-lg"
+                  className="bg-primary text-white py-2 hover:bg-primary/90 w-full md:w-72 rounded-lg"
                   onClick={handleAddToCart}
                 >
                   <FaBagShopping className="inline-block mr-2" /> Add to cart

@@ -1,18 +1,19 @@
 import { Link } from "react-router-dom";
 import logo from "/images/logo1.png";
+
 const Footer = () => {
   return (
     <div className="container max-w-screen-xl py-3 bg-black px-6 z-20">
-      <div className="w-full flex items-center justify-between">
-        <div className="flex items-center">
+      <div className="w-full flex flex-col md:flex-row items-center justify-between">
+        <div className="flex items-center mb-4 md:mb-0">
           <img className="w-16 h-10" src={logo} alt="" />
-          <div className="border h-9 border-white mx-3 ml-12"></div>
-          <p className="text-white text-center">
+          <div className="border h-9 border-white mx-3 ml-12 hidden md:block"></div>
+          <p className="text-white text-center mt-4 md:mt-0">
             {" "}
             &copy; {new Date().getFullYear()} GOG. All rights reserved.
           </p>
         </div>
-        <div className="flex gap-4 items-center ">
+        <div className="flex flex-col md:flex-row gap-4 items-center ">
           <Link
             to="/privacy-policy"
             className=" bg-white shadow hover:underline border-white border-[1px] px-6 py-2 rounded-xl text-black hover:bg-transparent hover:text-white transition-colors"
