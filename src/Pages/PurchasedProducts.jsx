@@ -59,14 +59,14 @@ const PurchasedProducts = () => {
             {purchasedData.purchasedItems.map((item) => (
               <li
                 key={item.id}
-                className="flex justify-between items-center mb-6 p-4 bg-gray-50 rounded-lg shadow-sm"
+                className="flex flex-col md:flex-row justify-between items-center mb-6 p-4 bg-gray-50 rounded-lg shadow-sm"
               >
                 <img
                   src={item.images[0]}
                   alt={item.name}
                   className="w-20 h-20 object-cover rounded-lg"
                 />
-                <div className="flex-1 ml-6">
+                <div className="flex-1 ml-0 md:ml-6 mt-4 md:mt-0 text-center md:text-left">
                   <h2 className="text-lg font-semibold text-gray-700">
                     {item.name}
                   </h2>
@@ -78,7 +78,7 @@ const PurchasedProducts = () => {
                     Total: ${(item.price * item.quantity).toFixed(2)}
                   </p>
                 </div>
-                <button className="py-0.5 px-3 bg-green-500 text-white rounded-md">
+                <button className="py-1 px-3 bg-green-500 text-white rounded-md mt-4 md:mt-0">
                   Completed
                 </button>
               </li>
