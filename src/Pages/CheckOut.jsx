@@ -39,7 +39,7 @@ const CheckoutPage = () => {
   };
 
   return (
-    <div className="container mx-auto py-4 pt-20 px-6">
+    <div className="container mx-auto py-4 pt-20 px-6 max-w-full">
       <Toaster />
       <h1 className="text-3xl font-bold py-5 text-center text-gray-800">
         Checkout

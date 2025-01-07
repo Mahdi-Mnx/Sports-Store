@@ -4,7 +4,7 @@ const TermsConditions = () => {
   return (
     <>
       <motion.section
-        className="pt-24 container max-w-screen-lg mx-auto px-6 py-12"
+        className="pt-24 container max-w-full mx-auto px-6 py-12"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}

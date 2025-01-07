@@ -7,7 +7,7 @@ const Contact = () => {
   document.title = "Contact - GOG Store";
   return (
     <>
-      <motion.section className="pt-20 pb-6 container max-w-screen-xl flex flex-col lg:flex-row px-4 md:px-10">
+      <motion.section className="pt-20 pb-6 container max-w-full flex flex-col lg:flex-row px-4 md:px-10">
         <div className="h-auto lg:h-[630px] w-full lg:w-1/2 border-l-0 border-r-0 lg:border-r-2 border-b-2 border-gray-200 flex flex-col pt-10 items-start lg:mb-0 pb-5">
           <h1 className="text-[30px] lg:text-[40px] text-dark font-bold">
             Contact Us

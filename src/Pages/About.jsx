@@ -5,7 +5,7 @@ const About = () => {
   return (
     <>
       <motion.section
-        className="pt-20 container max-w-screen-xl mx-auto px-4 md:px-6"
+        className="pt-20 container max-w-full mx-auto px-4 md:px-6"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}

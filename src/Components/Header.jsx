@@ -1,27 +1,26 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { ShoppingBag, Menu } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useCart } from "../Components/CartContext";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "/images/logo11.png";
-import profile from "/images/profile.jpg";
 
 const Header = () => {
   const { cart } = useCart();
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [menuOpen, setMenuOpen] = useState(false); // State to manage menu visibility
-
-  const handleScroll = () => {
-    if (window.scrollY > lastScrollY && window.scrollY > 35) {
-      setIsVisible(false);
-    } else if (window.scrollY < lastScrollY) {
-      setIsVisible(true);
-    }
-    setLastScrollY(window.scrollY);
-  };
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY && window.scrollY > 35) {
+        setIsVisible(false);
+      } else if (window.scrollY < lastScrollY) {
+        setIsVisible(true);
+      }
+      setLastScrollY(window.scrollY);
+    };
+
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -29,7 +28,15 @@ const Header = () => {
   }, [lastScrollY]);
 
   const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+  const userInfo = localStorage.getItem("user");
+  const user = userInfo ? JSON.parse(userInfo) : null;
+  const admin = user ? user.role === "admin" : false;
 
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    window.location.reload();
+  };
   return (
     <>
       <header>
@@ -38,7 +45,7 @@ const Header = () => {
             isVisible ? "transform-none" : "-translate-y-full"
           }`}
         >
-          <div className="flex justify-between px-4 md:px-8 border-b-2 border-grayishBlue items-center h-[80px] max-w-screen-xl mx-auto">
+          <div className="flex justify-between px-4 md:px-8 border-b-2 border-grayishBlue items-center h-[80px] max-w-full mx-auto">
             <div>
               <Link to="/" className="text-2xl md:text-4xl">
                 <img className="w-24 md:w-32" src={logo} alt="Logo" />
@@ -54,15 +61,47 @@ const Header = () => {
                     Home
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    to="/store"
-                    className="nav-link text-darkGrayishBlue pb-[1.5rem]"
-                  >
-                    Store
-                  </Link>
-                </li>
-                <li>
+                {admin ? (
+                  <>
+                    <li>
+                      <Link
+                        to="/admin"
+                        className="nav-link text-darkGrayishBlue pb-[1.5rem]"
+                      >
+                        Dashboard
+                      </Link>
+                    </li>
+                  </>
+                ) : (
+                  <>
+                    <li>
+                      <Link
+                        to="/store"
+                        className="nav-link text-darkGrayishBlue pb-[1.5rem]"
+                      >
+                        Store
+                      </Link>
+                    </li>
+                    <li>
+                        <Link
+                          to="/product-purchased"
+                          className="nav-link text-darkGrayishBlue pb-[1.5rem]"
+                          onClick={() => setMenuOpen(false)}
+                        >
+                          History
+                        </Link>
+                      </li>
+                  </>
+                )}
+                    <li>
+                      <Link
+                        to="/contact"
+                        className="nav-link text-darkGrayishBlue pb-[1.5rem]"
+                      >
+                        Contact
+                      </Link>
+                    </li>
+                    <li>
                   <Link
                     to="/about"
                     className="nav-link text-darkGrayishBlue pb-[1.5rem]"
@@ -70,22 +109,7 @@ const Header = () => {
                     About
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    to="/contact"
-                    className="nav-link text-darkGrayishBlue pb-[1.5rem]"
-                  >
-                    Contact
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/product-purchased"
-                    className="nav-link text-darkGrayishBlue pb-[1.5rem]"
-                  >
-                    History
-                  </Link>
-                </li>
+               
               </ul>
             </div>
             <div className="flex justify-between items-center gap-2 md:gap-4 relative">
@@ -99,13 +123,21 @@ const Header = () => {
                   )}
                 </Link>
               </div>
-              <div>
-                <img
-                  className="w-8 h-8 rounded-full cursor-pointer"
-                  src={profile}
-                  alt="Profile"
-                />
-              </div>
+              {user ? (
+                <div className="flex flex-col items-center">
+                  <h1 className="text-veryDarkBlue text-md cursor-pointer">{user.username}</h1>
+                  <h2 className="text-veryDarkBlue text-sm cursor-pointer">{user.email}</h2>
+                </div>
+              ) : (
+                <Link to="/auth/login">
+                  <h1 className="text-veryDarkBlue text-2xl cursor-pointer">Login</h1>
+                </Link>
+              )}
+              {user ?  (
+                <button onClick={handleLogout}>
+                logout
+                </button>
+              ): ""}
               <div className="md:hidden">
                 <button
                   onClick={() => setMenuOpen(!menuOpen)}
@@ -116,6 +148,7 @@ const Header = () => {
               </div>
             </div>
           </div>
+
           <AnimatePresence>
             {menuOpen && (
               <motion.div
@@ -134,40 +167,56 @@ const Header = () => {
                       Home
                     </Link>
                   </li>
-                  <li className="w-full border-b border-gray-300">
-                    <Link
-                      to="/store"
-                      className="nav-link text-darkGrayishBlue block text-center py-2"
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      Store
-                    </Link>
-                  </li>
-                  <li className="w-full border-b border-gray-300">
+                  {admin ? (
+                    <>
+                      <li className="w-full border-b border-gray-300">
+                        <Link
+                          to="/admin"
+                          className="nav-link text-darkGrayishBlue block text-center py-2"
+                          onClick={() => setMenuOpen(false)}
+                        >
+                          Dashboard
+                        </Link>
+                      </li>
+                      <li className="w-full">
+                        <Link
+                          to="/product-purchased"
+                          className="nav-link text-darkGrayishBlue block text-center py-2"
+                          onClick={() => setMenuOpen(false)}
+                        >
+                          History
+                        </Link>
+                      </li>
+                    </>
+                  ) : (
+                    <>
+                      <li className="w-full border-b border-gray-300">
+                        <Link
+                          to="/store"
+                          className="nav-link text-darkGrayishBlue block text-center py-2"
+                          onClick={() => setMenuOpen(false)}
+                        >
+                          Store
+                        </Link>
+                      </li>
+                      <li className="w-full border-b border-gray-300">
+                        <Link
+                          to="/contact"
+                          className="nav-link text-darkGrayishBlue block text-center py-2"
+                          onClick={() => setMenuOpen(false)}
+                        >
+                          Contact
+                        </Link>
+                      </li>
+                    </>
+                  )}
+                  <li className="w-full">
                     <Link
                       to="/about"
                       className="nav-link text-darkGrayishBlue block text-center py-2"
                       onClick={() => setMenuOpen(false)}
                     >
                       About
-                    </Link>
-                  </li>
-                  <li className="w-full border-b border-gray-300">
-                    <Link
-                      to="/contact"
-                      className="nav-link text-darkGrayishBlue block text-center py-2"
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      Contact
-                    </Link>
-                  </li>
-                  <li className="w-full">
-                    <Link
-                      to="/product-purchased"
-                      className="nav-link text-darkGrayishBlue block text-center py-2"
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      History
                     </Link>
                   </li>
                 </ul>

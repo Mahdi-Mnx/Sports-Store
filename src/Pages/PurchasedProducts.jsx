@@ -19,7 +19,7 @@ const PurchasedProducts = () => {
   }, [location.state]);
 
   return (
-    <div className="container max-w-screen-xl mx-auto px-6 py-4 pt-20">
+    <div className="container max-w-full mx-auto px-6 py-4 pt-20">
       <h1 className="text-3xl font-bold mb-8 text-center text-gray-800">
         Purchased Products
       </h1>

@@ -89,13 +89,13 @@ const Store = () => {
   };
 
   return (
-    <div className="container max-w-screen-xl pb-4 py-24 items-center">
+    <div className="container max-w-full pb-4 py-24 items-center">
       <div className="flex flex-col lg:flex-row justify-around gap-5 px-6">
         <div className="w-full lg:w-[20%] mt-4">
           <div className="bg-primary/20 h-auto rounded-lg p-2">
             {/* category */}
             <div>
-              <h3 className="text-xl text-black font-bold">Category</h3>
+              <h3 className="text-xl text-veryDarkBlue font-bold">Category</h3>
               <div className="p-4 bg-white rounded-md my-2">
                 <ul className="gap-4">
                   {["All", "Men", "Women", "Shirts", "Shoes", "Socks"].map(
@@ -104,8 +104,8 @@ const Store = () => {
                         key={category}
                         className={`text-lg font-medium transition-colors cursor-pointer ${
                           selectedCategory === category
-                            ? "text-black font-bold"
-                            : "text-gray-500 hover:text-black"
+                            ? "text-veryDarkBlue font-bold"
+                            : "text-darkGrayishBlue hover:text-veryDarkBlue"
                         }`}
                         onClick={() => handleCategoryClick(category)}
                       >
@@ -265,8 +265,8 @@ const Store = () => {
                     key="all"
                     className={`relative w-5 h-5 rounded-full cursor-pointer border ${
                       selectedColors.length === 0
-                        ? "border-black"
-                        : "border-gray-300"
+                        ? "border-veryDarkBlue"
+                        : "border-grayishBlue"
                     }`}
                     style={{ backgroundColor: "white" }}
                     onClick={() => handleColorChange("All Colors")}
@@ -293,8 +293,8 @@ const Store = () => {
                       key={color}
                       className={`w-5 h-5 rounded-full cursor-pointer border ${
                         selectedColors.includes(color)
-                          ? "border-black"
-                          : "border-gray-300"
+                          ? "border-veryDarkBlue"
+                          : "border-grayishBlue"
                       }`}
                       style={{ backgroundColor: color }}
                       onClick={() => handleColorChange(color)}

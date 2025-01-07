@@ -39,7 +39,7 @@ const CartPage = () => {
   };
 
   return (
-    <div className="container mx-auto py-4 pt-20 px-6">
+    <div className="container mx-auto py-4 pt-20 px-6 max-w-full">
       <h1 className="text-2xl font-bold py-5 text-center">Shopping Cart</h1>
       {cart.length === 0 ? (
         <p className="text-center">
