@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import productData from "../Data/Data";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { Size } from "../Data/productSize";
 import { useCart } from "../Components/CartContext";
 import toast, { Toaster } from "react-hot-toast";
+import useSWR from "swr";
+import { fetchProducts } from "../api/product/page";
 
 const Store = () => {
   document.title = "Store - Buy anything";
@@ -16,7 +17,8 @@ const Store = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedProductTypes, setSelectedProductTypes] = useState([]);
   const [selectedColors, setSelectedColors] = useState([]);
-
+  // const navigate = useNavigate();
+    const { data: products, error, isLoading } = useSWR("fetchProducts", fetchProducts);
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
   };
@@ -53,28 +55,30 @@ const Store = () => {
     }
   };
 
-  const uniqueProductTypes = [
-    ...new Set(productData.flatMap((product) => product.categories)),
-  ];
+  const uniqueProductTypes = products
+  ? [...new Set(products.flatMap((product) => product.categories))]
+  : [];
 
-  const uniqueColors = [
-    ...new Set(productData.flatMap((product) => product.colors)),
-  ];
-
-  const filteredProducts = productData.filter(
-    (product) =>
-      (selectedCategory === "All" ||
-        product.categories.includes(selectedCategory)) &&
-      product.price >= priceRange[0] &&
-      product.price <= priceRange[1] &&
-      (selectedProductTypes.length === 0 ||
-        selectedProductTypes.some((type) =>
-          product.categories.includes(type)
-        )) &&
-      (selectedColors.length === 0 ||
-        selectedColors.some((color) => product.colors.includes(color)))
-  );
-
+const uniqueColors = products
+  ? [...new Set(products.flatMap((product) => product.colors))]
+  : [];
+  const filteredProducts = products
+    ? products.filter(
+        (product) =>
+          (selectedCategory === "All" ||
+            product.categories.includes(selectedCategory)) &&
+          product.price >= priceRange[0] &&
+          product.price <= priceRange[1] &&
+          (selectedProductTypes.length === 0 ||
+            selectedProductTypes.some((type) =>
+              product.categories.includes(type)
+            )) &&
+          (selectedColors.length === 0 ||
+            selectedColors.some((color) => product.colors.includes(color)))
+      )
+  : [];
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Failed to load products</div>;
   const addToCart = (item) => {
     const existingItem = cart.find((cartItem) => cartItem.id === item.id);
 
@@ -318,47 +322,43 @@ const Store = () => {
             <AnimatePresence>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {filteredProducts.map((item) => (
-                  <motion.div
-                    key={item.id}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.3 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <div>
-                      <Link to={`/product/${item.id}`}>
-                        <img
-                          className="rounded-t-md"
-                          src={item.images[0]}
-                          alt={item.name}
-                        />
-                        <div className="flex justify-between gap-x-4 pt-2">
-                          <div>
-                            <span className="text-sm text-orange font-semibold">
-                              {item.brand}
-                            </span>
-                            <p className="text-[14px] font-bold text-wrap">
-                              {item.name}
-                            </p>
-                            <p className="text-[12px] text-darkGrayishBlue">
-                              {item.type}
-                            </p>
-                          </div>
-                          <p className="text-[14px] font-bold pr-1">
-                            ${item.price.toFixed(2)}
-                          </p>
-                        </div>
-                      </Link>
-                      <div className="flex items-start pt-5 pb-1">
-                        <button
-                          className="bg-primary text-white transition py-1 px-3.5 rounded-lg"
-                          onClick={() => addToCart({ ...item, quantity: 1 })}
-                        >
-                          Add to cart
-                        </button>
-                      </div>
-                    </div>
-                  </motion.div>
+                 <motion.div
+                 key={item._id}
+                 initial={{ opacity: 0, scale: 0.9 }}
+                 animate={{ opacity: 1, scale: 1 }}
+                 exit={{ opacity: 0, scale: 0.3 }}
+                 transition={{ duration: 0.5 }}
+                 className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+               >
+                 <Link to={`/product/${item._id}`} className="flex flex-col flex-1">
+                   <img
+                     className="rounded-t-xl w-full h-64 object-cover"
+                     src={item.images[0]?.url}
+                     alt={item.name}
+                     onError={(e) => {
+                       e.target.src = 'path/to/fallback/image.png';
+                     }}
+                   />
+                   <div className="p-4 flex flex-col flex-1">
+                     <span className="text-sm text-orange-500 font-semibold">
+                       {item.brand}
+                     </span>
+                     <p className="text-lg font-bold text-gray-800 mt-2">{item.name}</p>
+                     <p className="text-sm text-gray-600">{item.type}</p>
+                     <div className="flex items-center justify-between mt-4">
+                       <p className="text-lg font-bold text-gray-900">${item.price.toFixed(2)}</p>
+                     </div>
+                   </div>
+                 </Link>
+                 <div className="p-4">
+                   <button
+                     onClick={() => addToCart({ ...item, quantity: 1 })}
+                     className="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-primary/90 transition-colors duration-300"
+                   >
+                     Add to cart
+                   </button>
+                 </div>
+               </motion.div>
                 ))}
               </div>
             </AnimatePresence>

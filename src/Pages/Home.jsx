@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { CgArrowTopRight } from "react-icons/cg";
 import { BsStarFill } from "react-icons/bs";
 import { PiRepeat, PiVan, PiWallet } from "react-icons/pi";
-import productData from "../Data/Data";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useCart } from "../Components/CartContext";
@@ -17,6 +16,8 @@ import lv from "/images/lv-logo.png";
 import logo from "/images/logo1.png";
 import main from "/images/main.png";
 import video from "/video/logo.mp4";
+import useSWR from "swr";
+import { fetchProducts } from "../api/product/page";
 
 const Home = () => {
   document.title = "Home - GOG Store";
@@ -24,7 +25,7 @@ const Home = () => {
   const itemsPerRow = 2; // Number of items per row
   const totalItemsToShow = rowsToShow * itemsPerRow; // Total items to show based on rows
   const { cart, dispatch } = useCart();
-
+  const { data: products } = useSWR("fetchProducts", fetchProducts);
   const handleLoadMore = () => {
     setRowsToShow(rowsToShow + 2); // Load 2 more rows when clicked
   };
@@ -52,8 +53,8 @@ const Home = () => {
     toast.success("Added to cart successfully.");
   };
 
-  const itemsToShow = productData.slice(0, totalItemsToShow); // Define itemsToShow
-
+  const itemsToShow = products ? products.slice(0, totalItemsToShow) : []; // Define itemsToShow
+  console.log(itemsToShow)
   return (
     <>
       <motion.section
@@ -194,50 +195,47 @@ const Home = () => {
         viewport={{ once: true }}
       >
         <AnimatePresence>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items-center">
-            {itemsToShow.map((item) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.3 }}
-                transition={{ duration: 0.5 }}
-                className="flex flex-col"
-              >
-                <div className="rounded-3xl flex flex-col">
-                  <Link to={`/product/${item.id}`}>
-                    <img
-                      className="rounded-t-md"
-                      src={item.images[0]}
-                      alt={item.name}
-                    />
-                    <div className="flex items-center justify-between gap-x-4 pt-2">
-                      <div>
-                        <span className="text-sm text-orange font-semibold">
-                          {item.brand}
-                        </span>
-                        <p className="text-[16px] lg:text-[18px] font-bold text-wrap">
-                          {item.name}
-                        </p>
-                        <p className="text-[16px] lg:text-[18px] text-darkGrayishBlue">
-                          {item.type}
-                        </p>
-                      </div>
-                      <p className="text-[18px]">${item.price}</p>
-                    </div>
-                  </Link>
-                  <div className="flex items-start pt-5 pb-1">
-                    <button
-                      onClick={() => addToCart({ ...item, quantity: 1 })}
-                      className="bg-primary text-cadaan transition py-1 px-3.5 rounded-lg"
-                    >
-                      Add to cart
-                    </button>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-center p-6">
+  {itemsToShow.map((item) => (
+    <motion.div
+      key={item.id}
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.3 }}
+      transition={{ duration: 0.5 }}
+      className="flex flex-col bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+    >
+      <Link to={`/product/${item._id}`} className="flex flex-col flex-1">
+        <img
+          className="rounded-t-xl w-full h-80 object-cover"
+          src={item.images[0]?.url}
+          alt={item.name}
+          onError={(e) => {
+            e.target.src = 'path/to/fallback/image.png';
+          }}
+        />
+        <div className="p-4 flex flex-col flex-1">
+          <span className="text-sm text-orange-500 font-semibold text-admin-primary">
+            {item.brand}
+          </span>
+          <p className="text-lg font-bold text-gray-800 mt-2">{item.name}</p>
+          <p className="text-sm text-gray-600">{item.type}</p>
+          <div className="flex items-center justify-between mt-4">
+            <p className="text-lg font-bold text-gray-900">${item.price}</p>
           </div>
+        </div>
+      </Link>
+      <div className="p-4">
+        <button
+          onClick={() => addToCart({ ...item, quantity: 1 })}
+          className="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-primary/90 transition-colors duration-300"
+        >
+          Add to cart
+        </button>
+      </div>
+    </motion.div>
+  ))}
+</div>
         </AnimatePresence>
         <div className="flex justify-center py-4">
           <button

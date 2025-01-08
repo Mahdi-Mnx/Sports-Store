@@ -77,7 +77,7 @@ const Register = () => {
                         Sign Up
                     </button>
                     <div className="mt-4 text-center">
-                        <Link to="/login" className="text-sm font-medium text-primary hover:text-secondery">
+                        <Link to="/auth/login" className="text-sm font-medium text-primary hover:text-secondery">
                             Already have an account? Log in
                         </Link>
                     </div>

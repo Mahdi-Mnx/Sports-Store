@@ -56,12 +56,12 @@ const CartPage = () => {
           <ul className="px-2">
             {cart.map((item) => (
               <li
-                key={item.id}
+                key={item._id}
                 className="flex flex-col md:flex-row justify-between items-center mb-4"
               >
                 <div className="flex items-center w-full md:w-1/3">
                   <img
-                    src={item.images[0]}
+                    src={item.images[0]?.url}
                     alt={item.name}
                     className="w-16 h-16 object-cover rounded"
                   />

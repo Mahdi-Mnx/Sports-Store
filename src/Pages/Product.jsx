@@ -3,13 +3,14 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { FaBagShopping } from "react-icons/fa6";
-import productData from "../Data/Data";
 import { useCart } from "../Components/CartContext";
 import toast, { Toaster } from "react-hot-toast";
+import useSWR from "swr";
+import { fetchProductById } from "../api/product/page";
 
 const Product = () => {
   const { id } = useParams();
-  const product = productData.find((p) => p.id === parseInt(id));
+  const { data: product, error } = useSWR(`product-${id}`, () => fetchProductById(id));
   const [imageIndex, setImageIndex] = useState(0);
   const [itemCount, setItemCount] = useState(1);
   const { cart, dispatch } = useCart();
@@ -40,13 +41,17 @@ const Product = () => {
     }
   };
 
+  if (error) {
+    return <div>Failed to load product</div>;
+  }
+
   if (!product) {
     return (
       <div className="h-screen flex justify-center items-center text-white font-bold">
         <img
           className="w-[300px] h-[300px] object-cover rounded-3xl"
           src="/public/images/not.gif"
-          alt="jacar"
+          alt="Loading"
         />
       </div>
     );
@@ -68,7 +73,7 @@ const Product = () => {
               <div className="big-one pt-8">
                 <img
                   className="big-one-img w-full h-auto object-cover rounded-lg"
-                  src={product.images[imageIndex]}
+                  src={product.images[imageIndex]?.url}
                   alt="Product"
                 />
               </div>
@@ -85,7 +90,7 @@ const Product = () => {
                   >
                     <img
                       className="small-img w-16 h-16 object-cover"
-                      src={img}
+                      src={img?.url}
                       alt={`Thumbnail ${index + 1}`}
                     />
                   </div>

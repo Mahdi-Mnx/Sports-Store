@@ -1,6 +1,6 @@
 import useSWR from "swr";
 import { deleteProducts, fetchProducts } from "../../../api/product/page";
-import { Edit, Trash } from "lucide-react"; // Import Lucide icons
+import { Edit, Plus, Trash } from "lucide-react"; // Import Lucide icons
 import { useNavigate } from "react-router-dom";
 
 const Products = () => {
@@ -34,11 +34,22 @@ const Products = () => {
             }
         }
     };
+    // Function to format price with commas
+    const formatPrice = (price) => {
+        return `$${price.toLocaleString()}`;
+    };
 
     return (
-        <div className="p-6 bg-gray-50 min-h-screen">
+        <div className="p-6 bg-gray-50 min-h-screen relative">
             <h1 className="text-3xl font-bold mb-8 text-gray-800">Products</h1>
-
+                 {/* New Product Button */}
+                 <button
+                onClick={() => navigate("/admin/products/new")}
+                className="absolute right-4 top-6 flex items-center bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors"
+            >
+                <Plus className="w-5 h-5 mr-2" /> {/* Plus icon */}
+                New Product
+            </button>
             {/* Products Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {products?.map((product) => {
@@ -70,7 +81,7 @@ const Products = () => {
                             <div className="p-4">
                                 <h2 className="text-xl font-semibold text-gray-800">{product.name}</h2>
                                 <p className="text-sm text-gray-600">{product.brand}</p>
-                                <p className="text-lg font-bold text-gray-900 mt-2">${product.price}</p>
+                                <p className="text-lg font-bold text-gray-900 mt-2">{formatPrice(product.price)}</p>
                                 <p className="text-sm text-gray-600 mt-2">{product.description}</p>
 
                                 {/* Product Colors */}

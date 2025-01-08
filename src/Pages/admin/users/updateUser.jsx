@@ -69,7 +69,6 @@ const UpdateUser = () => {
 
     return (
         <div className="container mx-auto p-4">
-            <h1 className="text-2xl font-bold mb-6">Update User: {user.username}</h1>
             <form onSubmit={handleSubmit} className="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md">
                 <div className="mb-4">
                     <label htmlFor="username" className="block text-sm font-medium text-gray-700">
