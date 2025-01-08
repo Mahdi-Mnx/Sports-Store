@@ -63,12 +63,12 @@ const User = () => {
     return (
         <div className="container mx-auto p-4 relative">
             <h1 className="text-3xl font-bold mb-8 text-gray-800">Users</h1>
-              {/* New User Button */}
+            
               <button
                 onClick={() => navigate("/admin/users/new")}
                 className="absolute right-4 top-2 flex items-center bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors"
             >
-                <Plus className="w-5 h-5 mr-2" /> {/* Plus icon */}
+                <Plus className="w-5 h-5 mr-2" /> 
                 New User
             </button>
 

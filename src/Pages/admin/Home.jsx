@@ -4,20 +4,12 @@ import { fetchUserOverView } from '../../Service/Admin/User';
 import useSWR from 'swr';
 import { fetchProductOverView } from '../../Service/Admin/Product';
 import { fetchUsers } from '../../api/users/page';
+import { fetchProducts } from '../../api/product/page';
 
 const DashboardHome = () => {
-    const productData = [
-        { name: 'Product 1', quantity: 100 },
-        { name: 'Product 2', quantity: 200 },
-        { name: 'Product 3', quantity: 150 },
-        { name: 'Product 4', quantity: 80 },
-        { name: 'Product 5', quantity: 120 },
-    ];
-
-    const totalProducts = productData.reduce((acc, curr) => acc + curr.quantity, 0);
-
-    // Use SWR to fetch users
+  
     const { data: users, error: usersError, isLoading: usersLoading } = useSWR("/api/users", fetchUsers);
+    const { data: products} = useSWR("products", fetchProducts);
 
     // Use SWR to fetch user overview data
     const { data: userOverview, error: userOverviewError, isLoading: userOverviewLoading } = useSWR("userOverview", fetchUserOverView);
@@ -82,7 +74,7 @@ const DashboardHome = () => {
                         </div>
                         <div>
                             <h2 className="text-xl font-semibold text-gray-700">Total Products</h2>
-                            <p className="text-2xl font-bold text-gray-900">{totalProducts}</p>
+                            <p className="text-2xl font-bold text-gray-900">{products?.length || 0}</p>
                         </div>
                     </div>
                 </div>
@@ -139,21 +131,6 @@ const DashboardHome = () => {
                     ) : (
                         <div>No data available for the RadarChart</div>
                     )}
-                </div>
-            </div>
-
-            {/* Products List Section */}
-            <div>
-                <h2 className="text-2xl font-semibold mb-6 text-gray-800">Products Overview</h2>
-                <div className="bg-white p-6 rounded-lg shadow-lg">
-                    <ul className="space-y-3">
-                        {productData.map((product, index) => (
-                            <li key={index} className="flex justify-between items-center p-3 hover:bg-gray-50 rounded-lg transition duration-200">
-                                <span className="text-gray-700">{product.name}</span>
-                                <span className="text-gray-900 font-semibold">{product.quantity} units</span>
-                            </li>
-                        ))}
-                    </ul>
                 </div>
             </div>
         </div>

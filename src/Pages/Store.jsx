@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { Size } from "../Data/productSize";
 import { useCart } from "../Components/CartContext";
@@ -17,7 +17,6 @@ const Store = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedProductTypes, setSelectedProductTypes] = useState([]);
   const [selectedColors, setSelectedColors] = useState([]);
-  // const navigate = useNavigate();
     const { data: products, error, isLoading } = useSWR("fetchProducts", fetchProducts);
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);

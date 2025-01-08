@@ -62,7 +62,7 @@ const PurchasedProducts = () => {
                 className="flex flex-col md:flex-row justify-between items-center mb-6 p-4 bg-gray-50 rounded-lg shadow-sm"
               >
                 <img
-                  src={item.images[0]}
+                  src={item.images[0]?.url}
                   alt={item.name}
                   className="w-20 h-20 object-cover rounded-lg"
                 />
